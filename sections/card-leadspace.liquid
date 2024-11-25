@@ -1,0 +1,62 @@
+{%- style -%}
+    .card {
+        width: 200px;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 1rem;
+    }
+{%- endstyle -%}
+
+{% for block in section.blocks %}
+    <{%- case block.type -%}
+        {%- when "card" -%}
+            <div class="card">
+                {{ block.settings.image | image_url: width: 200 | image_tag }}
+
+                <h1>{{ block.settings.card_title }}</h1>
+
+                <p>${{ block.settings.card_price }}</p>
+            </div>
+    {% endcase %}
+{% endfor %}
+
+{% for block in section.blocks %}
+  {%- case block.type -%}
+    {%- when "card" -%}
+      <h1>{{ block.settings.heading }}</h1>
+  {% endcase %}
+{% endfor %}
+
+{% schema %}
+{
+    "name": "t:sections.card-leadspace.name,
+    "tag": "section",
+    "class": "card",
+    "settings": [],
+    "blocks": [
+        "type": "card",
+        "name": "Card",
+        "settings": [
+            {
+                "type": "text",
+                "id": "card_title",
+                "label": "Card Title",
+                "default": "Card Title"
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Card Image",
+            },
+            {
+                "type": "range",
+                "id": "card_price",
+                "label": "Card Price",
+                "default": 1
+            }
+        ]
+    ]
+}
+{% endschema %}
