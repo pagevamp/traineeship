@@ -1,0 +1,59 @@
+
+.page-fluid{
+    max-width: 2560px;
+    margin: 0 auto;
+}
+
+.page-width {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width:100%;
+  }
+  
+  .page-width-desktop {
+    padding: 0;
+    margin: 0 auto;
+  }
+  
+  @media screen and (min-width: 650px) {
+    .page-width {
+      padding: 0 40px;
+    }
+  
+    .page-width--narrow {
+      padding: 0 40px;
+    }
+  
+    .page-width-desktop {
+      padding: 0;
+    }
+  
+    .page-width-tablet {
+      padding: 0 60px;
+    }
+  }
+  
+  
+  @media screen and (min-width: 992px) {
+    .page-width--narrow {
+      max-width: 848px;
+      padding: 0 40px;
+    }
+  
+    .page-width-desktop {
+      max-width: 1440px;
+      padding: 0 40px;
+    }
+  }
+
+
+  .page-width-md{
+      max-width: 1212px;
+      margin: 0 auto;
+      padding: 0 20px;
+      @include media-breakpoint-up(md) {
+        padding: 0 40px;
+      }
+
+  }

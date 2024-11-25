@@ -1,0 +1,39 @@
+.form-control-wrap{
+    .form-control{
+        width: 100%;
+        padding: 13px 16px;
+        border: 1px solid $primary;
+        border-radius: 6px;
+        outline: none;
+        box-shadow: none;
+        color: $classic-blue;
+        &:focus,
+        &:hover,
+        &:focus-within{
+            outline: none;
+            box-shadow: none;
+        }
+        &:hover{
+            &::placeholder{
+                opacity: 1;
+            }
+        }
+        &:focus,
+        &:focus-within{
+            &::placeholder{
+                opacity: 0;
+            }
+        }
+        &::placeholder{
+            opacity: 0.5;
+            color: $classic-blue;
+        }
+    }
+    textarea{
+        min-height: 138px;
+    }
+}
+
+.promo-input{
+    
+}

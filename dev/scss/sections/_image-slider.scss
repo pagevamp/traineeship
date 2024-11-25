@@ -1,0 +1,12 @@
+.image-slider{
+    &__controls{
+        z-index: 1;
+    }
+    &__progress{
+        height: 2px;
+        width: 45.33vw;
+        min-width: 170px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

@@ -1,0 +1,115 @@
+.filter-tab{
+    padding: 12px 20px;
+    border-radius: 60px;
+    background-color: $gray-100;
+    i{
+        font-size: 10px;
+        margin-left: 24px;
+        cursor: pointer;
+    }
+}
+
+.split{
+    columns: 2;
+    column-gap: 12px;
+}
+
+.facets{
+    display:flex;
+    &__list{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &__item{
+        margin-top: 20px;
+        min-height: 22px;
+        flex: 0 0 calc(50% - 10px);
+        max-width: 50%;
+    }
+    &__body{
+        height: 134px;
+        overflow: auto;
+        &::-webkit-scrollbar{
+            width: 4px;
+        }
+    }
+    &__disclosure{
+        .icon-Plus{
+            transform: rotate(0);
+            transition: transform 0.3s ease-in-out;
+            position: relative;
+            z-index: 2;
+        }
+        &[open]{
+            .icon-Plus{
+                transform: rotate(45deg);
+            }
+        }
+    }
+    &__price{
+        .field{
+            flex-wrap: wrap;
+        }
+        .field__input{
+            padding: 0;
+            flex: 0 0 calc(100% - 32px);
+            border: 1px solid $light-sky;
+            padding: 2px 8px;
+            border-radius: 6px
+        }
+        .field__label{
+            @extend .body-sm;
+            left: auto;
+            top: auto;
+            position: relative;
+            flex: 0 0 100%;
+            margin-bottom: 4px;
+        }
+    }
+}
+
+.facet{
+    &-filters{
+        &__label{
+            label{
+                font-weight: 500;
+            }
+        }
+        .select{
+            min-width: 146px;
+            padding: 2px 8px 2px 0;
+            &__select{
+                padding: 0 28px 0px 8px;
+            }
+            i{
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%); 
+            }
+            option{
+                @extend .text-link;
+                padding: 4px;
+            }
+        }
+    }
+}
+
+.mobile-facets__submenu{
+    .facets__price{
+        padding: 8px 24px;
+    }
+    .list-menu__item,
+    .mobile-facets__label{
+        font-weight: 400;
+    }
+}
+
+.facets__price{
+    .field__input{
+        color: $primary;
+        &::placeholder{
+            color: $primary;
+        }
+    }
+}

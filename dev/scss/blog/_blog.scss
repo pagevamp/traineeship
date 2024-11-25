@@ -1,0 +1,21 @@
+.article-template {
+    max-width: 728px;
+    margin: 0 auto;
+    padding-top: 48px;
+    position: relative;
+
+    @include media-breakpoint-up(md) {
+        padding-top: 64px;
+    }
+    &__social-sharing {
+        @include media-breakpoint-up(md) {
+            position: absolute;
+            right: -118px;
+            width: auto;
+            top: 64px;
+        }
+    }
+    .article-template__link{
+        color: $primary !important;
+    }
+}

@@ -1,0 +1,11 @@
+// .list-icon{
+//     border-radius: 50%;
+//     overflow: hidden;
+// }
+.fifty-fifty-section{
+    .description-content{
+        *{
+            @extend .body;
+        }
+    }
+}

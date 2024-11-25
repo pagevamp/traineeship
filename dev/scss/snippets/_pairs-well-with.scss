@@ -1,0 +1,95 @@
+.pww,
+.shop{
+    border-radius: 8px;
+    &__image{
+        flex: 100px;
+        border-radius: 8px 0 0 8px;
+        @include media-breakpoint-up(md) {
+            flex: 112px;
+        }
+        .card--recommended &{
+            flex: 90px;
+        }
+    }
+    .product-title{
+        a{
+            text-decoration: none;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+    &__content{
+        flex: calc(100% - 100px - 24px);
+        @include media-breakpoint-up(md) {
+            flex: calc(100% - 112px - 24px);
+        }
+        .card--recommended &{
+            flex: calc(100% - 90px - 24px);
+        }
+        .price{
+            // height: 21px;
+            *{
+                font-size: 14px;
+                line-height: 18px;
+            }
+        }
+        .price-item.price-item--regular.text-classic-blue{
+            margin-right: 0 !important;
+        }
+        .price:not(.price--show-badge) .price-item--last:last-of-type{
+            margin-left: 0 !important;
+            &.text-chilli-red{
+                margin-left: 4px  !important;
+            }
+        }
+
+        .price + card-variant .card-variants .product-variant{
+            margin-top: -6px;
+        }
+
+        .product-form__input--dropdown{
+            margin-bottom: 0;
+        }
+    }
+    &__checker{
+        flex: 20px;
+        height: 20px;
+        transition: all 0.3s ease-in-out;
+        text-align: right;
+        i{
+            cursor: pointer;
+        }
+        .icon-Plus-circle:before,
+        .icon-tick:before{
+            content: '\e903';
+        }
+        &:hover,
+        &.checked{
+            .icon-Plus-circle:before,
+            .icon-tick:before{
+                content: "\e908";
+            }
+        }
+    }
+}
+
+.thumb-product-card{
+    position: relative;
+    &.checked{
+        .pww__content{
+            padding-bottom: 32px;
+        }
+    }
+}
+
+.add-to-cart-text{
+    word-spacing: -2px;
+    &:before{
+        font-size: 10px;
+    }
+}
+
+.pww{
+    margin-right: 4px;
+}

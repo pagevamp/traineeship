@@ -1,0 +1,203 @@
+$heading-font: 'GT Alpina';
+$body-font: 'NeueHaasGrotDisp';
+
+.body-font{
+    font-family: $body-font !important;
+}
+
+.heading-font{
+    font-family: $heading-font !important;
+}
+
+h5,.h5,
+h6,.h6,
+.overline-cta-sm,
+.caption,
+.caption-sm,
+.text-link,
+.text-link-sm,
+.text-link-lg{
+    line-height: 1.5;
+    font-family: $body-font;
+    letter-spacing: 0.03rem;
+}
+
+p{
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    margin: 0;
+    @include media-breakpoint-up(md) {
+        font-size: 18px;
+    }
+}
+
+.fw-medium{
+    font-weight: $font-weight-medium !important;
+}
+
+h1,h2,h3,h4,h5,h6,
+.h1,.h2,.h3,.h4,.h5,.h6{
+    font-family: $heading-font;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+// h1,.h1,.heading-lg{
+//     font-size: 32px;
+//     line-height: 42px;
+//     @include media-breakpoint-up(md) {
+//         font-size: 48px;
+//         line-height: 60px;
+//     }
+// }
+
+// h2,.h2,.heading{
+//     font-size: 28px;
+//     line-height: 34px;
+//     @include media-breakpoint-up(md) {
+//         font-size: 36px;
+//         line-height: 49px;
+//     }
+// }
+
+// h3,.h3,.heading-sm{
+//     font-size: 22px;
+//     line-height: 30px;
+//     @include media-breakpoint-up(md) {
+//         font-size: 27px;
+//         line-height: 32px;
+//     }
+// }
+
+// h4,.h4,.heading-smaller{
+//     font-size: 18px;
+//     line-height: 22px;
+// }
+
+// h5,.h5{
+//     font-size: 16px;
+// }
+
+// h6,.h6{
+//     font-size: 14px;
+// }
+
+h1,.h1,.heading-lg{
+    font-size: 42px;
+    line-height: 48px;
+    @include media-breakpoint-up(md) {
+        font-size: 60px;
+        line-height: 63px;
+    }
+}
+
+h2,.h2,.heading{
+    font-size: 34px;
+    line-height: 38px;
+    @include media-breakpoint-up(md) {
+        font-size: 44px;
+        line-height: 48px;
+    }
+}
+
+h3,.h3,.heading-sm{
+    font-size: 28px;
+    line-height: 32px;
+    @include media-breakpoint-up(md) {
+        font-size: 34px;
+        line-height: 40px;
+    }
+}
+
+h4,.h4,.heading-smaller{
+    font-size: 22px;
+    line-height: 26px;
+}
+
+h5,.h5{
+    font-size: 18px;
+}
+
+h6,.h6{
+    font-size: 16px;
+}
+
+.overline-cta-sm{
+    font-size: 12px;
+}
+
+.eyebrow{
+    letter-spacing: 3px;
+}
+
+.body{
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.3px;
+    @include media-breakpoint-up(md) {
+        font-size: 18px;
+        line-height: 27px;
+    }
+    &-display{
+        font-size: 20px;
+        line-height: 32px;
+        @include media-breakpoint-up(md) {
+            font-size: 24px;
+            line-height: 34px;
+        }
+    }
+    &-lg{
+        font-size: 20px;
+        line-height: 30px;
+    }
+    &-sm{
+        font-size: 14px;
+        line-height: 21px;
+        letter-spacing: 0.3px;
+    }
+}
+
+.caption{
+    font-size: 12px;
+    letter-spacing: 0.3px;
+    &-sm{
+        font-size: 10px;
+        letter-spacing: 0.02rem;
+        line-height: 1.5;
+    }
+}
+
+.text-link{
+    font-size: 14px;
+    text-decoration: none;
+    line-height: 18px;
+    &-lg{
+        font-size: 16px;
+        letter-spacing: 0.2px;
+    }
+    &-sm{
+        font-size: 12px;
+    }
+}
+
+strong,
+.strong{
+    font-weight: 500;
+}
+
+.italic{
+    font-style: italic;
+}
+
+.lalo-title{
+    font-size: 16px;
+    line-height: 26px;
+    @include media-breakpoint-up(md) {
+        font-size: 27px;
+        line-height: 32px;
+    }
+}
+
+.link{
+    text-decoration: none;
+}

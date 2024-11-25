@@ -1,0 +1,45 @@
+.collection{
+    .collection-title-tab{
+        row-gap: 10px;
+        column-gap: 32px;
+        @include media-breakpoint-up(md) {
+            margin-left: 44px;
+            column-gap: 44px;
+        }
+        &__link{
+            color: $gray-600;
+            text-decoration: none;
+            letter-spacing: 0.4px;
+            font-weight: 400;
+            padding: 0;
+            -webkit-appearance: none;
+            &:hover,
+            &:focus{
+                color: $classic-blue;
+            }
+            &.active{
+                color: $classic-blue;
+                text-decoration: underline;
+                font-weight: 500;
+                text-underline-offset: 3px;
+                text-decoration-thickness: 2px;
+            }
+        }
+    }
+    .slider__controls{
+        top: -2px;
+        .swiper-button-prev,
+        .swiper-button-next{
+            @include media-breakpoint-down(md) {
+                display: none !important;
+            }
+        }
+    }
+}
+
+.fade:not(.show) {
+    opacity: 0;
+}
+.fade {
+    transition: opacity .3s linear;
+}

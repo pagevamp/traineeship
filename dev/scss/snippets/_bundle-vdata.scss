@@ -1,0 +1,23 @@
+.bundle-product-single{
+    &__img{
+        flex: 0 0 70px;
+        max-width: 70px;
+        height: 87px;
+    }
+    &__content{
+        flex: 0 0 calc(100% - 70px);
+        max-width: calc(100% - 70px);
+        .product-form__input input[type=radio]+label{
+            margin: 4px 12px 4px 0px;
+        }
+        .color-swatch-variant .product-form__input input[type=radio]+label.color-swatch{
+            width: 18px;
+            height: 18px;
+            margin: 4px 8px 4px 4px;
+            &:after{
+                width: 24px;
+                height: 24px;
+            }
+        }
+    }
+}
