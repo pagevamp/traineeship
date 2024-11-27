@@ -1,0 +1,94 @@
+{{ 'leadspace.css' | asset_url | stylesheet_tag }}
+
+<section class="leadspace">
+  {% for block in section.blocks %}
+    {% if block.type == 'text' %}
+      <div class="image-wrapper">
+        {% if block.settings.image %}
+          {{ block.settings.image | image_url: height: '480' | image_tag: class: 'bg-image' }}
+        {% endif %}
+      </div>
+    {% elsif block.type == 'card' %}
+      <div class="card-wrapper">
+        <div class="card-body">
+          <div>
+            <h1>{{ block.settings.title }}</h1>
+            <p>{{ block.settings.description }}</p>
+          </div>
+          <button aria-labelledby="This is a shop now button for the items you are looking for.">
+            <a href="/collections/">
+              <span>{{ block.settings.buttonText }}</span>
+            </a>
+          </button>
+        </div>
+        {% if block.settings.image %}
+          <div class="card-image">
+            {{ block.settings.image | image_url: height: '300' | image_tag: class: 'image' }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+  {% endfor %}
+</section>
+
+{% schema %}
+{
+  "name": "Leadspace",
+  "tag": "section",
+  "class": "leadspace-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Leadspace"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    },
+    {
+      "type": "card",
+      "name": "Hero Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "buttonText",
+          "label": "Shop Now"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Leadspace",
+      "settings": {
+        "title": "Leadspace Presents"
+      }
+    }
+  ]
+}
+{% endschema %}
