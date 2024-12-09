@@ -52,6 +52,71 @@
         "heading": "Tailgate apparel"
       }
     },
+    "slider_KGTJDk": {
+      "type": "slider",
+      "blocks": {
+        "slider_content_QJTBdJ": {
+          "type": "slider_content",
+          "settings": {
+            "name": "Primary Basics Collection",
+            "tag": "New Arrival",
+            "price": 4500,
+            "image": "shopify://shop_images/BRANDON_LOOK1_42.png",
+            "item_link": ""
+          }
+        },
+        "slider_content_QMALaM": {
+          "type": "slider_content",
+          "settings": {
+            "name": "Primary Basics Collection",
+            "tag": "",
+            "price": 4500,
+            "image": "shopify://shop_images/BRANDON_LOOK1_42.png",
+            "item_link": ""
+          }
+        },
+        "slider_content_kHjA4x": {
+          "type": "slider_content",
+          "settings": {
+            "name": "Primary Basics Collection",
+            "tag": "",
+            "price": 4500,
+            "image": "shopify://shop_images/BRANDON_LOOK1_42.png",
+            "item_link": ""
+          }
+        },
+        "slider_content_GipFmq": {
+          "type": "slider_content",
+          "settings": {
+            "name": "Primary Basics Collection",
+            "tag": "",
+            "price": 4500,
+            "image": "shopify://shop_images/BRANDON_LOOK1_42.png",
+            "item_link": ""
+          }
+        },
+        "slider_content_yJy9Nx": {
+          "type": "slider_content",
+          "settings": {
+            "name": "Primary Basics Collection",
+            "tag": "",
+            "price": 4500,
+            "image": "shopify://shop_images/BRANDON_LOOK1_42.png",
+            "item_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slider_content_QJTBdJ",
+        "slider_content_QMALaM",
+        "slider_content_kHjA4x",
+        "slider_content_GipFmq",
+        "slider_content_yJy9Nx"
+      ],
+      "settings": {
+        "heading": "Neutral Fall Tones"
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -266,6 +331,7 @@
   "order": [
     "leadspace_rQwJ6a",
     "fifty_fifty_JcWUtC",
+    "slider_KGTJDk",
     "image_banner",
     "rich_text",
     "featured_collection",
