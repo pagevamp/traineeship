@@ -30,6 +30,28 @@
         "cover_image": "shopify://shop_images/Rectangle_1.png"
       }
     },
+    "fifty_fifty_JcWUtC": {
+      "type": "fifty-fifty",
+      "blocks": {
+        "fifty_fifty_content_WmjReU": {
+          "type": "fifty-fifty_content",
+          "settings": {
+            "title": "Tailgate Apparel",
+            "paragraph": "Lorem ipsum dolor sit amet. In architecto recusandae et odio quisquam quo corporis neque et unde earum est asperiores eligendi.",
+            "image_1": "shopify://shop_images/Rectangle_5.png",
+            "image_2": "shopify://shop_images/Rectangle_10.png",
+            "button_label": "Shop The Trend",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "fifty_fifty_content_WmjReU"
+      ],
+      "settings": {
+        "heading": "Tailgate apparel"
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -243,6 +265,7 @@
   },
   "order": [
     "leadspace_rQwJ6a",
+    "fifty_fifty_JcWUtC",
     "image_banner",
     "rich_text",
     "featured_collection",

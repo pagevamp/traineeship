@@ -3,7 +3,8 @@
         position: relative;
         width: 100%;
         height: 100vh;
-    }
+        padding-bottom: 1rem;
+    
 
     .cover-image {
         width: 100%;
@@ -21,19 +22,19 @@
         overflow: hidden;
     }
 
-    .image-container {
-        position: absolute;
-        bottom: 0;
-        right: 1rem;
-        z-index: 1;
-        height: 50%;
+        .image-container {
+            position: absolute;
+            bottom: 0;
+            right: 1rem;
+            z-index: 1;
+            height: 50%;
 
-        .content-image {
-            height: 100%;
+            .content-image {
+                height: 100%;
+            }
         }
-    }
 
-    .content {
+        .content {
         width: 100%;
         height: 100%;
         padding: 1rem;
@@ -44,76 +45,95 @@
         position: relative;
         z-index: 2;
 
-        .title {
-            font-weight: 700;
-            font-size: clamp(5rem, 10vw, 10rem);
-            line-height: 100%;
-            color: #FFF;
-            text-transform: uppercase;
-        }
+            .title {
+                font-weight: 700;
+                font-size: clamp(5rem, 10vw, 10rem);
+                line-height: 100%;
+                color: #FFF;
+                text-transform: uppercase;
+            }
 
-        .subtitle {
-            font-weight: 400;
-            font-size: clamp(1.25rem, 10vw,1.5rem);
-            line-height: 120%;
-            color: #FFF;
-            flex-grow: 1;
-        }
+            .subtitle {
+                font-weight: 400;
+                font-size: clamp(1.25rem, 10vw,1.5rem);
+                line-height: 120%;
+                color: #FFF;
+                flex-grow: 1;
+            }
 
-        .btn-shop {
-            background-color: #FFF;
-            text-decoration: none;
-            color: #000;
-            padding: 1rem 2rem;
-            border-radius: 3.5rem;
-            width: max-content;
-            align-self: end;
+            .btn-shop {
+                background-color: #FFF;
+                text-decoration: none;
+                color: #000;
+                padding: 1rem 2rem;
+                border-radius: 3.5rem;
+                width: max-content;
+                align-self: end;
 
-            font-weight: 500;
-            font-size: 1.6rem;
-            line-height: 2rem;
-            text-align: center;
+                font-weight: 500;
+                font-size: 1.6rem;
+                line-height: 2rem;
+                text-align: center;
+            }
         }
     }
 
     @media screen and (min-width: 768px) {
-        .container {
-            left: 50%;
-            transform: translateX(-50%);
-        }
+        .leadspace {
+            .container {
+                left: 50%;
+                transform: translateX(-50%);
+            }
 
-        .image-container {
-            height: 100%;
-        }
+            .image-container {
+                height: 100%;
+            }
 
-        .content {
-            width: 50%;
-            padding: 3rem;
+            .content {
+                width: 50%;
+                padding: 3rem;
 
-            .btn-shop {
-                padding: 1rem 5rem;
-                align-self: start;
+                .btn-shop {
+                    padding: 1rem 5rem;
+                    align-self: start;
+                }
             }
         }
     }
 {% endstyle %}
 
-<img class="cover-image" src="{{ section.settings.cover_image |  image_url: width:3000, height: 3000 }}" alt="{{ section.settings.image }}">
+<img class="cover-image" src="{{ section.settings.cover_image |  image_url }}" alt="{{ section.settings.image }}">
 
 <div class="container">
     {% for block in section.blocks %}
         {%- case block.type -%}
             {%- when "leadspace_content" -%}
                 <div class="content">
-                    <h1 class="title">{{ block.settings.title }}</h1>
-                    <p class="subtitle">{{ block.settings.paragraph }}</p>
+                    <h1 class="title">
+                        {% if block.settings.title == ""  %}
+                            Title
+                        {% else %}
+                            {{ block.settings.title }}
+                        {% endif %}
+                    </h1>
+                    <p class="subtitle">
+                        {% if block.settings.paragraph == ""  %}
+                            Insert the Paragraph
+                        {% else %}
+                            {{ block.settings.paragraph }}
+                        {% endif %}
+                    </p>
                     <a href="{{ block.settings.button_link }}" target="_blank" class="btn-shop">
-                        {{ block.settings.button_label }}
+                        {% if block.settings.button_label == ""  %}
+                            Button Label
+                        {% else %}
+                            {{ block.settings.button_label }}
+                        {% endif %}
                     </a>
                 </div>
 
                 <div class="image-container">
-                    <img class="content-image" src="{{ block.settings.image |  image_url: width:100, height: 100  }}" alt="{{ block.settings.image }}">
+                    <img class="content-image" src="{{ block.settings.image |  image_url  }}" alt="{{ block.settings.image }}">
                 </div>
         {%- endcase -%}
     {% endfor %}
@@ -128,7 +148,7 @@
         {
             "type": "image_picker",
             "id": "cover_image",
-            "label": "Cover Image",
+            "label": "Cover Image"
         }
     ],
     "blocks": [
