@@ -102,7 +102,9 @@
     }
 {% endstyle %}
 
-<img class="cover-image" src="{{ section.settings.cover_image |  image_url }}" alt="{{ section.settings.image }}">
+{% if section.settings.cover_image %}
+    <img class="cover-image" src="{{ section.settings.cover_image |  image_url }}" alt="{{ section.settings.image }}">
+{% endif %}
 
 <div class="container">
     {% for block in section.blocks %}

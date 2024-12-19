@@ -17,7 +17,7 @@
           "settings": {
             "title": "Fall Trends",
             "paragraph": "Lorem ipsum dolor sit amet. In architecto recusandae et odio quisquam quo corporis.",
-            "image": "shopify://shop_images/Rectangle_13.png",
+            "image": "shopify://shop_images/Rectangle_13_af9632a3-a517-44b7-a358-2200a3bf7081.png",
             "button_label": "Shop Now",
             "button_link": ""
           }
@@ -39,7 +39,7 @@
             "title": "Tailgate Apparel",
             "paragraph": "Lorem ipsum dolor sit amet. In architecto recusandae et odio quisquam quo corporis neque et unde earum est asperiores eligendi.",
             "image_1": "shopify://shop_images/Rectangle_5.png",
-            "image_2": "shopify://shop_images/Rectangle_10.png",
+            "image_2": "shopify://shop_images/imge2.jpg",
             "button_label": "Shop The Trend",
             "button_link": "#",
             "checkbox": false
@@ -96,7 +96,7 @@
             "item_link": ""
           }
         },
-        "slider_content_rQGcGM": {
+        "slider_content_AtUNiX": {
           "type": "slider_content",
           "settings": {
             "name": "Primary Basics Collection Top",
@@ -112,7 +112,7 @@
         "slider_content_QMALaM",
         "slider_content_ikMqfQ",
         "slider_content_kb99xr",
-        "slider_content_rQGcGM"
+        "slider_content_AtUNiX"
       ],
       "settings": {
         "heading": "Neutral Fall Tones"

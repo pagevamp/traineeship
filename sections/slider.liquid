@@ -7,6 +7,11 @@
             width: 100%;
             height: 100%;
 
+            .wrapper {
+                display: flex;
+                gap: 0.5rem;
+            }
+
             .header {
                 width: 100%;
                 display: flex;
@@ -123,34 +128,40 @@
     <div class="header">
         <p class="heading">{{ section.settings.heading }}</p>
 
-        <div class="swiper-navigation">
-            <button class="swiper-button-prev">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0_1383_137)">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.58209 1.87508L4.83209 5.62508L8.58209 9.37508L7.87499 10.0822L3.41788 5.62508L7.87499 1.16797L8.58209 1.87508Z" fill="black"/>
-                    </g>
-                    <defs>
-                        <clipPath id="clip0_1383_137">
-                            <rect width="12" height="12" fill="white" transform="matrix(-1 0 0 -1 12 12)"/>
-                        </clipPath>
-                    </defs>
-                </svg>
-            </button>
-            <button class="swiper-button-next">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0_1383_137)">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.58209 1.87508L4.83209 5.62508L8.58209 9.37508L7.87499 10.0822L3.41788 5.62508L7.87499 1.16797L8.58209 1.87508Z" fill="black"/>
-                    </g>
-                    <defs>
-                        <clipPath id="clip0_1383_137">
-                            <rect width="12" height="12" fill="white" transform="matrix(-1 0 0 -1 12 12)"/>
-                        </clipPath>
-                    </defs>
-                </svg>
-            </button>
-        </div>
+        {% if section.blocks.size >= 4 %}
+            <div class="swiper-navigation">
+                <button class="swiper-button-prev">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_1383_137)">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.58209 1.87508L4.83209 5.62508L8.58209 9.37508L7.87499 10.0822L3.41788 5.62508L7.87499 1.16797L8.58209 1.87508Z" fill="black"/>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_1383_137">
+                                <rect width="12" height="12" fill="white" transform="matrix(-1 0 0 -1 12 12)"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </button>
+                <button class="swiper-button-next">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_1383_137)">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.58209 1.87508L4.83209 5.62508L8.58209 9.37508L7.87499 10.0822L3.41788 5.62508L7.87499 1.16797L8.58209 1.87508Z" fill="black"/>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_1383_137">
+                                <rect width="12" height="12" fill="white" transform="matrix(-1 0 0 -1 12 12)"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </button>
+            </div>
+        {% endif %}
     </div>
-    <div class="swiper-wrapper">
+    <div class="swiper-wrapper
+    {% if section.blocks.size <= 4 %}
+        wrapper
+    {% endif %}
+    ">
 
         {% for block in section.blocks %}
         {%- case block.type -%}
@@ -193,7 +204,7 @@
         const swiper = new Swiper('.swiper', {
             loop: true,
             slidesPerView: "auto",
-            spaceBetween: 30,
+            spaceBetween: 8,
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
