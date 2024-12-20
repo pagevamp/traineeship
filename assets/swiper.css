@@ -1,0 +1,116 @@
+:root {
+  --bg-color: #a07636;
+  --text-color: #ffffff;
+  ---text-titlee-color: #000000;
+}
+
+.product-slider-section {
+  height: 580px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .swiper-container {
+    width: 90%;
+    height: fit-content;
+    background-color: var(--bg-color);
+    border-radius: 25px;
+    padding-inline: 16px;
+    padding-block: 40px;
+/* 
+    .swiper-wrapper {
+      display: flex;
+      overflow-x: hidden;
+      flex-direction: row;
+    } */
+
+    .section-title-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+
+      h2 {
+        font-size: 24px;
+        line-height: 24px;
+        letter-spacing: -3%;
+        font-weight: 700;
+        font-family: "Halvatica Neue";
+        color: var(--text-color);
+        text-transform: capitalize;
+      }
+
+      .controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 4px;
+
+        .prev,
+        .next {
+          height: 36px;
+          width: 36px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 100px;
+          background-color: var(--text-color);
+        }
+
+        .prev {
+          transform: rotate(0deg) !important;
+        }
+      }
+    }
+
+    /* Product Card */
+    .product-card {
+      height: 440px;
+      background-color: var(--text-color);
+
+      a {
+        text-decoration: none;
+      }
+
+      .product-image {
+        height: 336px;
+        width: 100%;
+        object-fit: cover;
+        object-position: top;
+      }
+
+      .product-details {
+        padding-inline: 24px;
+        padding-block: 24px;
+
+        h3 {
+          font-size: clamp(16px, 2vw, 20px);
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          color: var(---text-titlee-color);
+          font-weight: 500;
+        }
+      }
+
+      .product-tag-price {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .product-price {
+          font-weight: 400;
+          color: var(---text-titlee-color);
+          /* text-decoration: none; */
+        }
+
+        .product-tag {
+          font-weight: 400;
+          color: var(---text-titlee-color);
+          opacity: 65%;
+          /* text-decoration: none; */
+        }
+      }
+    }
+  }
+}

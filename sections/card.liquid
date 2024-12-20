@@ -1,0 +1,125 @@
+<section class="card-section">
+  <link rel="stylesheet" href="{{ 'cardstyle.css' | asset_url }}">
+  <div class="card-section__container">
+    <!-- Section Heading -->
+    {% if section.settings.heading %}
+      <h2 class="card-section__heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    {% if section.settings.subheading %}
+      <p class="card-section__subheading">{{ section.settings.subheading }}</p>
+    {% endif %}
+
+    <div class="card-section__cards-grid">
+      <!-- Loop through each card block -->
+      {% for block in section.blocks %}
+        {% if block.type == 'card' %}
+          <div class="card-section__card">
+            <!-- Card Image -->
+            <div class="card-section__card-image">
+              {% if block.settings.image %}
+                {{ block.settings.image | image_url: height: 300 | image_tag: class: 'section-card__card-img' }}
+              {% endif %}
+            </div>
+
+            <!-- Card Title -->
+            {% if block.settings.title %}
+              <h3 class="card-section__card-title">{{ block.settings.title }}</h3>
+            {% endif %}
+
+            <!-- Card Price -->
+            <div class="section-card__price-wrapper">
+              <p>Price:</p>
+              {% if block.settings.price %}
+                <h3 class="card-section__card-title">${{ block.settings.price }}</h3>
+              {% endif %}
+            </div>
+
+            <!-- Card Description -->
+            {% if block.settings.description %}
+              <p class="card-section__card-description">{{ block.settings.description }}</p>
+            {% endif %}
+            <!-- Card Button -->
+            {% if block.settings.button_text and block.settings.button_url %}
+              <a href="{{ block.settings.button_url }}" class="card-section__card-button">
+                {{ block.settings.button_text }}
+              </a>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Card Section",
+  "tag": "section",
+  "class": "card-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Explore Our Features"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "This is sample subheading text."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card Title",
+          "default": "Feature Title"
+        },
+        {
+          "type": "number",
+          "id": "price",
+          "label": "Price",
+          "default": 0
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card Image"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Card Description",
+          "default": "This is a brief description of the card feature."
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Learn More"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Button URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Card Section",
+      "settings": {
+        "heading": "Our Amazing Features"
+      }
+    }
+  ]
+}
+{% endschema %}

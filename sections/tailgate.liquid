@@ -1,0 +1,182 @@
+{{ 'tailgate.css' | asset_url | stylesheet_tag }}
+
+<section class="tailgate" id="tailgate">
+  <div class="tailage-card">
+    {% for block in section.blocks %}
+      {% comment %} assignment the values in variables {% endcomment %}
+      {% assign title = block.settings.title %}
+      {% assign description = block.settings.description %}
+      {% assign button = block.settings.button %}
+      {% assign background_image = block.settings.background_image %}
+      {% assign front_image = block.settings.front_image %}
+      {% assign check = block.settings.checkbox %}
+
+      {% if check %}
+        {% comment %} Body Section of Card {% endcomment %}
+        <div class="tailgate-body">
+          {% if title %}
+            <h2 id="title">{{ title }}</h2>
+          {% endif %}
+
+          {% if description %}
+            <p id="description">{{ description }}</p>
+          {% endif %}
+
+          {% if button != '' %}
+            <button id="button">
+              <span>{{ button }}</span>
+            </button>
+          {% else %}
+            <button id="button">
+              <a href="/collections/"><span>Shop Now</span></a>
+            </button>
+          {% endif %}
+        </div>
+
+        {% comment %} Image Section Cards {% endcomment %}
+        <div class="tailgate-image">
+          {% if background_image and front_image %}
+            <div class="background-image-wrapper">
+              {{ background_image | image_url: height: '300' | image_tag: class: 'bg-image-check' }}
+            </div>
+            <div>
+              {{ front_image | image_url: height: '300' | image_tag: class: 'front-image-check' }}
+            </div>
+          {% else %}
+            <p>Please upload the image.</p>
+          {% endif %}
+        </div>
+
+      {% else %}
+        <div class="tailgate-image">
+          {% if background_image and front_image %}
+            <div class="background-image-wrapper">
+              {{ background_image | image_url: height: '300' | image_tag: class: 'bg-image' }}
+            </div>
+            <div>
+              {{ front_image | image_url: height: '300' | image_tag: class: 'front-image' }}
+            </div>
+          {% else %}
+            <p>Please upload the image.</p>
+          {% endif %}
+        </div>
+        {% comment %} End of image section {% endcomment %}
+
+        {% comment %} Body Section {% endcomment %}
+        <div class="tailgate-body">
+          {% if title %}
+            <h2 id="title">{{ title }}</h2>
+          {% endif %}
+
+          {% if description %}
+            <p>{{ description }}</p>
+          {% endif %}
+
+          {% if button != '' %}
+            <button>
+              <span>{{ button }}</span>
+            </button>
+          {% else %}
+            <button>
+              <a href="/collections/"><span>Shop Now</span></a>
+            </button>
+          {% endif %}
+        </div>
+        {% comment %} End of body section {% endcomment %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<script defer>
+  // import { gsap } from 'gsap';
+  // import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  // Register the ScrollTrigger plugin
+
+  document.addEventListener('DOMContentLoaded', () => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from('.tailgate-image', {
+      opacity: 0,
+      y: 200,
+      duration: 2,
+      scrollTrigger: {
+        trigger: '.tailgate-image',
+        start: 'top bottom',
+        end: 'top center',
+        toggleActions: 'play none none none',
+      },
+    });
+
+    gsap.from('#title, #description, #button', {
+      opacity: 0,
+      y: 100,
+      duration: 2,
+      scrollTrigger: {
+        trigger: '#title, #description, #button',
+        start: 'top bottom',
+        end: 'top center',
+        toggleActions: 'play none none none',
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Tailgate Section",
+  "tag": "section",
+  "class": "Tailgate-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tailgate",
+      "label": "Tailgate Section"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Tailgate Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Section Title"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "button",
+          "label": "Button Text"
+        },
+        {
+          "type": "checkbox",
+          "id": "checkbox",
+          "label": "Toggle Section"
+        },
+        {
+          "type": "image_picker",
+          "id": "background_image",
+          "label": "Background Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "front_image",
+          "label": "Front Image "
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tailgate"
+    }
+  ]
+}
+{% endschema %}

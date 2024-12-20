@@ -1,0 +1,39 @@
+{% comment %} importing the styles {% endcomment %}
+{{ 'swiper.css' | asset_url | stylesheet_tag }}
+
+<div class="product-card">
+  <a href="{{ product_handle.url }}" class="product-link">
+    {% if product_handle.featured_image %}
+      {{ product_handle.featured_image | image_url: width: 300 | image_tag: class: 'product-image' }}
+    {% endif %}
+
+    <div class="product-details">
+      <div class="product-tag-price">
+        <!-- Price -->
+        {% if product_handle.price %}
+          <p class="product-price">
+            {{ product_handle.price | money }}
+          </p>
+        {% else %}
+          ""
+        {% endif %}
+
+        <!-- Tag -->
+        {% if product_handle.tags.size > 0 %}
+          <p class="product-tag">{{ product_handle.tags | first }}</p>
+        {% else %}
+          ""
+        {% endif %}
+      </div>
+
+      <!-- Name -->
+      <h3 class="product-name">
+        {% if product_handle.title %}
+          {{ product_handle.title }}
+        {% else %}
+          Product Name Unavailable
+        {% endif %}
+      </h3>
+    </div>
+  </a>
+</div>
