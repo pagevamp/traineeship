@@ -1,0 +1,268 @@
+{%- style -%}
+    .slider {
+        width: 100vw;
+        background-color: #A07636;
+        padding: 2.5rem 1rem;
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+
+            .wrapper {
+                display: flex;
+                gap: 0.5rem;
+            }
+
+            .header {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+
+                .heading {
+                    color: #102116;
+                    font-weight: 700;
+                    font-size: 1.5rem;
+                    line-height: 1.5rem;
+                }
+
+                .swiper-navigation {
+                    display: flex;
+                    gap: 4px;
+
+                    .swiper-button-next,
+                    .swiper-button-prev {
+                        transform: none;
+                        display: grid;
+                        border: none;
+                        background-color: #fff;
+                        width: 36px;
+                        height: 36px;
+                        border-radius: 50%;
+                        place-items: center;
+                    }
+
+                    .swiper-button-next {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+
+            .swiper-slide {
+                width: 264px;
+                
+                .image-container {
+                    width: 100%;
+                    height: 336px;
+                    background-color: #fff;
+
+                    .slider-image {
+                        width: 100%;
+                        height: calc(100% - 2rem);
+                        margin-top: 2rem;
+                        object-fit: cover;
+                    }
+                }
+
+                .content {
+                    width: 100%;
+                    padding: 1.5rem;
+                    display: flex;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    gap: 11px;
+                    border-top: 2px solid transparent; 
+                    background-color: #fff;
+
+                    .tag, .price {
+                        font-weight: 400;
+                        font-size: 0.875rem;
+                        line-height: 1.1375rem;
+                    }
+
+                    .tag {
+                        color: #000000A6;
+                    }
+
+                    .price {
+                        color: #000;
+                    }
+
+                    .item-name {
+                        text-align: center;
+                        color: #000;
+                        font-weight: 500;
+                        font-size: 1.25rem;
+                        line-height: 1.625rem;
+                        flex-grow: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        .slider {
+            max-width: 1126px;
+            margin-inline: auto;
+            border-radius: 1.5rem;
+
+            .swiper-container {
+                width: 100%;
+                height: 100%;
+
+                .header {
+
+                    .heading {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+{% endstyle %}
+
+<div class="swiper-container 
+{% if section.blocks.size >= 4 %}
+    swiper
+{% endif %}
+">
+    <div class="header">
+        <p class="heading">{{ section.settings.heading }}</p>
+
+        {% if section.blocks.size >= 4 %}
+            <div class="swiper-navigation">
+                <button class="swiper-button-prev">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_1383_137)">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.58209 1.87508L4.83209 5.62508L8.58209 9.37508L7.87499 10.0822L3.41788 5.62508L7.87499 1.16797L8.58209 1.87508Z" fill="black"/>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_1383_137">
+                                <rect width="12" height="12" fill="white" transform="matrix(-1 0 0 -1 12 12)"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </button>
+                <button class="swiper-button-next">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_1383_137)">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.58209 1.87508L4.83209 5.62508L8.58209 9.37508L7.87499 10.0822L3.41788 5.62508L7.87499 1.16797L8.58209 1.87508Z" fill="black"/>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_1383_137">
+                                <rect width="12" height="12" fill="white" transform="matrix(-1 0 0 -1 12 12)"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </button>
+            </div>
+        {% endif %}
+    </div>
+    <div class="swiper-wrapper
+    {% if section.blocks.size <= 4 %}
+        wrapper
+    {% endif %}
+    ">
+
+        {% for block in section.blocks %}
+        {%- case block.type -%}
+        {%- when "slider_content" -%}
+        <div class="swiper-slide">
+            <div class="image-container">
+                {% if block.settings.image %}
+                <img class="slider-image" src="{{ block.settings.image |  image_url }}"
+                    alt="{{ block.settings.image }}">
+                {% endif %}
+            </div>
+
+            <div class="content">
+                <p class="tag">
+                    {% if block.settings.tag == "" %}
+                        New Arrival
+                    {% else %}
+                        {{ block.settings.tag }}
+                    {% endif %}
+                </p>
+                <p class="price">
+                    {% if block.settings.price == "" %}
+                    $00.00
+                    {% else %}
+                    {{ block.settings.price | money }}
+                    {% endif %}
+                </p>
+                <p class="item-name">
+                    {{ block.settings.name }}
+                </p>
+            </div>
+        </div>
+        {%- endcase -%}
+        {% endfor %}
+    </div>
+</div>
+
+<script defer>
+    document.addEventListener('DOMContentLoaded', function () {
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            slidesPerView: "auto",
+            spaceBetween: 8,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    });
+</script>
+
+
+{% schema %}
+{
+    "name": "Slider",
+    "tag": "section",
+    "class": "slider",
+    "settings": [
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "slider_content",
+            "name": "Slider Content",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "name",
+                    "label": "Name"
+                },
+                {
+                    "type": "text",
+                    "id": "tag",
+                    "label": "Tag"
+                },
+                {
+                    "type": "number",
+                    "id": "price",
+                    "label": "Price"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                },
+                {
+                    "type": "url",
+                    "id": "item_link",
+                    "label": "Item Link"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Slider"
+        }
+    ]
+}
+{% endschema %}

@@ -1,222 +1,127 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "leadspace_rQwJ6a": {
+      "type": "leadspace",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "leadspace_content_MQUgAY": {
+          "type": "leadspace_content",
           "settings": {
-            "heading": "Image banner",
-            "heading_size": "h0"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify:\/\/collections\/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "title": "Fall Trends",
+            "paragraph": "Lorem ipsum dolor sit amet. In architecto recusandae et odio quisquam quo corporis.",
+            "image": "shopify://shop_images/Rectangle_13_af9632a3-a517-44b7-a358-2200a3bf7081.png",
+            "button_label": "Shop Now",
+            "button_link": ""
           }
         }
       },
       "block_order": [
-        "heading",
-        "text",
-        "button"
+        "leadspace_content_MQUgAY"
       ],
       "settings": {
-        "image": "{{ shop.brand.cover_image }}",
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "adapt_height_first_image": false,
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "background-1",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "cover_image": "shopify://shop_images/Rectangle_1.png"
       }
     },
-    "rich_text": {
-      "type": "rich-text",
+    "fifty_fifty_JcWUtC": {
+      "type": "fifty-fifty",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "fifty_fifty_content_WmjReU": {
+          "type": "fifty-fifty_content",
           "settings": {
-            "heading": "<p>Talk about your brand<\/p>",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+            "title": "Tailgate Apparel",
+            "paragraph": "Lorem ipsum dolor sit amet. In architecto recusandae et odio quisquam quo corporis neque et unde earum est asperiores eligendi.",
+            "image_1": "shopify://shop_images/Rectangle_5.png",
+            "image_2": "shopify://shop_images/imge2.jpg",
+            "button_label": "Shop The Trend",
+            "button_link": "#",
+            "checkbox": false
           }
         }
       },
       "block_order": [
-        "heading",
-        "text"
+        "fifty_fifty_content_WmjReU"
       ],
       "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "background-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 0
+        "heading": "Tailgate apparel"
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "color_scheme": "background-1",
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "enable_quick_add": false,
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 28,
-        "padding_bottom": 36
-      }
-    },
-    "collage": {
-      "type": "collage",
+    "slider_KGTJDk": {
+      "type": "slider",
       "blocks": {
-        "collection-0": {
-          "type": "collection",
+        "slider_content_QJTBdJ": {
+          "type": "slider_content",
           "settings": {
-            "collection": ""
+            "name": "Primary Basics Collection Top",
+            "tag": "New Arrival",
+            "price": 4500,
+            "image": "shopify://shop_images/BRANDON_LOOK1_42.png",
+            "item_link": ""
           }
         },
-        "product": {
-          "type": "product",
+        "slider_content_QMALaM": {
+          "type": "slider_content",
           "settings": {
-            "product": "",
-            "second_image": false
+            "name": "League Sweatshirt Neutral",
+            "tag": "New Arrival",
+            "price": 9900,
+            "image": "shopify://shop_images/BRANDON_LOOK1_41.png",
+            "item_link": ""
           }
         },
-        "collection-1": {
-          "type": "collection",
+        "slider_content_ikMqfQ": {
+          "type": "slider_content",
           "settings": {
-            "collection": ""
+            "name": "League Sweatshirt Neutral",
+            "tag": "New Arrival",
+            "price": 9900,
+            "image": "shopify://shop_images/BRANDON_LOOK1_41.png",
+            "item_link": ""
+          }
+        },
+        "slider_content_kb99xr": {
+          "type": "slider_content",
+          "settings": {
+            "name": "Primary Basics Collection Top",
+            "tag": "New Arrival",
+            "price": 4500,
+            "image": "shopify://shop_images/BRANDON_LOOK1_42.png",
+            "item_link": ""
+          }
+        },
+        "slider_content_AtUNiX": {
+          "type": "slider_content",
+          "settings": {
+            "name": "Primary Basics Collection Top",
+            "tag": "New Arrival",
+            "price": 4500,
+            "image": "shopify://shop_images/BRANDON_LOOK1_42.png",
+            "item_link": ""
           }
         }
       },
       "block_order": [
-        "collection-0",
-        "product",
-        "collection-1"
+        "slider_content_QJTBdJ",
+        "slider_content_QMALaM",
+        "slider_content_ikMqfQ",
+        "slider_content_kb99xr",
+        "slider_content_AtUNiX"
       ],
       "settings": {
-        "heading": "Multimedia collage",
-        "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "collage",
-        "card_styles": "product-card-wrapper",
-        "color_scheme": "background-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "video": {
-      "type": "video",
-      "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "background-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "multicolumn": {
-      "type": "multicolumn",
-      "blocks": {
-        "column1": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column2": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column3": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column1",
-        "column2",
-        "column3"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "heading": "Neutral Fall Tones"
       }
     }
   },
   "order": [
-    "image_banner",
-    "rich_text",
-    "featured_collection",
-    "collage",
-    "video",
-    "multicolumn"
+    "leadspace_rQwJ6a",
+    "fifty_fifty_JcWUtC",
+    "slider_KGTJDk"
   ]
 }
