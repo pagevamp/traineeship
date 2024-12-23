@@ -1,0 +1,217 @@
+{% style %}
+
+    .swiper-section{
+        background: #FFEDDD;
+        margin-top: 0px;
+        padding-block: 50px;
+    }
+    .heading{
+        padding-bottom: 20px;
+        font-size: 2rem;
+        font-family: 'Helvetica Neue';
+    }
+    .swiper-wrapper{
+        width: 100%;
+        height: 100%;
+        display: flex;
+    }
+    .swiper{
+        padding-inline: 40px;
+    }
+    .content{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        height: 50px;
+        border-top: 1px solid #FFEDDD;
+    }
+    .price{
+        font-size: 16px;
+        padding-top: 10px;
+        font-family: 'Helvetica Neue';
+    }
+    h3{
+        font-size: 20px;
+        font-family: 'Helvetica Neue';
+        padding-inline: 5px;
+        /* padding-bottom: 20px; */
+    }
+    .swiper-slide {
+        text-align: center;
+        background: #fff;
+        /* width: 400px; */
+        display: flex;
+        flex-direction: column;
+        
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .swiper-content{
+        height: 140px;
+    }
+    .swiper-navigation{
+        display: none;
+    }
+
+    @media screen and (min-width: 768px){
+        .heading{
+            padding-top: 30px;
+            color: white;
+        }
+        .swiper-section{
+            padding-block: 50px;
+        }
+        .swiper{
+            background:#A07636;
+            width: 80%;
+            border-radius: 25px;
+            padding-inline: 30px;
+            padding-bottom: 30px;
+            position: relative;
+        }
+        .swiper-navigation{
+            position: absolute;
+            top: 30px;
+            right: 10%;
+            display: flex;
+            /* justify-content: space-between; */
+        }
+        .swiper-button-next , 
+        .swiper-button-prev{
+            display: block !important;
+            background-color: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            z-index: 999;
+            color: #A07636;
+            padding: 5px;
+            margin: 5px;
+        }
+        svg{
+            width: 80%;
+        }
+        .swiper-button-prev{
+
+            transform: rotate(360deg);
+        }
+    }
+    
+    {% endstyle %}
+    
+    <div class="swiper-section">
+        <div class="swiper mySwiper">
+        <h2 class="heading">Neutral Fall Tones</h2>
+            <div class="swiper-wrapper" aria-label="Carousel Container">
+                {% for block in section.blocks %}
+                <div class="swiper-slide">
+                    {% if block.settings.images %}
+                        <img src="{{ block.settings.images | image_url}}" alt="{{ block.settings.title }}">
+                    {% endif %}
+
+                    {% if block.settings.titleText or block.settings.price or block.settings.title %}
+                        <div class="swiper-content" aria-label="Content Section">
+                            <div class="content">
+                                {% if block.settings.titleText %}
+                                    <p class="title">{{ block.settings.titleText }}</p>
+                                {% endif %}
+                                {% if block.settings.price %}
+                                    <p class="price">{{ block.settings.price }}</p>
+                                {% endif %}
+                            </div>
+                            {% if block.settings.title %}
+                                <h3>{{ block.settings.title }}</h3>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+            <div class="swiper-navigation">
+                <div class="swiper-button-prev">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                    </svg>
+                </div>
+                <div class="swiper-button-next">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                    </svg>
+              </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var swiper = new Swiper(".mySwiper", {
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                slidesPerView: 1,
+                spaceBetween: 10,
+                breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 4,
+                },
+    },
+            });
+        });
+    </script>
+    
+
+{% schema %}
+{
+    "name": "Swiper Section",
+    "settings": [
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "card",
+            "name": "Card",
+            // "limit": 6,
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "images",
+                    "label": "Image"
+                },
+                {
+                    "type": "text",
+                    "id": "titleText",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "price",
+                    "label": "Price"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Product Name"
+                }
+            ]
+        }
+    ],
+    "presets": [ //presets are used for default values
+        {
+            "name": "Swiper Section",
+            "category": "Custom"
+        }
+    ]
+}
+{% endschema %} 

@@ -1,0 +1,200 @@
+{%  style  %} 
+    .custom-leadspace-section{
+        background:#FFEDDD;
+        padding: 0;
+        margin: 0;
+        position: relative;
+        height: 100vh;
+        width: 100%;
+    }
+   .leadspace-img{
+        width: 100%;
+        height: 70%;
+        object-fit: cover;
+        background-color: black;
+        padding-left: 0;
+        margin: 0;
+        position: absolute;
+        top: -20%;
+    }
+    .cards{
+        position: absolute;
+        top: 10%;
+        left: 0;
+        bottom: -10%;
+        width: 80%;
+        height: 70%;
+        background-color: #102116;
+        border-radius: 30px;
+    }
+    .card-items{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .card__content{
+        color: white;
+        padding: 10px;
+        position: relative;
+        z-index: 2;
+        .title{
+            text-transform: uppercase;
+            font-family: 'Helvetica Neue';
+            font-size: 5rem;
+            line-height: 1;
+        }
+        .paragraph{
+            font-size: 2rem;
+        }
+    }
+
+   .card__images img{
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        border-bottom-right-radius: 30px;
+        /* width: 250px; */
+        height: 250px;
+        object-fit: fit;
+    }
+    .button_link{
+        position: absolute;
+        width: max-content;
+        bottom: 10px;
+        right: 30px;
+        background-color: white;
+        color: black;
+        border-radius: 40px;
+        border: none;
+        text-decoration: none;
+        padding: 1rem 3rem;
+        font-size: 2rem;
+    }
+    .button_link:hover{
+        border: 1px solid white;
+        color: white;
+        background-color: black;
+    }
+   @media screen and (min-width: 768px){
+        .cards{
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 1rem;
+            width: 80%;
+        }
+
+        .card-items{
+            padding-left: 30px;
+        }
+        .card__images img{
+            border-bottom-right-radius: 30px;
+            /* width: 60%; */
+            height: 100%;
+        }
+        .card__content{
+            max-width: 55%;
+            .title{
+                font-size: 10rem;
+                line-height: 1;
+            }
+        }
+        .button_link{
+            padding: 1rem 6rem;
+            left: 30px;
+            bottom: 30px;
+        }
+    }
+    
+{% endstyle %}
+
+<div class="custom-leadspace-section">
+    <div class="leadspace">
+        {% if section.settings.cover_image %}
+            <img src="{{ section.settings.cover_image | image_url }}" class="leadspace-img" alt="">
+        {% endif %}
+    </div>
+    <div class="cards" aria-label="Card Section">
+        {% for block in section.blocks %}
+            {% if block.settings.title or block.settings.paragraph or block.settings.images %}
+                <div class="card-items" aria-label="Card Item">
+                    {% if block.settings.title or block.settings.paragraph %}
+                        <div class="card__content">
+                            {% if block.settings.title %}
+                                <h3 class="title">{{ block.settings.title }}</h3>
+                            {% endif %}
+                            {% if block.settings.paragraph %}
+                                <p class="paragraph">{{ block.settings.paragraph }}</p>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                    {% if block.settings.images %}
+                        <div class="card__images">
+                            <img src="{{ block.settings.images | image_url }}" alt="{{ block.settings.title }}">
+                        </div>
+                    {% endif %}
+                    {% if block.settings.link and block.settings.linktext %}
+                        <a href="{{ block.settings.link }}" class="button_link" aria-label="{{ block.settings.linktext }}">{{ block.settings.linktext }}</a>
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+
+{% schema %}
+    {
+        "name": "Leadspace Section",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "cover_image",
+                "label": "Cover Image"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "card",
+                "name": "Card",
+                // "limit": 6,
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "images",
+                        "label": "Image"
+                    },
+
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title"
+                    },
+
+                    {
+                        "type": "text",
+                        "id": "paragraph",
+                        "label": "Paragraph"
+                    },
+                    
+                    {
+                        "type": "url",
+                        "id": "link",
+                        "label": "Button link"
+                    },
+                    {
+                        "type": "text",
+                        "id": "linktext",
+                        "label": "Button text",
+                        "default": "Shop Now"
+                    }
+                ]
+            }
+        ],
+        "presets": [ //presets are used for default values
+            {
+                "name": "Leadspace Section",
+                "category": "Custom"
+            }
+        ]
+    }
+{% endschema %} 
