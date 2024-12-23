@@ -1,0 +1,87 @@
+{% style %} 
+    h2 {
+        padding-block: 20px;
+    }
+    .card-items {
+        padding-block: 20px;
+    }
+    h3 {
+        padding-top: 10px;
+    }
+    @media screen and (min-width: 768px) {
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            gap: 20px;
+        }
+        .card-items {
+            padding-block: 10px;
+        }
+    }
+{% endstyle %}
+
+<div class="custom-card-section">
+    <div class="container">
+        {% if section.settings.heading %}
+            <h2>{{ section.settings.heading }}</h2>
+        {% endif %}
+        <div class="cards">
+            {% for block in section.blocks %}
+            <div class="card-items">
+                {% if block.settings.images %}
+                    <img src="{{ block.settings.images | image_url: width: 300, height: 300 }}" alt="{{ block.settings.title }}">
+                {% endif %}
+                {% if block.settings.title %}
+                    <h3>{{ block.settings.title }}</h3>
+                {% endif %}
+                {% if block.settings.price %}
+                    <p>{{ block.settings.price }}</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Dynamic Card Section",
+    "settings": [
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "card",
+            "name": "Card",
+            "limit": 6,
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "images",
+                    "label": "Image"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "price",
+                    "label": "Price"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Dynamic Card Section",
+            "category": "Custom"
+        }
+    ]
+}
+{% endschema %}
