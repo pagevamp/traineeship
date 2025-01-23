@@ -3,78 +3,70 @@
   <div class="footer__content">
     <div class="footer__content-email-store">
       <div class="footer__content-email">
-        <div class="footer__content-email--container">
-          <div class="footer__content-title">{{ section.settings.title }}</div>
-          <div class="footer__content-email--box">
-            <span class="footer__content-email--title">{{ section.settings.email_title }}</span>
-            <button class="footer__content-email--button">
-            <span class="right-chevron">&#8250</span>
-          </button>
-        </div>
+        <div class="footer__content-email__container">
+          <div class="footer__content-email__title">{{ section.settings.title }}</div>
+          <div class="footer__content-email__box">
+            <span class="footer__content-email__label">{{ section.settings.email_title }}</span>
+            <button class="footer__content-email__button">
+              <span class="footer__content-email__icon">&#8250</span>
+            </button>
+          </div>
         </div>
         <div class="footer__content-store">
-          <div class="footer__content-store--apple">
-            <span>Download on the</span>
-            <span>App Store</span>
+          <div class="footer__content-store__apple">
+            <span>{{ section.settings.store_apple }}</span>
           </div>
-          <div class="footer__content-store--android">
-            <span>GET IT ON</span>
-            <span>Google Play</span>
+          <div class="footer__content-store__android">
+            <span>{{ section.settings.store_android }}</span>
           </div>
         </div>
       </div>
       <div class="footer__content-about-support">
         <div class="footer__content-about">
-        <div class="footer__content-about--title title">
-          {{ section.settings.about_title }}
+          <div class="footer__content-about__title">{{ section.settings.about_title }}</div>
+          <div class="footer__content-about__items">
+            {% assign about_items_cleaned = section.settings.about_items | replace: ',', '\n' %}
+            {% assign about_items_array = about_items_cleaned | split: '\n' %}
+            {% for item in about_items_array %}
+              <span>{{ item }}</span>
+            {% endfor %}
+          </div>
         </div>
-        <div class="footer__content-about--items items">
-          {% assign about_items_cleaned = section.settings.about_items | replace: ',', '\n' %}
-          {% assign about_items_array = about_items_cleaned | split: '\n' %}
-          {% for item in about_items_array %}
-            <span>{{ item }}</span>
-          {% endfor %}
+        <div class="footer__content-support">
+          <div class="footer__content-support__title">{{ section.settings.support_title }}</div>
+          <div class="footer__content-support__items">
+            {% assign support_items_cleaned = section.settings.support_items | replace: ',', '\n' %}
+            {% assign support_items_array = support_items_cleaned | split: '\n' %}
+            {% for item in support_items_array %}
+              <span>{{ item }}</span>
+            {% endfor %}
+          </div>
         </div>
-      </div>
-      <div class="footer__content-support">
-        <div class="footer__content-support--title title">
-          {{ section.settings.support_title }}
-        </div>
-        <div class="footer__content-support-items items">
-          {% assign support_items_cleaned = section.settings.support_items | replace: ',', '\n' %}
-          {% assign support_items_array = support_items_cleaned | split: '\n' %}
-          {% for item in support_items_array %}
-            <span>{{ item }}</span>
-          {% endfor %}
-        </div>
-      </div>
       </div>
     </div>
-    <div class="footer__content-socials ">
-      <div class="footer__content-socials--logo">
-        <img src="{{section.settings.socials_logo |  image_url: width: 80, height: 40}}" alt="Logo">
-
-        <span>&copy 2023 New Era Cap</span>
+    <div class="footer__content-socials">
+      <div class="footer__content-socials__logo">
+        <img src="{{ section.settings.socials_logo | image_url: width: 80, height: 40 }}" alt="Logo">
+        <span>{{ section.settings.socials_logo_text }}</span>
       </div>
-      <div class="footer__content-socials--icons">
+      <div class="footer__content-socials__icons">
         {% for block in section.blocks %}
-          <img src="{{ block.settings.icon_image.src | image_url: width: 24, height: 24 }}" alt="Icons">
+          <a href="{{ block.settings.icon_link }}" target="_blank">
+            <img src="{{ block.settings.icon_image.src | image_url: width: 24, height: 24 }}" alt="Social Icon">
+          </a>
         {% endfor %}
-
       </div>
     </div>
     <div class="footer__content-disclaimer">
-      <div class="footer__content-disclaimer--description">
+      <div class="footer__content-disclaimer__description">
         <p>{{ section.settings.disclaimer_text }}</p>
       </div>
-      <div class="footer__content-disclaimer--links">
-        <div class="footer__content-disclaimer--country">
-          <img src="{{section.settings.country_flag |  image_url: width: 20, height: 10}}" alt="">
-
+      <div class="footer__content-disclaimer__links">
+        <div class="footer__content-disclaimer__country">
+          <img src="{{ section.settings.country_flag | image_url: width: 20, height: 10 }}" alt="Country Flag">
           <span>{{ section.settings.country }}</span>
-        {% comment %} <span>&#8964;</span> {% endcomment %}
         </div>
-        <div class="footer__content-disclaimer--content">
+        <div class="footer__content-disclaimer__content">
           {% assign disclaimer_items_cleaned = section.settings.disclaimer_items | replace: ',', '\n' %}
           {% assign disclaimer_items_array = disclaimer_items_cleaned | split: '\n' %}
           {% for item in disclaimer_items_array %}
@@ -85,6 +77,7 @@
     </div>
   </div>
 </div>
+
 
 {% schema %}
   {
