@@ -1,0 +1,64 @@
+{{ 'section-past-projects.css' | asset_url | stylesheet_tag }}
+<div class="pastprojects">
+  <div class="pastprojects__container">
+  <div class="pastprojects__title">
+    {{ section.settings.title }}
+  </div>
+  <div class="pastprojects__description-container">
+    <div class="pastprojects__description">
+    {{ section.settings.description }}
+  </div>
+  <button class="pastprojects__button">
+    Shop All Projects
+  </button>
+  </div>
+ </div>
+  
+
+  <div class="pastproject__image-container marquee ">
+    {% assign total_images = section.blocks.size %}
+    {% assign repeat_count = 16 | divided_by: total_images | ceil %}
+
+    {% for i in (1..repeat_count) %}
+      {% for image in section.blocks %}
+        <img src="{{image.settings.projects_image | image_url: width:120, height:120}}" alt="">
+      {% endfor %}
+    {% endfor %}
+  </div>
+
+</div>
+{% schema %}
+  {
+    "name": "Past projects",
+    "settings": [
+      {
+        "id": "title",
+        "label": "Title",
+        "type": "text"
+      }, {
+        "id": "description",
+        "label": "Description",
+        "type": "text"
+      }
+
+    ],
+    "blocks": [
+      {
+        "name": "Past Projects",
+        "type": "past_projects",
+        "settings": [
+          {
+            "id": "projects_image",
+            "label": "Project Image",
+            "type": "image_picker"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Past Projects"
+      }
+    ]
+  }
+{% endschema %}

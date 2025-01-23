@@ -1,0 +1,66 @@
+{{ 'detail-page-product.css' | asset_url | stylesheet_tag }}
+<div class="detail-page-product">
+    <div class="detail-page-product__container">
+        <div class="detail-page-product__card">
+            {% for block in section.blocks %}
+                <div class="detail-page-product__card-image">
+                    <img src="{{ block.settings.image | image_url: width: 438, height: 438 }}" alt="">
+                    <div class="detail-page-product__card-content">
+                        <div class="detail-page-product__card-content-title">
+                            <span class="detail-page-product__card-content-title-text">{{ block.settings.title }}</span>
+                            <span class="detail-page-product__card-content-title-text">${{ block.settings.price }}</span>
+                        </div>
+                        <span class="detail-page-product__card-content-description">{{ block.settings.description }}</span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+{% schema %}
+  {
+    "name": "Detail Page Product",
+    "settings": [
+        {
+            "id": "title",
+            "label": "Title",
+            "type": "text"
+        }
+        
+    ],
+    "blocks": [
+        {
+            "name": "Detail Page Product",
+            "type": "detail_page_product",
+            "settings": [
+                {
+                    "id": "image",
+                    "label": "Image",
+                    "type": "image_picker"
+                },
+                {
+                    "id":"price",
+                    "label": "Price",
+                    "type": "text"
+                },
+                {
+                    "id": "title",
+                    "label": "Title",
+                    "type": "text"
+                },
+                {
+                    "id": "description",
+                    "label": "Description",
+                    "type": "text"
+                }
+            ]
+        }
+    ],
+    "presets": [
+      {
+        "name": "Detail Page Product"
+      }
+    ]
+  }
+{% endschema %}
