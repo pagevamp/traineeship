@@ -2,94 +2,77 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Helvetica, sans-serif;
 }
 .pastprojects {
   background-color: #f1f1f1;
-  padding: 64px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+  padding: 64px 16px 16px 16px;
 }
 .pastprojects__container {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
+.pastprojects__title {
+  font-size: 48px;
+  font-weight: 300;
+  line-height: 40px;
+  letter-spacing: -0.04em;
+}
 .pastprojects__description-container {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
-.pastprojects__title {
-  font-weight: 300;
-  color: black;
-  font-size: 48px;
-  line-height: 40px;
-}
 .pastprojects__description {
-  font-weight: 400;
   font-size: 14px;
+  font-weight: 400;
   line-height: 18px;
-  color: black;
 }
 .pastprojects__button {
-  padding: 8px 16px;
-  color: white;
+  padding: 9px 16px;
+
+  background-color: #000000;
+  border-radius: 1000px;
+  border: none;
+  cursor: pointer;
+  width: fit-content;
+  white-space: nowrap;
+}
+.pastprojects__button a {
+  text-decoration: none;
   font-size: 16px;
   font-weight: 500;
   line-height: 14px;
-  background-color: black;
-  border: none;
-  border-radius: 1000px;
-  width: fit-content;
+  color: #ffffff;
 }
-.pastproject__image-container {
+.pastprojects__projects-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   gap: 4px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+.pastprojects__project {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
 }
 
-@media (min-width: 1440px) {
-  .pastprojects {
-    height: 80vh;
-  }
-  .pastprojects__title {
-    font-size: 162px;
-    line-height: 144px;
-    font-weight: 300;
-    width: 40%;
-  }
-  .pastprojects__description-container {
-    width: 25%;
-  }
-  .pastprojects__description {
-    width: 100%;
-  }
+@media (min-width: 1024px) {
   .pastprojects__container {
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-end;
+    margin-bottom: 48px;
   }
-  .pastprojects__button {
-    padding: 16px 24px;
+  .pastprojects__title {
+    font-size: 160px;
+    font-weight: 300;
+    line-height: 144px;
+    letter-spacing: -0.04em;
+    max-width: 59%;
   }
-  .marquee {
-    overflow: hidden;
-    white-space: nowrap;
-    box-sizing: border-box;
-    animation: marquee 20s linear infinite;
-    overflow-x: hidden;
-    margin-top: 36px;
-  }
-
-  @keyframes marquee {
-    0% {
-      transform: translateX(100%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
+  .pastprojects__description-container {
+    max-width: 31%;
+    justify-content: flex-end;
   }
 }

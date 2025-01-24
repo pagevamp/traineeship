@@ -1,35 +1,34 @@
 {{ 'section-past-projects.css' | asset_url | stylesheet_tag }}
 <div class="pastprojects">
   <div class="pastprojects__container">
-  <div class="pastprojects__title">
-    {{ section.settings.title }}
+    <div class="pastprojects__title">
+      {{ section.settings.title }}
+    </div>
+    <div class="pastprojects__description-container">
+      <div class="pastprojects__description">
+        {{ section.settings.description }}
+      </div>
+      <div class="pastprojects__button">
+        <a href="{{ section.settings.button_url }}">{{ section.settings.button }}</a>
+      </div>
+    </div>
   </div>
-  <div class="pastprojects__description-container">
-    <div class="pastprojects__description">
-    {{ section.settings.description }}
-  </div>
-  <button class="pastprojects__button">
-    Shop All Projects
-  </button>
-  </div>
- </div>
-  
-
-  <div class="pastproject__image-container marquee ">
+  <div class="pastprojects__projects-container">
     {% assign total_images = section.blocks.size %}
     {% assign repeat_count = 16 | divided_by: total_images | ceil %}
 
     {% for i in (1..repeat_count) %}
       {% for image in section.blocks %}
-        <img src="{{image.settings.projects_image | image_url: width:120, height:120}}" alt="">
+        <div class="pastprojects__project">
+          <img src="{{image.settings.projects_image | image_url: width:120, height:120}}" alt="">
+        </div>
       {% endfor %}
     {% endfor %}
   </div>
-
 </div>
 {% schema %}
   {
-    "name": "Past projects",
+    "name": "Past Projects",
     "settings": [
       {
         "id": "title",
@@ -39,6 +38,14 @@
         "id": "description",
         "label": "Description",
         "type": "text"
+      }, {
+        "id": "button",
+        "label": "Button",
+        "type": "text"
+      }, {
+        "id": "button_url",
+        "label": "Button URL",
+        "type": "url"
       }
 
     ],
