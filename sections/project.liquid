@@ -1,0 +1,73 @@
+{{ 'project.css' | asset_url | stylesheet_tag }}
+{% assign cards_per_row = 3 %}
+{% for block in section.blocks %}
+  {% assign mod = forloop.index0 | modulo: cards_per_row %}
+  {% if mod == 0 %}
+    {% if forloop.first == false %}
+      </div>
+    {% endif %}
+    <div class="projects">
+  {% endif %}
+    <div class="project__card">
+      <div class="project__card-image">
+        <img src="{{block.settings.project_image.src |  image_url: width: 171, height: 159 }}" alt="">
+      </div>
+      <div class="project__card-details">
+        <div class="project__card-location">
+          <div class="project__card-location-icon">
+            <img src="{{section.settings.project_location_icon.src |  image_url: width: 12, height: 12 }}" alt="">
+          </div>
+          <span class="project__card-location-text">{{block.settings.project_location}}</span>
+        </div>
+        <div class="project__card-name">{{block.settings.project_name}}</div>
+        <div class="project__card-description">{{block.settings.project_description}}</div>
+      </div>
+    </div>
+  {% if forloop.last %}
+    </div>
+  {% endif %}
+{% endfor %}
+
+
+{% schema %}
+  {
+    "name": "Projects",
+    "settings": [{
+      "id":"project_location_icon",
+      "label":"Project Location Icon",
+      "type":"image_picker"
+    }],
+    "blocks": [
+      {
+        "name": "projects",
+        "type": "projects",
+        "settings": [
+          {
+            "id": "project_image",
+            "label": "Project Image",
+            "type": "image_picker"
+          }, {
+            "id": "project_location",
+            "label": "Project Location",
+            "type": "text"
+          },
+          
+          {
+            "id": "project_name",
+            "label": "Project Name",
+            "type": "text"
+          }, {
+            "id": "project_description",
+            "label": "Project Description",
+            "type": "textarea"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Projects"
+      }
+    ]
+  }
+{% endschema %}
