@@ -73,7 +73,6 @@
   .projects {
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 24px;
     height: 100vh;
     padding: 84px 32px 40px 32px;
   }

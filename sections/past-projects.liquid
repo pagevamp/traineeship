@@ -13,16 +13,27 @@
       </div>
     </div>
   </div>
-  <div class="pastprojects__projects-container">
+  <div class="pastprojects__projects-container marquee">
     {% assign total_images = section.blocks.size %}
     {% assign repeat_count = 16 | divided_by: total_images | ceil %}
+    {% assign images = section.blocks | sort: 'random' %}
+    {% assign marquee_count = 3 %}
 
-    {% for i in (1..repeat_count) %}
-      {% for image in section.blocks %}
-        <div class="pastprojects__project">
-          <img src="{{image.settings.projects_image | image_url: width:120, height:120}}" alt="">
-        </div>
-      {% endfor %}
+    {% for marquee in (1..marquee_count) %}
+      <div class="marquee__content"{% if marquee > 1 %} aria-hidden="true"{% endif %}>
+        {% for i in (1..repeat_count) %}
+          {% for block in images %}
+            {% assign image = block.settings.projects_image %}
+            <div class="pastprojects__project">
+              <img src="{{ image | image_url: width:120, height:120 }}" 
+                   loading="{% if marquee == 1 and forloop.index < 8 %}eager{% else %}lazy{% endif %}"
+                   width="120" 
+                   height="120" 
+                   alt="{{ image.alt | escape }}">
+            </div>
+          {% endfor %}
+        {% endfor %}
+      </div>
     {% endfor %}
   </div>
 </div>

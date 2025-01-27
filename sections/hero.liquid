@@ -1,16 +1,28 @@
 {{ "section-hero.css" | asset_url | stylesheet_tag }}
-{{ "scroll.js" | asset_url | script_tag }}
-<div class="hero">
-  <div class="hero__content">
-  <div id="content-first" class="hero__content-first">{{ section.settings.title_first }}</div>
-  <div id="content-second" class="hero__content-second">{{ section.settings.title_second }}</div>
-  <div id="content-third" class="hero__content-third">{{ section.settings.title_third }}</div>
-</div>
-  <div class="hero__description">
-    <span class="hero__description-text">{{ section.settings.description }}</span>
-    <button class="hero__description-button">
-      <a href="{{ section.settings.button_url }}">{{ section.settings.button_text }}</a>
-    </button>
+<div class="hero" style="background-image: url({{ section.settings.image | image_url }});">
+  <div class="hero__wrapper">
+    <div class="hero__content">
+     <div class="hero__content-first">
+      <span class="hero__content-first-title">{{ section.settings.title_first }}</span>
+      <div class="hero__description">
+      <div class="hero__description-text">{{ section.settings.description }}</div>
+      <div class="hero__description-button">
+        <a href="{{ section.settings.button_url }}">{{ section.settings.button_text }}</a>
+      </div>
+    </div>
+     </div>
+      <div class="hero__content-second">{{ section.settings.title_second }}</div>
+      <div class="hero__content-third">{{ section.settings.title_third }}</div>
+    </div>
+    
+  </div>
+  <div>
+    <div class="hero__description-small">
+      <div class="hero__description-text">{{ section.settings.description }}</div>
+      <div class="hero__description-button">
+        <a href="{{ section.settings.button_url }}">{{ section.settings.button_text }}</a>
+      </div>
+    </div>
   </div>
 </div>
 
