@@ -1,83 +1,74 @@
 {{ 'header.css' | asset_url | stylesheet_tag }}
-<header class="header__section">
+{{ 'header-functionality.js' | asset_url | script_tag }}
+<header class="header">
   <nav class="header__nav">
-    <button
-      class="header__nav-hamburger"
-      aria-label="Open navigation menu"
-      tabindex="0">
-      <img
-        src="{{ section.settings.hamburger | image_url: height: 40, width: 40 }}"
-        alt="Hamburger"
-        aria-label="Hamburger"
-        tabindex="0" />
-    </button>
-    <div class="header__nav-logo-menu">
-      <div class="header__nav-logo">
-        <img
-          src="{{ section.settings.logo | image_url: height: 30, width: 40  }}"
-          alt="Logo"
-          aria-label="Logo"
-          tabindex="0" />
+    <div class="header__nav-hamburger">
+      <a href="#" class="drawer-trigger">{% render 'icon-hamburger' %}</a>
+    </div>
+
+    
+    <div class="drawer">
+      <div class="drawer__header">
+        <button class="drawer__close">✕</button>
       </div>
-      <ul class="header__nav-menu">
-        <li
-          class="header__nav-menu-item"
-          aria-label="{{ section.settings.menu_item-1 }}"
-          tabindex="0">{{ section.settings.menu_item-1 }}</li>
-        <li
-          class="header__nav-menu-item"
-          aria-label="{{ section.settings.menu_item-2 }}"
-          tabindex="0">{{ section.settings.menu_item-2 }}</li>
-        <li
-          class="header__nav-menu-item"
-          aria-label="{{ section.settings.menu_item-3 }}"
-          tabindex="0">{{ section.settings.menu_item-3 }}</li>
-        <li
-          class="header__nav-menu-item"
-          aria-label="{{ section.settings.menu_item-4 }}"
-          tabindex="0">{{ section.settings.menu_item-4 }}</li>
-        <li
-          class="header__nav-menu-item"
-          aria-label="{{ section.settings.menu_item-5 }}"
-          tabindex="0">{{ section.settings.menu_item-5 }}</li>
-        <li
-          class="header__nav-menu-item"
-          aria-label="{{ section.settings.menu_item-6 }}"
-          tabindex="0">{{ section.settings.menu_item-6 }}</li>
-        <li
-          class="header__nav-menu-item"
-          aria-label="{{ section.settings.menu_item-7 }}"
-          tabindex="0">{{ section.settings.menu_item-7 }}</li>
+      <div class="drawer__content">
+        <div class="drawer__menu">
+          {% for link in linklists[section.settings.main_menu].links %}
+            <a
+              href="{{ link.url }}"
+              class="drawer__menu-link {% if forloop.first %}active{% endif %}"
+              onclick="event.preventDefault();">
+              <span class="drawer__menu-text">{{ link.title }}</span>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="header__nav-menu-container">
+      <div class="header__nav-logo">
+        <img src="{{ section.settings.logo | image_url: height: 120, width: 90 }}" alt="Logo" />
+      </div>
+      <div class="header__nav-menu">
+        {% for link in linklists[section.settings.main_menu].links %}
+          <a
+            href="{{ link.url }}"
+            class="header__nav-menu-link {% if forloop.first %}active{% endif %}"
+            onclick="event.preventDefault();">
+            <span class="header__nav-menu-text">{{ link.title }}</span>
+            <span class="header__nav-menu-dot"></span>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+
+    
+    <div class="header__nav-icons">
+      {% for link in linklists[section.settings.secondary_menu].links %}
+        <ul class="header__nav-loyalty">
+          <li class="header__nav-loyalty">
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          </li>
+        </ul>
+      {% endfor %}
+      <ul class="header__nav-icons-list">
+        <li class="header__nav-icon-search">
+          <a href="">{% render 'icon-search' %}</a>
+        </li>
+        <li class="header__nav-icon-cart">
+          <a href="">{% render 'icon-cart' %}</a>
+        </li>
+        <li class="header__nav-icon-user">
+          <a href="">{% render 'icon-user' %}</a>
+        </li>
+        <li class="header__nav-icon-cart-item">
+          <a href="">{% render 'icon-cart-item' %}</a>
+        </li>
       </ul>
     </div>
 
-    <div class="header__nav-icons">
-      <span class="header__nav-icons-loyalty" tabindex="0">Loyalty</span>
-      <img
-        class="header__nav-icons-cart"
-        src="{{ section.settings.cart | image_url: height: 40, width: 40 }}"
-        alt="Cart"
-        aria-label="Shopping cart"
-        tabindex="0" />
-      <img
-        class="header__nav-icons-user"
-        src="{{ section.settings.user | image_url: height: 28, width: 28 }}"
-        alt="User"
-        aria-label="User profile"
-        tabindex="0" />
-      <img
-        class="header__nav-icons-search"
-        src="{{ section.settings.search | image_url: height: 40, width: 40 }}"
-        alt="Search"
-        aria-label="Search"
-        tabindex="0" />
-      <img
-        class="header__nav-icons-product-cart"
-        src="{{ section.settings.product_cart | image_url: height: 40, width: 40 }}"
-        alt="Product Cart"
-        aria-label="Product cart"
-        tabindex="0" />
-    </div>
+
   </nav>
 </header>
 
@@ -89,57 +80,16 @@
         "type": "image_picker",
         "id": "logo",
         "label": "Logo"
-      },
-      {
-        "type": "image_picker",
-        "id": "hamburger",
-        "label": "Hamburger"
-      },
-      {
-        "type": "image_picker",
-        "id": "cart",
-        "label": "Cart"
-      },
-      {
-        "type": "image_picker",
-        "id": "search",
-        "label": "Search"
       }, {
-        "type": "image_picker",
-        "id": "user",
-        "label": "User"
+        "type": "link_list",
+        "id": "main_menu",
+        "default": "main-menu",
+        "label": "Main Menu"
       }, {
-        "id": "product_cart",
-        "label": "Product Cart",
-        "type": "image_picker"
-      }, {
-        "type": "text",
-        "id": "menu_item-1",
-        "label": "Menu Item 1"
-      }, {
-        "type": "text",
-        "id": "menu_item-2",
-        "label": "Menu Item 2"
-      }, {
-        "type": "text",
-        "id": "menu_item-3",
-        "label": "Menu Item 3"
-      }, {
-        "type": "text",
-        "id": "menu_item-4",
-        "label": "Menu Item 4"
-      }, {
-        "type": "text",
-        "id": "menu_item-5",
-        "label": "Menu Item 5"
-      }, {
-        "type": "text",
-        "id": "menu_item-6",
-        "label": "Menu Item 6"
-      }, {
-        "type": "text",
-        "id": "menu_item-7",
-        "label": "Menu Item 7"
+        "type": "link_list",
+        "id": "secondary_menu",
+        "label": "Secondary Menu",
+        "default": "main-menu"
       }
     ]
   }

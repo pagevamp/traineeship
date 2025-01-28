@@ -1,20 +1,20 @@
 {{ "section-hero.css" | asset_url | stylesheet_tag }}
-<div class="hero" style="background-image: url({{ section.settings.image | image_url }});">
+<div class="hero">
   <div class="hero__wrapper">
     <div class="hero__content">
-     <div class="hero__content-first">
-      <span class="hero__content-first-title">{{ section.settings.title_first }}</span>
-      <div class="hero__description">
-      <div class="hero__description-text">{{ section.settings.description }}</div>
-      <div class="hero__description-button">
-        <a href="{{ section.settings.button_url }}">{{ section.settings.button_text }}</a>
+      <div class="hero__content-first">
+        <span class="hero__content-first-title">{{ section.settings.title_first }}</span>
+        <div class="hero__description">
+          <div class="hero__description-text">{{ section.settings.description }}</div>
+          <div class="hero__description-button">
+            <a href="{{ section.settings.button_url }}">{{ section.settings.button_text }}</a>
+          </div>
+        </div>
       </div>
-    </div>
-     </div>
       <div class="hero__content-second">{{ section.settings.title_second }}</div>
       <div class="hero__content-third">{{ section.settings.title_third }}</div>
     </div>
-    
+
   </div>
   <div>
     <div class="hero__description-small">
@@ -49,13 +49,12 @@
         "type": "text",
         "id": "description",
         "label": "Description"
-      },
-      {
+      }, {
         "type": "text",
         "id": "button_text",
         "label": "Button Text"
-    },{
-      "type": "url",
+      }, {
+        "type": "url",
         "id": "button_url",
         "label": "Button URL"
       }

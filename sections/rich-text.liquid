@@ -5,26 +5,56 @@
 
     <div class="richtext__container">
       {% if block.settings.brand_image.src %}
-        <img
-          class="richtext__image"
-          src="{{ block.settings.brand_image.src | image_url: width:358, height:358 }}"
-          alt="Brand Image">
+        <picture>
+          <source srcset="{{ block.settings.brand_image.src | image_url: width:1100, height:1100 }}" media="(min-width: 1440px)">
+          <source srcset="{{ block.settings.brand_image.src | image_url: width:800, height:800 }}" media="(min-width: 1024px)">
+          <source srcset="{{ block.settings.brand_image.src | image_url: width:600, height:600 }}" media="(min-width: 768px)">
+          <source srcset="{{ block.settings.brand_image.src | image_url: width:500, height:500 }}" media="(min-width: 425px)">
+          <source srcset="{{ block.settings.brand_image.src | image_url: width:358, height:358 }}" media="(min-width: 375px)">
+          <img
+            class="richtext__image"
+            src="{{ block.settings.brand_image.src | image_url: width:358, height:358 }}"
+            alt="Brand Image">
+        </picture>
       {% endif %}
       <div class="richtext__description">
-        {% if block.settings.country %}
-          <div class="richtext__description-country">{{ block.settings.country }}</div>
+        {% if block.settings.country != blank %}
+          <div class="richtext__description-country">
+            {% if block.settings.country_icon %}
+              <div class="richtext__description-country-icon">
+                <img
+                  src="{{ block.settings.country_icon.src |  image_url: width: 12, height: 12 }}"
+                  alt=""
+                  width=""
+                  height="">
+              </div>
+            {% endif %}
+            {% if block.settings.country %}
+              <span class="richtext__description-country-text">{{ block.settings.country }}</span>
+            {% endif %}
+          </div>
         {% endif %}
-        {% if block.settings.name %}
+        {% if block.settings.name != blank %}
           <div class="richtext__description-name">{{ block.settings.name }}</div>
         {% endif %}
-        <div class="richtext__description-btn-container">
-          {% if block.settings.first_button %}
-            <button class="richtext__description-btn">{{ block.settings.first_button }}</button>
+        {% if block.settings.first_button or block.settings.second_button %}
+          <div class="richtext__description-btn-container">
+            {% if block.settings.first_button != blank %}
+              <button class="richtext__description-btn">{{ block.settings.first_button }}</button>
+            {% endif %}
+            {% if block.settings.second_button != blank %}
+              <button class="richtext__description-btn">{{ block.settings.second_button }}</button>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+      <div class="richtext__signature">
+        <picture>
+          {% if block.settings.signature %}
+            <source srcset="{{ block.settings.signature.src |  image_url: width: 355, height: 138 }}" media="(min-width: 1024px)">
+            <img src="{{ block.settings.signature.src | image_url: width: 133, height: 52 }}">
           {% endif %}
-          {% if block.settings.second_button %}
-            <button class="richtext__description-btn">{{ block.settings.second_button }}</button>
-          {% endif %}
-        </div>
+        </picture>
       </div>
     </div>
 
@@ -34,7 +64,7 @@
 
 {% schema %}
   {
-    "name": "Rich Text",
+    "name": "Brand",
     "settings": [
       {
         "type": "text",
@@ -58,11 +88,19 @@
             "type": "text"
           },
           {
+            "id": "country_icon",
+            "label": "Country Icon",
+            "type": "image_picker"
+          },
+          {
+            "id": "signature",
+            "label": "Signature",
+            "type": "image_picker"
+          }, {
             "id": "name",
             "label": "Name",
             "type": "text"
-          },
-          {
+          }, {
             "id": "first_button",
             "label": "First Button",
             "type": "text"
@@ -71,7 +109,13 @@
             "label": "Second Button",
             "type": "text"
           }
-        ]
+        ],
+        "limit": 1
+      }
+    ],
+    "presets": [
+      {
+        "name": "Brand"
       }
     ]
   }
