@@ -1,6 +1,7 @@
 {{ 'header.css' | asset_url | stylesheet_tag }}
 {{ 'header-functionality.js' | asset_url | script_tag }}
 <header class="header">
+  <h2 class="header__title">Header</h2>
   <nav class="header__nav">
     <div class="header__nav-hamburger">
       <a href="#" class="drawer-trigger">{% render 'icon-hamburger' %}</a>

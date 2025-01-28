@@ -34,6 +34,10 @@
   font-family: var(--font-family-base);
 }
 
+.header__title {
+  display: none;
+}
+
 .header__nav {
   display: flex;
   align-items: center;
