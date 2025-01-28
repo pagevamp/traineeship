@@ -1,5 +1,5 @@
 {{ 'header.css' | asset_url | stylesheet_tag }}
-{{ 'header-functionality.js' | asset_url | script_tag }}
+<script src="{{ 'header-functionality.js' | asset_url }}" defer="defer"></script>
 <header class="header">
   <h2 class="header__title">Header</h2>
   <nav class="header__nav">
@@ -14,45 +14,53 @@
       </div>
       <div class="drawer__content">
         <div class="drawer__menu">
-          {% for link in linklists[section.settings.main_menu].links %}
-            <a
-              href="{{ link.url }}"
-              class="drawer__menu-link {% if forloop.first %}active{% endif %}"
-              onclick="event.preventDefault();">
-              <span class="drawer__menu-text">{{ link.title }}</span>
-            </a>
-          {% endfor %}
+          {% if linklists[section.settings.main_menu].links.size > 0 %}
+            {% for link in linklists[section.settings.main_menu].links %}
+              <a
+                href="{{ link.url }}"
+                class="drawer__menu-link {% if forloop.first %}active{% endif %}"
+                onclick="event.preventDefault();">
+                <span class="drawer__menu-text">{{ link.title }}</span>
+              </a>
+            {% endfor %}
+          {% endif %}
         </div>
       </div>
     </div>
     
 
     <div class="header__nav-menu-container">
-      <div class="header__nav-logo">
-        <img src="{{ section.settings.logo | image_url: height: 120, width: 90 }}" alt="Logo" />
-      </div>
+      {% if section.settings.logo != blank %}
+        <div class="header__nav-logo">
+          <img src="{{ section.settings.logo | image_url: height: 120, width: 90 }}" alt="Logo" height="" width="" />
+        </div>
+      {% endif %}
       <div class="header__nav-menu">
-        {% for link in linklists[section.settings.main_menu].links %}
-          <a
-            href="{{ link.url }}"
-            class="header__nav-menu-link {% if forloop.first %}active{% endif %}"
-            onclick="event.preventDefault();">
-            <span class="header__nav-menu-text">{{ link.title }}</span>
-            <span class="header__nav-menu-dot"></span>
-          </a>
-        {% endfor %}
+        {% if linklists[section.settings.main_menu].links.size > 0 %}
+          {% for link in linklists[section.settings.main_menu].links %}
+            <a
+              href="{{ link.url }}"
+              class="header__nav-menu-link {% if forloop.first %}active{% endif %}"
+              onclick="event.preventDefault();">
+              <span class="header__nav-menu-text">{{ link.title }}</span>
+              <span class="header__nav-menu-dot"></span>
+            </a>
+          {% endfor %}
+        {% endif %}
       </div>
     </div>
 
     
     <div class="header__nav-icons">
-      {% for link in linklists[section.settings.secondary_menu].links %}
-        <ul class="header__nav-loyalty">
-          <li class="header__nav-loyalty">
-            <a href="{{ link.url }}">{{ link.title }}</a>
-          </li>
-        </ul>
-      {% endfor %}
+      {% if linklists[section.settings.secondary_menu].links.size > 0 %}
+        {% for link in linklists[section.settings.secondary_menu].links %}
+          <ul class="header__nav-loyalty">
+            <li class="header__nav-loyalty">
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            </li>
+          </ul>
+        {% endfor %}
+      {% endif %}
       <ul class="header__nav-icons-list">
         <li class="header__nav-icon-search">
           <a href="">{% render 'icon-search' %}</a>

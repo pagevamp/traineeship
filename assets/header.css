@@ -223,7 +223,7 @@
     background-color: var(--color-primary);
     border-radius: 50%;
     position: absolute;
-    bottom: var(--spacing-xs);
+    bottom: 8px;
     right: -12px;
     opacity: 0;
     transition: opacity 0.2s ease;

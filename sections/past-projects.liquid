@@ -26,6 +26,7 @@
             {% assign image = block.settings.projects_image %}
             <div class="pastprojects__project">
               <img src="{{ image | image_url: width:120, height:120 }}" 
+                   loading="{% if marquee == 1 and forloop.index < 8 %}eager{% else %}lazy{% endif %}"
                    width="120" 
                    height="120" 
                    alt="{{ image.alt | escape }}">

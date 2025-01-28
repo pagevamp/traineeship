@@ -1,5 +1,5 @@
 {{ 'project.css' | asset_url | stylesheet_tag }}
-{% assign cards_per_row = 3 %}
+
 {% for block in section.blocks %}
   {% assign modulos = forloop.index0 | modulo: cards_per_row %}
   {% if modulos == 0 %}

@@ -14,7 +14,9 @@
           <img
             class="richtext__image"
             src="{{ block.settings.brand_image.src | image_url: width:358, height:358 }}"
-            alt="Brand Image">
+            alt="Brand Image"
+          height=""
+        width="">
         </picture>
       {% endif %}
       <div class="richtext__description">
@@ -52,7 +54,9 @@
         <picture>
           {% if block.settings.signature %}
             <source srcset="{{ block.settings.signature.src |  image_url: width: 355, height: 138 }}" media="(min-width: 1024px)">
-            <img src="{{ block.settings.signature.src | image_url: width: 133, height: 52 }}">
+            <img src="{{ block.settings.signature.src | image_url: width: 133, height: 52 }}"
+            height=""
+          width="">
           {% endif %}
         </picture>
       </div>
@@ -69,6 +73,7 @@
       {
         "type": "text",
         "label": "Talk About Your Brand",
+        "default": "Talk About Your Brand",
         "id": "brand"
       }
     ],
@@ -85,7 +90,8 @@
           {
             "id": "country",
             "label": "Country",
-            "type": "text"
+            "type": "text",
+            "default": "Nepal"
           },
           {
             "id": "country_icon",
@@ -99,15 +105,18 @@
           }, {
             "id": "name",
             "label": "Name",
-            "type": "text"
+            "type": "text",
+            "default": "Cj Wallace"
           }, {
             "id": "first_button",
             "label": "First Button",
-            "type": "text"
+            "type": "text",
+            "default": "Shop Now"
           }, {
             "id": "second_button",
             "label": "Second Button",
-            "type": "text"
+            "type": "text",
+            "default": "Primary"
           }
         ],
         "limit": 1
@@ -115,8 +124,14 @@
     ],
     "presets": [
       {
-        "name": "Brand"
+        "name": "Brand",
+        "blocks": [
+          {
+            "type": "Brand"
+          }
+        ]
       }
+
     ]
   }
 {% endschema %}
