@@ -46,13 +46,23 @@
     </div>
     <div class="footer__content-socials">
       <div class="footer__content-socials__logo">
-        <img src="{{ section.settings.socials_logo | image_url: width: 80, height: 40 }}" alt="Logo">
+        <a href="{{settings.logo_url}}">
+          <img
+            src="{{ settings.secondary_logo  | image_url: width: 80, height: 40 }}"
+            alt="Logo"
+            height=""
+            width="">
+        </a>
         <span>{{ section.settings.socials_logo_text }}</span>
       </div>
       <div class="footer__content-socials__icons">
         {% for block in section.blocks %}
           <a href="{{ block.settings.icon_link }}" target="_blank">
-            <img src="{{ block.settings.icon_image.src | image_url: width: 24, height: 24 }}" alt="Social Icon">
+            <img
+              src="{{ block.settings.icon_image.src | image_url: width: 24, height: 24 }}"
+              alt="Social Icon"
+              height=""
+              width="">
           </a>
         {% endfor %}
       </div>
@@ -63,7 +73,11 @@
       </div>
       <div class="footer__content-disclaimer__links">
         <div class="footer__content-disclaimer__country">
-          <img src="{{ section.settings.country_flag | image_url: width: 20, height: 10 }}" alt="Country Flag">
+          <img
+            src="{{ section.settings.country_flag | image_url: width: 20, height: 10 }}"
+            alt="Country Flag"
+            height=""
+            width="">
           <span>{{ section.settings.country }}</span>
         </div>
         <div class="footer__content-disclaimer__content">
@@ -187,7 +201,6 @@
     "presets": [
       {
         "name": "Default",
-        "category": "Footer",
         "blocks": [
           {
             "type": "social_icon"

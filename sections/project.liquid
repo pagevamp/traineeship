@@ -1,5 +1,5 @@
 {{ 'project.css' | asset_url | stylesheet_tag }}
-
+{% comment %} {% assign cards_per_row = 3 %}
 {% for block in section.blocks %}
   {% assign modulos = forloop.index0 | modulo: cards_per_row %}
   {% if modulos == 0 %}
@@ -36,8 +36,35 @@
   {% if forloop.last %}
     </div>
   {% endif %}
-{% endfor %}
-
+{% endfor %} {% endcomment %}
+<div class="projects">
+{% for block in section.blocks %}
+  <div class="project__card">
+  <div class="project__card-image">
+    <picture>
+      <source srcset="{{block.settings.project_image.src |  image_url: width: 437, height: 437 }}" media="(min-width: 1440px)">
+      <source srcset="{{block.settings.project_image.src |  image_url: width: 300, height: 300 }}" media="(min-width: 1024px)">
+      <source srcset="{{block.settings.project_image.src |  image_url: width: 200, height: 200 }}" media="(min-width: 768px)">
+      <img src="{{block.settings.project_image.src |  image_url: width: 171, height: 159 }}" alt="" width="" height="">
+    </picture>
+  </div>
+  <div class="project__card-details">
+    <div class="project__card-location">
+      {% if block.settings.project_location != blank and section.settings.project_location_icon != blank %}
+        <div class="project__card-location-icon">
+          {%render 'icon-universe'%}
+        </div>
+        <span class="project__card-location-text">{{block.settings.project_location}}</span>
+      {% endif %}
+    </div>
+    <div class="project__card-text">
+      <div class="project__card-name">{{block.settings.project_name}}</div>
+      <div class="project__card-description">{{block.settings.project_description}}</div>
+    </div>
+  </div>
+</div>
+  {%endfor%}
+</div>
 
 {% schema %}
   {
@@ -80,14 +107,8 @@
       }
     ]
   }
-{% endschema %}
+{% endschema %} 
 
 
-  <script defer>
-    let width = window.innerWidth;
-    let cards_per_row = 3;
-    if (width < 768) {
-      cards_per_row = 2;
-    }
-  </script>
+
 

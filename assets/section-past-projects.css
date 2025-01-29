@@ -115,13 +115,13 @@
     font-weight: 300;
     line-height: 144px;
     letter-spacing: -0.04em;
-    max-width: 59%;
+    max-width: 60%;
   }
   .pastprojects__projects-container {
     gap: 4px;
   }
   .pastprojects__description-container {
-    max-width: 31%;
+    max-width: 30%;
     justify-content: flex-end;
   }
   .pastprojects__project-second {

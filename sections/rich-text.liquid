@@ -19,7 +19,7 @@
         width="">
         </picture>
       {% endif %}
-      <div class="richtext__description">
+      <div class="richtext__description" style="position: absolute; {{ block.settings.description_position }}; {% if block.settings.description_position contains 'right' %}margin-left: auto; text-align: right; width: fit-content;{% endif %}">
         {% if block.settings.country != blank %}
           <div class="richtext__description-country">
             {% if block.settings.country_icon %}
@@ -70,12 +70,7 @@
   {
     "name": "Brand",
     "settings": [
-      {
-        "type": "text",
-        "label": "Talk About Your Brand",
-        "default": "Talk About Your Brand",
-        "id": "brand"
-      }
+      
     ],
     "blocks": [
       {
@@ -87,6 +82,38 @@
             "label": "Pick Image",
             "type": "image_picker"
           },
+          {
+        "id":"description_position",
+        "label":"Select the position of the description",
+        "type":"select",
+        "options":[
+          {
+            "value": "top:16px;left:16px",
+            "label": "Top Left"
+            },
+            {
+              "value":"top:50%;left:16px;width:fit-content;",
+              "label":"Center Left"
+            },{
+              "value": "bottom:16px;left:16px",
+              "label": "Bottom Left"
+            },
+            
+            {
+            "value": "top:16px;right:16px;width:fit-content;",
+            "label": "Top Right"
+          },
+          {
+            "value":"top:50%;right:16px;width:fit-content;",
+            "label":"Center Right"
+          },
+          {
+            "value": "bottom:16px;right:16px;width:fit-content;",
+            "label": "Bottom Right"
+          }
+          
+        ]
+      },
           {
             "id": "country",
             "label": "Country",

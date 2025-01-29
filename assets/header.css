@@ -16,7 +16,7 @@
   /* Sizes */
   --icon-size: 40px;
   --logo-height: 30px;
-  --drawer-width: 300px;
+  --drawer-width: 60%;
 
   /* Typography */
   --font-family-base: "Helvetica Neue", Roboto, sans-serif;
@@ -113,6 +113,10 @@
 
 .drawer.active {
   left: 0;
+}
+
+.blur {
+  filter: blur(5px);
 }
 
 .drawer__header {

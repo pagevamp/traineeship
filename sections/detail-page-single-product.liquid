@@ -1,26 +1,30 @@
 {{ 'detail-page-single-product.css' | asset_url | stylesheet_tag }}
 <div class="detail-page-single-product">
-    <div class="detail-page-single-product__container">
-        <div class="detail-page-single-product__image">
-            <img src="{{ section.settings.image | image_url: width: 1390, height: 1616 }}" alt="">
-        </div>
+  <div class="detail-page-single-product__container">
+    <div class="detail-page-single-product__image">
+      <img
+        src="{{ section.settings.image | image_url: width: 1390, height: 1616 }}"
+        alt=""
+        height=""
+        width="">
     </div>
+  </div>
 </div>
 
 {% schema %}
-{
+  {
     "name": "Detail Single Product",
     "settings": [
-        {
-            "type": "image_picker",
-            "id": "image",
-            "label": "Image"
-        }
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      }
     ],
     "presets": [
-        {
-            "name": "Detail Page Single Product"
-        }
+      {
+        "name": "Detail Page Single Product"
+      }
     ]
-}
+  }
 {% endschema %}

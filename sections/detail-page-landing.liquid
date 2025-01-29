@@ -17,7 +17,11 @@
     </div>
     <div class="detail-page-landing-image">
       <div class="detail-page-landing-image-container">
-        <img src="{{ section.settings.image | image_url: width: 437, height: 409 }}" alt="{{ section.settings.image.alt }}">
+        <img
+          src="{{ section.settings.image | image_url: width: 437, height: 409 }}"
+          alt="{{ section.settings.image.alt }}"
+          height=""
+          width="">
         <div class="detail-page-landing-image-text">
           <span class="detail-page-landing-image-text-description">{{ section.settings.description }}</span>
           <div class="detail-page-landing-image-text-buttons">
@@ -34,7 +38,9 @@
       <img
         class="detail-page-landing-video-image"
         src="{{ section.settings.video_url | image_url: width: 905, height: 678 }}"
-        alt="{{ section.settings.video_url.alt }}">
+        alt="{{ section.settings.video_url.alt }}"
+        height=""
+        width="" />
     </div>
 
   </div>
@@ -44,7 +50,11 @@
       <span class="detail-page-landing-bottom-styling">{{ section.settings.styling }}</span>
     </div>
     <div class="detail-page-landing-bottom-image">
-      <img src="{{ section.settings.image | image_url: width: 437, height: 432 }}" alt="{{ section.settings.image.alt }}">
+      <img
+        src="{{ section.settings.image | image_url: width: 437, height: 432 }}"
+        alt="{{ section.settings.image.alt }}"
+        height=""
+        width="">
     </div>
   </div>
 </div>

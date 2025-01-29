@@ -4,8 +4,8 @@
     "theme_name": "Dawn",
     "theme_version": "7.0.1",
     "theme_author": "Shopify",
-    "theme_documentation_url": "https:\/\/help.shopify.com\/manual\/online-store\/themes",
-    "theme_support_url": "https:\/\/support.shopify.com\/"
+    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
+    "theme_support_url": "https://support.shopify.com/"
   },
   {
     "name": "t:settings_schema.colors.name",
@@ -1506,6 +1506,30 @@
         "id": "cart_drawer_collection",
         "label": "t:settings_schema.cart.settings.cart_drawer.collection.label",
         "info": "t:settings_schema.cart.settings.cart_drawer.collection.info"
+      }
+    ]
+  },
+  {
+    "name": "Logo",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Select Global Logo"
+      },
+      {
+        "id": "primary_logo",
+        "type": "image_picker",
+        "label": "This is the primary logo for the website"
+      },
+      {
+        "id": "secondary_logo",
+        "type": "image_picker",
+        "label": "This is the seconday logo for the website"
+      },
+      {
+        "id": "logo_url",
+        "type": "url",
+        "label": "This is the url for the logo"
       }
     ]
   }

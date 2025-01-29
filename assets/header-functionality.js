@@ -12,30 +12,41 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Drawer/mobile menu functionality
-  // Opens drawer when trigger button is clicked
   const drawerTrigger = document.querySelector(".drawer-trigger");
   const drawer = document.querySelector(".drawer");
   const drawerClose = document.querySelector(".drawer__close");
+  const drawerBlur = document.querySelector("#MainContent");
+
+  function handleDrawer(action) {
+    if (action === "open") {
+      drawer.classList.add("active");
+      drawerBlur.classList.add("blur");
+    } else if (action === "close") {
+      drawer.classList.remove("active");
+      drawerBlur.classList.remove("blur");
+    }
+  }
 
   drawerTrigger.addEventListener("click", function (e) {
     e.preventDefault();
-    drawer.classList.add("active");
+    handleDrawer("open");
   });
 
-  // Closes drawer when close button is clicked
-  drawerClose.addEventListener("click", function () {
-    drawer.classList.remove("active");
-  });
+  drawerClose.addEventListener("click", () => handleDrawer("close"));
 
-  // Close drawer when clicking outside of it
-  // Checks if drawer is active and click target is not within drawer or trigger
   document.addEventListener("click", function (e) {
     if (
       drawer.classList.contains("active") &&
       !drawer.contains(e.target) &&
       !drawerTrigger.contains(e.target)
     ) {
-      drawer.classList.remove("active");
+      handleDrawer("close");
+    }
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      handleDrawer("close");
     }
   });
 });

@@ -1,7 +1,7 @@
 {{ 'section-past-projects.css' | asset_url | stylesheet_tag }}
-<div class="pastprojects">
+<div class="pastprojects" style="background-color:{{section.settings.background_color}}">
   <div class="pastprojects__container">
-    <div class="pastprojects__title">
+    <div class="pastprojects__title" style="font-size:{{section.settings.font_size}}">
       {{ section.settings.title }}
     </div>
     <div class="pastprojects__description-container">
@@ -20,16 +20,21 @@
     {% assign marquee_count = 3 %}
 
     {% for marquee in (1..marquee_count) %}
-      <div class="marquee__content"{% if marquee > 1 %} aria-hidden="true"{% endif %}>
+      <div
+        class="marquee__content"
+        {% if marquee > 1 %}
+        aria-hidden="true"
+        {% endif %}>
         {% for i in (1..repeat_count) %}
           {% for block in images %}
             {% assign image = block.settings.projects_image %}
             <div class="pastprojects__project">
-              <img src="{{ image | image_url: width:120, height:120 }}" 
-                   loading="{% if marquee == 1 and forloop.index < 8 %}eager{% else %}lazy{% endif %}"
-                   width="120" 
-                   height="120" 
-                   alt="{{ image.alt | escape }}">
+              <img
+                src="{{ image | image_url: width:200, height:200 }}"
+                loading="{% if marquee == 1 and forloop.index < 8 %}eager{% else %}lazy{% endif %}"
+                width="120"
+                height="120"
+                alt="{{ image.alt | escape }}">
             </div>
           {% endfor %}
         {% endfor %}
@@ -57,6 +62,35 @@
         "id": "button_url",
         "label": "Button URL",
         "type": "url"
+      },{
+        "type": "header",
+        "content":"Styles",
+        "info":"Select Styles"
+      },{
+        "id": "background_color",
+        "label": "Background Color",
+        "type": "select",
+        "default": "#f1f1f1",
+        "options": [
+          {
+            "value": "#f1f1f1",
+            "label": "Default"
+          }, {
+            "value": "#E9e5e2",
+            "label": "Off White"
+          }, {
+            "value": "#a8a8a8",
+            "label": "Gray"
+          }
+        ]
+      },{
+        "id":"font_size",
+        "type": "range",
+        "label":"Select font size",
+        "default":160,
+        "min":4,
+        "max":180,
+        "step": 4
       }
 
     ],

@@ -1,13 +1,13 @@
 {{ 'header.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'header-functionality.js' | asset_url }}" defer="defer"></script>
-<header class="header">
+<header class="header" id="Header">
   <h2 class="header__title">Header</h2>
   <nav class="header__nav">
     <div class="header__nav-hamburger">
       <a href="#" class="drawer-trigger">{% render 'icon-hamburger' %}</a>
     </div>
 
-    
+
     <div class="drawer">
       <div class="drawer__header">
         <button class="drawer__close">✕</button>
@@ -27,20 +27,28 @@
         </div>
       </div>
     </div>
-    
+
 
     <div class="header__nav-menu-container">
       {% if section.settings.logo != blank %}
         <div class="header__nav-logo">
-          <img src="{{ section.settings.logo | image_url: height: 120, width: 90 }}" alt="Logo" height="" width="" />
+          <a href="{{settings.logo_url}}">
+            <img
+              src="{{ settings.primary_logo | image_url: height: 120, width: 90 }}"
+              alt="Logo"
+              height=""
+              width="" />
+          </a>
         </div>
       {% endif %}
+
       <div class="header__nav-menu">
         {% if linklists[section.settings.main_menu].links.size > 0 %}
           {% for link in linklists[section.settings.main_menu].links %}
+            {% assign active_index = section.settings.active_menu | default: 1 | at_most: linklists[section.settings.main_menu].links.size | at_least: 1 %}
             <a
               href="{{ link.url }}"
-              class="header__nav-menu-link {% if forloop.first %}active{% endif %}"
+              class="header__nav-menu-link {% if forloop.index == active_index %}active{% endif %}"
               onclick="event.preventDefault();">
               <span class="header__nav-menu-text">{{ link.title }}</span>
               <span class="header__nav-menu-dot"></span>
@@ -48,32 +56,40 @@
           {% endfor %}
         {% endif %}
       </div>
+
     </div>
 
-    
+
     <div class="header__nav-icons">
       {% if linklists[section.settings.secondary_menu].links.size > 0 %}
         {% for link in linklists[section.settings.secondary_menu].links %}
           <ul class="header__nav-loyalty">
+
             <li class="header__nav-loyalty">
               <a href="{{ link.url }}">{{ link.title }}</a>
             </li>
+
           </ul>
         {% endfor %}
       {% endif %}
       <ul class="header__nav-icons-list">
+
         <li class="header__nav-icon-search">
           <a href="">{% render 'icon-search' %}</a>
         </li>
+
         <li class="header__nav-icon-cart">
           <a href="">{% render 'icon-cart' %}</a>
         </li>
+
         <li class="header__nav-icon-user">
           <a href="">{% render 'icon-user' %}</a>
         </li>
+
         <li class="header__nav-icon-cart-item">
           <a href="">{% render 'icon-cart-item' %}</a>
         </li>
+
       </ul>
     </div>
 
@@ -89,16 +105,36 @@
         "type": "image_picker",
         "id": "logo",
         "label": "Logo"
-      }, {
+      },
+      {
+        "type": "header",
+        "content": "Main Menu",
+        "info": "This menu will be displayed on the left side of the header"
+      },
+      {
         "type": "link_list",
         "id": "main_menu",
         "default": "main-menu",
         "label": "Main Menu"
+      },
+      {
+        "type": "header",
+        "content": "Secondary Menu",
+        "info": "This menu will be displayed on the right side of the header"
       }, {
         "type": "link_list",
         "id": "secondary_menu",
         "label": "Secondary Menu",
         "default": "main-menu"
+      }, {
+        "type": "header",
+        "content": "Menu Settings"
+      }, {
+        "id": "active_menu",
+        "type": "number",
+        "label": "Active Menu",
+        "info": "This menu will be used to determine which menu item should be active",
+        "default": 1
       }
     ]
   }

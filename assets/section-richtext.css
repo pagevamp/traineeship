@@ -23,8 +23,7 @@
   position: absolute;
   bottom: 16px;
   left: 16px;
-  width: 100%;
-  z-index: 9;
+  height: auto;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -88,10 +87,10 @@
   right: 16px;
 }
 @media (min-width: 768px) {
-  .richtext__description {
+  /* .richtext__description {
     top: 24px;
     left: 24px;
-  }
+  } */
   .richtext__image {
     width: 100%;
   }
