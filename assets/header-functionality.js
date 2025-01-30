@@ -50,3 +50,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+function handleMenuClick(event, element) {
+  event.preventDefault();
+
+  document.querySelectorAll(".header__nav-menu-link").forEach((link) => {
+    link.classList.remove("active");
+  });
+
+  element.classList.add("active");
+}

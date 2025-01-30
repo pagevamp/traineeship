@@ -15,8 +15,8 @@
             class="richtext__image"
             src="{{ block.settings.brand_image.src | image_url: width:358, height:358 }}"
             alt="Brand Image"
-          height=""
-        width="">
+            height=""
+            width="">
         </picture>
       {% endif %}
       <div class="richtext__description" style="position: absolute; {{ block.settings.description_position }}; {% if block.settings.description_position contains 'right' %}margin-left: auto; text-align: right; width: fit-content;{% endif %}">
@@ -54,9 +54,10 @@
         <picture>
           {% if block.settings.signature %}
             <source srcset="{{ block.settings.signature.src |  image_url: width: 355, height: 138 }}" media="(min-width: 1024px)">
-            <img src="{{ block.settings.signature.src | image_url: width: 133, height: 52 }}"
-            height=""
-          width="">
+            <img
+              src="{{ block.settings.signature.src | image_url: width: 133, height: 52 }}"
+              height=""
+              width="">
           {% endif %}
         </picture>
       </div>
@@ -69,9 +70,7 @@
 {% schema %}
   {
     "name": "Brand",
-    "settings": [
-      
-    ],
+    "settings": [],
     "blocks": [
       {
         "name": "Brand",
@@ -124,8 +123,7 @@
             "id": "country_icon",
             "label": "Country Icon",
             "type": "image_picker"
-          },
-          {
+          }, {
             "id": "signature",
             "label": "Signature",
             "type": "image_picker"

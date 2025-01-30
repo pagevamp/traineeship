@@ -10,7 +10,7 @@
 
     <div class="drawer">
       <div class="drawer__header">
-        <button class="drawer__close">✕</button>
+        <button class="drawer__close">{% render 'icon-close' %}</button>
       </div>
       <div class="drawer__content">
         <div class="drawer__menu">
@@ -49,7 +49,7 @@
             <a
               href="{{ link.url }}"
               class="header__nav-menu-link {% if forloop.index == active_index %}active{% endif %}"
-              onclick="event.preventDefault();">
+              onclick="handleMenuClick(event, this);">
               <span class="header__nav-menu-text">{{ link.title }}</span>
               <span class="header__nav-menu-dot"></span>
             </a>
