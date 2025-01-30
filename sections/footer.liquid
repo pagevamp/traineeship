@@ -1,41 +1,54 @@
 {{ 'footer.css' | asset_url | stylesheet_tag }}
 <div class="footer">
+
   <div class="footer__content">
+
     <div class="footer__content-email-store">
+
       <div class="footer__content-email">
+
         <div class="footer__content-email__container">
+
           <div class="footer__content-email__title">{{ section.settings.title }}</div>
+
           <div class="footer__content-email__box">
+
             <label for="footer-email" class="footer__content-email__label">{{ section.settings.email_title }}</label>
-            <input 
-              type="text" 
-              class="footer__content-email__input" 
+            
+            <input
+              type="text"
+              class="footer__content-email__input"
               placeholder="{{ section.settings.email_title }}"
-              aria-label="{{ section.settings.email_title }}"
-            >
+              aria-label="{{ section.settings.email_title }}">
+
             <button class="footer__content-email__button">
               <span class="footer__content-email__icon">&#8250</span>
             </button>
+
           </div>
         </div>
+
         <div class="footer__content-store">
           <div class="footer__content-store__apple">
             <span>{{ section.settings.store_apple }}</span>
           </div>
+
           <div class="footer__content-store__android">
             <span>{{ section.settings.store_android }}</span>
           </div>
+
         </div>
       </div>
+
       <div class="footer__content-about-support">
         <div class="footer__content-about">
           <div class="footer__content-about__title">{{ section.settings.about_title }}</div>
           <div class="footer__content-about__items">
-            
-              {% for link in linklists[section.settings.about].links %}
-                <a href="{{ link.url }}" class="footer__content-about__link">{{ link.title }}</a>
-              {% endfor %}
-      
+
+            {% for link in linklists[section.settings.about].links %}
+              <a href="{{ link.url }}" class="footer__content-about__link">{{ link.title }}</a>
+            {% endfor %}
+
           </div>
         </div>
         <div class="footer__content-support">
@@ -48,6 +61,7 @@
         </div>
       </div>
     </div>
+
     <div class="footer__content-socials">
       <div class="footer__content-socials__logo">
         <a href="{{settings.logo_url}}">
@@ -57,11 +71,12 @@
             height=""
             width="">
         </a>
-        <span class="copyright-date" >&copy; {{'now' | date:"%Y"}} {{ section.settings.socials_logo_text }}</span>
+        <span class="copyright-date">&copy; {{ 'now' | date: "%Y" }} {{ section.settings.socials_logo_text }}</span>
       </div>
+
       <div class="footer__content-socials__icons">
         {% for block in section.blocks %}
-          <a href="{{ settings.socials_link }}" target="_blank">
+          <a href="{{ settings.icon_link }}" target="_blank">
             <img
               src="{{ block.settings.icon_image.src | image_url: width: 24, height: 24 }}"
               alt="Social Icon"
@@ -70,11 +85,13 @@
           </a>
         {% endfor %}
       </div>
+
     </div>
     <div class="footer__content-disclaimer">
       <div class="footer__content-disclaimer__description">
         <p>{{ section.settings.disclaimer_text }}</p>
       </div>
+
       <div class="footer__content-disclaimer__links">
         <div class="footer__content-disclaimer__country">
           <img
@@ -85,12 +102,13 @@
           <span>{{ section.settings.country }}</span>
         </div>
         <div class="footer__content-disclaimer__content">
-          
-            {% for link in linklists[section.settings.disclaimer].links %}
-              <a href="{{ link.url }}" class="footer__content-disclaimer__link">{{ link.title }}</a>
-            {% endfor %}
-          </div>
+
+          {% for link in linklists[section.settings.disclaimer].links %}
+            <a href="{{ link.url }}" class="footer__content-disclaimer__link">{{ link.title }}</a>
+          {% endfor %}
         </div>
+      </div>
+
     </div>
   </div>
 </div>
@@ -132,12 +150,12 @@
         "id": "about",
         "label": "About Menu",
         "type": "link_list"
-      },{
-        
+      }, {
+
         "type": "link_list",
         "id": "support",
         "label": "Support Menu"
-      
+
       }, {
         "id": "support_title",
         "label": "Support Title",
