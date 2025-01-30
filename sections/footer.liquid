@@ -1,5 +1,4 @@
 {{ 'footer.css' | asset_url | stylesheet_tag }}
-<script src="{{ 'footer-copyright-date.js' | asset_url }}" defer></script>
 <div class="footer">
   <div class="footer__content">
     <div class="footer__content-email-store">
@@ -58,7 +57,7 @@
             height=""
             width="">
         </a>
-        <span class="copyright-date" data-text="{{ section.settings.socials_logo_text }}"></span>
+        <span class="copyright-date" >&copy; {{'now' | date:"%Y"}} {{ section.settings.socials_logo_text }}</span>
       </div>
       <div class="footer__content-socials__icons">
         {% for block in section.blocks %}
