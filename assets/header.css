@@ -32,6 +32,12 @@
     var(--spacing-sm);
   width: 100%;
   font-family: var(--font-family-base);
+  box-shadow: 0px 0px 16px 0px #0000001a;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: var(--color-white);
 }
 
 .header__title {

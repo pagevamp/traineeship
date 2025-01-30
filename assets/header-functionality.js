@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Handle navigation menu link clicks
-  // Removes 'active' class from all links and adds it to the clicked link
   const menuLinks = document.querySelectorAll(".header__nav-menu-link");
 
   menuLinks.forEach((link) => {
@@ -15,15 +13,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const drawerTrigger = document.querySelector(".drawer-trigger");
   const drawer = document.querySelector(".drawer");
   const drawerClose = document.querySelector(".drawer__close");
-  const drawerBlur = document.querySelector("#MainContent");
-
+  const drawerBlur = document.querySelectorAll(
+    "#MainContent, #shopify-section-footer"
+  );
   function handleDrawer(action) {
     if (action === "open") {
       drawer.classList.add("active");
-      drawerBlur.classList.add("blur");
+      drawerBlur.forEach((element) => element.classList.add("blur"));
     } else if (action === "close") {
       drawer.classList.remove("active");
-      drawerBlur.classList.remove("blur");
+      drawerBlur.forEach((element) => element.classList.remove("blur"));
     }
   }
 

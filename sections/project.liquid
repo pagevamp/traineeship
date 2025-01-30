@@ -50,7 +50,7 @@
   </div>
   <div class="project__card-details">
     <div class="project__card-location">
-      {% if block.settings.project_location != blank and section.settings.project_location_icon != blank %}
+      {% if block.settings.project_location != blank or section.settings.project_location_icon != blank %}
         <div class="project__card-location-icon">
           {%render 'icon-universe'%}
         </div>

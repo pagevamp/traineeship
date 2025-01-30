@@ -1,4 +1,5 @@
 {{ 'footer.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'footer-copyright-date.js' | asset_url }}" defer></script>
 <div class="footer">
   <div class="footer__content">
     <div class="footer__content-email-store">
@@ -6,7 +7,13 @@
         <div class="footer__content-email__container">
           <div class="footer__content-email__title">{{ section.settings.title }}</div>
           <div class="footer__content-email__box">
-            <span class="footer__content-email__label">{{ section.settings.email_title }}</span>
+            <label for="footer-email" class="footer__content-email__label">{{ section.settings.email_title }}</label>
+            <input 
+              type="text" 
+              class="footer__content-email__input" 
+              placeholder="{{ section.settings.email_title }}"
+              aria-label="{{ section.settings.email_title }}"
+            >
             <button class="footer__content-email__button">
               <span class="footer__content-email__icon">&#8250</span>
             </button>
@@ -25,20 +32,18 @@
         <div class="footer__content-about">
           <div class="footer__content-about__title">{{ section.settings.about_title }}</div>
           <div class="footer__content-about__items">
-            {% assign about_items_cleaned = section.settings.about_items | replace: ',', '\n' %}
-            {% assign about_items_array = about_items_cleaned | split: '\n' %}
-            {% for item in about_items_array %}
-              <span>{{ item }}</span>
-            {% endfor %}
+            
+              {% for link in linklists[section.settings.about].links %}
+                <a href="{{ link.url }}" class="footer__content-about__link">{{ link.title }}</a>
+              {% endfor %}
+      
           </div>
         </div>
         <div class="footer__content-support">
           <div class="footer__content-support__title">{{ section.settings.support_title }}</div>
           <div class="footer__content-support__items">
-            {% assign support_items_cleaned = section.settings.support_items | replace: ',', '\n' %}
-            {% assign support_items_array = support_items_cleaned | split: '\n' %}
-            {% for item in support_items_array %}
-              <span>{{ item }}</span>
+            {% for link in linklists[section.settings.support].links %}
+              <a href="{{ link.url }}" class="footer__content-about__link">{{ link.title }}</a>
             {% endfor %}
           </div>
         </div>
@@ -53,11 +58,11 @@
             height=""
             width="">
         </a>
-        <span>{{ section.settings.socials_logo_text }}</span>
+        <span class="copyright-date" data-text="{{ section.settings.socials_logo_text }}"></span>
       </div>
       <div class="footer__content-socials__icons">
         {% for block in section.blocks %}
-          <a href="{{ block.settings.icon_link }}" target="_blank">
+          <a href="{{ settings.socials_link }}" target="_blank">
             <img
               src="{{ block.settings.icon_image.src | image_url: width: 24, height: 24 }}"
               alt="Social Icon"
@@ -81,13 +86,12 @@
           <span>{{ section.settings.country }}</span>
         </div>
         <div class="footer__content-disclaimer__content">
-          {% assign disclaimer_items_cleaned = section.settings.disclaimer_items | replace: ',', '\n' %}
-          {% assign disclaimer_items_array = disclaimer_items_cleaned | split: '\n' %}
-          {% for item in disclaimer_items_array %}
-            <span>{{ item }}</span>
-          {% endfor %}
+          
+            {% for link in linklists[section.settings.disclaimer].links %}
+              <a href="{{ link.url }}" class="footer__content-disclaimer__link">{{ link.title }}</a>
+            {% endfor %}
+          </div>
         </div>
-      </div>
     </div>
   </div>
 </div>
@@ -126,23 +130,25 @@
         "type": "text",
         "default": "About"
       }, {
-        "id": "about_items",
-        "label": "About Items",
-        "type": "textarea"
+        "id": "about",
+        "label": "About Menu",
+        "type": "link_list"
+      },{
+        
+        "type": "link_list",
+        "id": "support",
+        "label": "Support Menu"
+      
       }, {
         "id": "support_title",
         "label": "Support Title",
         "type": "text",
         "default": "Support"
       }, {
-        "id": "support_items",
-        "label": "Support Items",
-        "type": "textarea"
-      }, {
         "id": "socials_logo_text",
         "label": "Socials Logo Text",
         "type": "text",
-        "default": "&copy 2023 New Era Cap"
+        "default": " New Era Cap"
       }, {
         "id": "socials_logo",
         "label": "Logo",
@@ -162,9 +168,9 @@
         "type": "text",
         "default": "USA"
       }, {
-        "id": "disclaimer_items",
-        "label": "Disclaimer Items",
-        "type": "textarea"
+        "id": "disclaimer",
+        "label": "Disclaimer Menu",
+        "type": "link_list"
       }
     ],
     "blocks": [
@@ -182,20 +188,6 @@
             "label": "Icon Link"
           }
         ]
-      }, {
-        "type": "footer_link",
-        "name": "Footer Link",
-        "settings": [
-          {
-            "id": "link_text",
-            "type": "text",
-            "label": "Link Text"
-          }, {
-            "id": "link_url",
-            "type": "url",
-            "label": "Link URL"
-          }
-        ]
       }
     ],
     "presets": [
@@ -204,8 +196,6 @@
         "blocks": [
           {
             "type": "social_icon"
-          }, {
-            "type": "footer_link"
           }
         ]
       }

@@ -1400,6 +1400,55 @@
         "id": "social_vimeo_link",
         "label": "t:settings_schema.social-media.settings.social_vimeo_link.label",
         "info": "t:settings_schema.social-media.settings.social_vimeo_link.info"
+      },
+      {
+        "type": "header",
+        "content": "Socail Media Icons"
+      },
+      {
+        "id": "twitter_icon",
+        "type": "image_picker",
+        "label": "Twitter Icon"
+      },
+      {
+        "id": "facebook_icon",
+        "type": "image_picker",
+        "label": "Facebook Icon"
+      },
+      {
+        "id": "instagram_icon",
+        "type": "image_picker",
+        "label": "Instagram Icon"
+      },
+      {
+        "id": "tiktok_icon",
+        "type": "image_picker",
+        "label": "Tiktok Icon"
+      },
+      {
+        "id": "snapchat_icon",
+        "type": "image_picker",
+        "label": "Snapchat Icon"
+      },
+      {
+        "id": "youtube_icon",
+        "type": "image_picker",
+        "label": "Youtube Icon"
+      },
+      {
+        "id": "vimeo_icon",
+        "type": "image_picker",
+        "label": "Vimeo Icon"
+      },
+      {
+        "id": "tumblr_icon",
+        "type": "image_picker",
+        "label": "Tumblr Icon"
+      },
+      {
+        "id": "pinterest_icon",
+        "type": "image_picker",
+        "label": "Pinterest Icon"
       }
     ]
   },

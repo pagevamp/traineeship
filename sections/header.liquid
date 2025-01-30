@@ -30,7 +30,7 @@
 
 
     <div class="header__nav-menu-container">
-      {% if section.settings.logo != blank %}
+      {% if settings.primary_logo != blank %}
         <div class="header__nav-logo">
           <a href="{{settings.logo_url}}">
             <img
@@ -101,11 +101,6 @@
   {
     "name": "Header",
     "settings": [
-      {
-        "type": "image_picker",
-        "id": "logo",
-        "label": "Logo"
-      },
       {
         "type": "header",
         "content": "Main Menu",
