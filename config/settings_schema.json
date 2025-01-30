@@ -1348,10 +1348,23 @@
         "content": "t:settings_schema.social-media.settings.header.content"
       },
       {
+        "type": "header",
+        "content": "Twitter"
+      },
+      {
         "type": "text",
         "id": "social_twitter_link",
         "label": "t:settings_schema.social-media.settings.social_twitter_link.label",
         "info": "t:settings_schema.social-media.settings.social_twitter_link.info"
+      },
+      {
+        "id": "twitter_icon",
+        "type": "image_picker",
+        "label": "Twitter Icon"
+      },
+      {
+        "type": "header",
+        "content": "Facebook"
       },
       {
         "type": "text",
@@ -1360,10 +1373,28 @@
         "info": "t:settings_schema.social-media.settings.social_facebook_link.info"
       },
       {
+        "id": "facebook_icon",
+        "type": "image_picker",
+        "label": "Facebook Icon"
+      },
+      {
+        "type": "header",
+        "content": "Pinterest"
+      },
+      {
         "type": "text",
         "id": "social_pinterest_link",
         "label": "t:settings_schema.social-media.settings.social_pinterest_link.label",
         "info": "t:settings_schema.social-media.settings.social_pinterest_link.info"
+      },
+      {
+        "id": "pinterest_icon",
+        "type": "image_picker",
+        "label": "Pinterest Icon"
+      },
+      {
+        "type": "header",
+        "content": "Instagram"
       },
       {
         "type": "text",
@@ -1372,10 +1403,28 @@
         "info": "t:settings_schema.social-media.settings.social_instagram_link.info"
       },
       {
+        "id": "instagram_icon",
+        "type": "image_picker",
+        "label": "Instagram Icon"
+      },
+      {
+        "type": "header",
+        "content": "Tiktok"
+      },
+      {
         "type": "text",
         "id": "social_tiktok_link",
         "label": "t:settings_schema.social-media.settings.social_tiktok_link.label",
         "info": "t:settings_schema.social-media.settings.social_tiktok_link.info"
+      },
+      {
+        "id": "tiktok_icon",
+        "type": "image_picker",
+        "label": "Tiktok Icon"
+      },
+      {
+        "type": "header",
+        "content": "Tumblr"
       },
       {
         "type": "text",
@@ -1384,10 +1433,28 @@
         "info": "t:settings_schema.social-media.settings.social_tumblr_link.info"
       },
       {
+        "id": "tumblr_icon",
+        "type": "image_picker",
+        "label": "Tumblr Icon"
+      },
+      {
+        "type": "header",
+        "content": "Snapchat"
+      },
+      {
         "type": "text",
         "id": "social_snapchat_link",
         "label": "t:settings_schema.social-media.settings.social_snapchat_link.label",
         "info": "t:settings_schema.social-media.settings.social_snapchat_link.info"
+      },
+      {
+        "id": "snapchat_icon",
+        "type": "image_picker",
+        "label": "Snapchat Icon"
+      },
+      {
+        "type": "header",
+        "content": "Youtube"
       },
       {
         "type": "text",
@@ -1396,59 +1463,24 @@
         "info": "t:settings_schema.social-media.settings.social_youtube_link.info"
       },
       {
+        "id": "youtube_icon",
+        "type": "image_picker",
+        "label": "Youtube Icon"
+      },
+      {
+        "type": "header",
+        "content": "Vimeo"
+      },
+      {
         "type": "text",
         "id": "social_vimeo_link",
         "label": "t:settings_schema.social-media.settings.social_vimeo_link.label",
         "info": "t:settings_schema.social-media.settings.social_vimeo_link.info"
       },
       {
-        "type": "header",
-        "content": "Socail Media Icons"
-      },
-      {
-        "id": "twitter_icon",
-        "type": "image_picker",
-        "label": "Twitter Icon"
-      },
-      {
-        "id": "facebook_icon",
-        "type": "image_picker",
-        "label": "Facebook Icon"
-      },
-      {
-        "id": "instagram_icon",
-        "type": "image_picker",
-        "label": "Instagram Icon"
-      },
-      {
-        "id": "tiktok_icon",
-        "type": "image_picker",
-        "label": "Tiktok Icon"
-      },
-      {
-        "id": "snapchat_icon",
-        "type": "image_picker",
-        "label": "Snapchat Icon"
-      },
-      {
-        "id": "youtube_icon",
-        "type": "image_picker",
-        "label": "Youtube Icon"
-      },
-      {
         "id": "vimeo_icon",
         "type": "image_picker",
         "label": "Vimeo Icon"
-      },
-      {
-        "id": "tumblr_icon",
-        "type": "image_picker",
-        "label": "Tumblr Icon"
-      },
-      {
-        "id": "pinterest_icon",
-        "type": "image_picker",
-        "label": "Pinterest Icon"
       }
     ]
   },

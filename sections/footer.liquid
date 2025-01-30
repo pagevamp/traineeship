@@ -1,20 +1,13 @@
 {{ 'footer.css' | asset_url | stylesheet_tag }}
 <div class="footer">
-
   <div class="footer__content">
-
     <div class="footer__content-email-store">
-
       <div class="footer__content-email">
-
         <div class="footer__content-email__container">
-
           <div class="footer__content-email__title">{{ section.settings.title }}</div>
 
           <div class="footer__content-email__box">
-
             <label for="footer-email" class="footer__content-email__label">{{ section.settings.email_title }}</label>
-            
             <input
               type="text"
               class="footer__content-email__input"
@@ -42,7 +35,7 @@
 
       <div class="footer__content-about-support">
         <div class="footer__content-about">
-          <div class="footer__content-about__title">{{ section.settings.about_title }}</div>
+          <div class="footer__content-about__title">{{ section.settings.about.title }}</div>
           <div class="footer__content-about__items">
 
             {% for link in linklists[section.settings.about].links %}
@@ -52,7 +45,7 @@
           </div>
         </div>
         <div class="footer__content-support">
-          <div class="footer__content-support__title">{{ section.settings.support_title }}</div>
+          <div class="footer__content-support__title">{{ section.settings.support.title }}</div>
           <div class="footer__content-support__items">
             {% for link in linklists[section.settings.support].links %}
               <a href="{{ link.url }}" class="footer__content-about__link">{{ link.title }}</a>
@@ -75,15 +68,30 @@
       </div>
 
       <div class="footer__content-socials__icons">
-        {% for block in section.blocks %}
+        {% comment %} {% for icon in section.social_media_icons %}
           <a href="{{ settings.icon_link }}" target="_blank">
             <img
-              src="{{ block.settings.icon_image.src | image_url: width: 24, height: 24 }}"
+              src="{{ icon.icon_image.src | image_url: width: 24, height: 24 }}"
               alt="Social Icon"
               height=""
               width="">
           </a>
-        {% endfor %}
+        {% endfor %} {% endcomment %}
+
+        {% assign social_platforms = "twitter,facebook,pinterest,instagram,tiktok,tumblr,snapchat,youtube,vimeo" | split: "," %}
+
+  {% for platform in social_platforms %}
+    {% comment %} Dynamically generate the setting names for links and icons {% endcomment %}
+    {% assign link_setting = "social_" | append: platform | append: "_link" %}
+    {% assign icon_setting = platform | append: "_icon" %}
+
+    {% comment %} Check if both the link and icon are provided {% endcomment %}
+    {% if settings[link_setting] != blank and settings[icon_setting] != blank %}
+      <a href="{{ settings[link_setting] }}" target="_blank" class="social-icon">
+        <img src="{{ settings[icon_setting] | image_url: width: 24, height: 24 }}" alt="{{ platform | capitalize }}" height="" width="">
+      </a>
+    {% endif %}
+  {% endfor %}
       </div>
 
     </div>
@@ -141,53 +149,44 @@
         "label": "Google Play Text",
         "type": "text",
         "default": "GET IT ON Google Play"
-      }, {
-        "id": "about_title",
-        "label": "About Title",
-        "type": "text",
-        "default": "About"
-      }, {
+      },  {
         "id": "about",
         "label": "About Menu",
         "type": "link_list"
       }, {
 
-        "type": "link_list",
         "id": "support",
-        "label": "Support Menu"
+        "label": "Support Menu",
+        "type": "link_list"
 
-      }, {
-        "id": "support_title",
-        "label": "Support Title",
-        "type": "text",
-        "default": "Support"
-      }, {
+      },
+      {
+        "id": "disclaimer",
+        "label": "Disclaimer Menu",
+        "type": "link_list"
+      }, 
+      {
         "id": "socials_logo_text",
         "label": "Socials Logo Text",
         "type": "text",
         "default": " New Era Cap"
-      }, {
-        "id": "socials_logo",
-        "label": "Logo",
-        "type": "image_picker"
-      }, {
+      }, 
+      {
         "id": "disclaimer_text",
         "label": "Disclaimer Text",
         "type": "textarea",
         "default": "All rights reserved. Product name, logos, visor stickers are New Era Trademarks: All other marks are trademarks for their owners. Nothing on this site may be copied without written permission."
-      }, {
+      }, 
+      {
         "id": "country_flag",
         "label": "Country Flag",
         "type": "image_picker"
-      }, {
+      }, 
+      {
         "id": "country",
         "label": "Country",
         "type": "text",
         "default": "USA"
-      }, {
-        "id": "disclaimer",
-        "label": "Disclaimer Menu",
-        "type": "link_list"
       }
     ],
     "blocks": [

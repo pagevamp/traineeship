@@ -237,6 +237,9 @@
 }
 
 @media (min-width: 768px) {
+  .footer {
+    padding: 40px;
+  }
   .footer__content-email {
     flex-direction: row;
     align-items: flex-end;
@@ -283,7 +286,11 @@
     white-space: nowrap;
   }
 }
+
 @media (min-width: 1440px) {
+  .footer {
+    padding: 80px 108px 40px;
+  }
   .footer__content-email {
     flex-direction: column;
     width: 50%;
