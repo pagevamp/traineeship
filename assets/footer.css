@@ -50,22 +50,11 @@
 }
 
 .footer__content-email__button {
-  padding: 0;
   background-color: white;
   border: none;
   border-radius: 100%;
   width: 32px;
   height: 32px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer__content-email__icon {
-  color: #000000;
-  font-size: 24px;
-  line-height: 1;
-  text-align: center;
 }
 
 .footer__content-store {
@@ -227,19 +216,21 @@
   opacity: 0.7;
 }
 
-.footer__content-email__input:focus {
-  border-bottom-color: #000;
-}
-
 .footer__content-about__link {
   color: #ffffff;
   text-decoration: none;
+}
+
+.icon-caret {
+  width: 12px;
+  aspect-ratio: 1;
 }
 
 @media (min-width: 768px) {
   .footer {
     padding: 40px;
   }
+
   .footer__content-email {
     flex-direction: row;
     align-items: flex-end;
@@ -291,6 +282,7 @@
   .footer {
     padding: 80px 108px 40px;
   }
+
   .footer__content-email {
     flex-direction: column;
     width: 50%;

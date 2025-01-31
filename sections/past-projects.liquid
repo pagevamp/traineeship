@@ -4,6 +4,7 @@
     <div class="pastprojects__title" >
       {{ section.settings.title }}
     </div>
+
     <div class="pastprojects__description-container">
       <div class="pastprojects__description">
         {{ section.settings.description }}
@@ -13,6 +14,7 @@
       </div>
     </div>
   </div>
+
   <div class="pastprojects__projects-container marquee">
     {% assign total_images = section.blocks.size %}
     {% assign repeat_count = 16 | divided_by: total_images | ceil %}
@@ -44,6 +46,7 @@
     {% endfor %}
   </div>
 </div>
+
 {% schema %}
   {
     "name": "Past Projects",

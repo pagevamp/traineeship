@@ -15,7 +15,7 @@
               aria-label="{{ section.settings.email_title }}">
 
             <button class="footer__content-email__button">
-              <span class="footer__content-email__icon">&#8250</span>
+              {% render 'icon-chevron-right' %}
             </button>
 
           </div>
@@ -44,6 +44,7 @@
 
           </div>
         </div>
+
         <div class="footer__content-support">
           <div class="footer__content-support__title">{{ section.settings.support.title }}</div>
           <div class="footer__content-support__items">
@@ -52,6 +53,7 @@
             {% endfor %}
           </div>
         </div>
+
       </div>
     </div>
 
@@ -68,33 +70,30 @@
       </div>
 
       <div class="footer__content-socials__icons">
-        {% comment %} {% for icon in section.social_media_icons %}
-          <a href="{{ settings.icon_link }}" target="_blank">
-            <img
-              src="{{ icon.icon_image.src | image_url: width: 24, height: 24 }}"
-              alt="Social Icon"
-              height=""
-              width="">
-          </a>
-        {% endfor %} {% endcomment %}
-
         {% assign social_platforms = "twitter,facebook,pinterest,instagram,tiktok,tumblr,snapchat,youtube,vimeo" | split: "," %}
+          {% for platform in social_platforms %}
+          {% comment %} Dynamically generate the setting names for links and icons {% endcomment %}
+          {% assign link_setting = "social_" | append: platform | append: "_link" %}
+          {% assign icon_setting = platform | append: "_icon" %}
 
-  {% for platform in social_platforms %}
-    {% comment %} Dynamically generate the setting names for links and icons {% endcomment %}
-    {% assign link_setting = "social_" | append: platform | append: "_link" %}
-    {% assign icon_setting = platform | append: "_icon" %}
-
-    {% comment %} Check if both the link and icon are provided {% endcomment %}
-    {% if settings[link_setting] != blank and settings[icon_setting] != blank %}
-      <a href="{{ settings[link_setting] }}" target="_blank" class="social-icon">
-        <img src="{{ settings[icon_setting] | image_url: width: 24, height: 24 }}" alt="{{ platform | capitalize }}" height="" width="">
-      </a>
-    {% endif %}
-  {% endfor %}
+          {% comment %} Check if both the link and icon are provided {% endcomment %}
+          {% if settings[link_setting] != blank and settings[icon_setting] != blank %}
+            <a
+              href="{{ settings[link_setting] }}"
+              target="_blank"
+              class="social-icon">
+              <img
+                src="{{ settings[icon_setting] | image_url: width: 24, height: 24 }}"
+                alt="{{ platform | capitalize }}"
+                height=""
+                width="">
+            </a>
+          {% endif %}
+        {% endfor %}
       </div>
 
     </div>
+    
     <div class="footer__content-disclaimer">
       <div class="footer__content-disclaimer__description">
         <p>{{ section.settings.disclaimer_text }}</p>
@@ -108,6 +107,7 @@
             height=""
             width="">
           <span>{{ section.settings.country }}</span>
+          <span class="icon-caret">{% render 'icon-caret' %}</span>
         </div>
         <div class="footer__content-disclaimer__content">
 
@@ -149,17 +149,19 @@
         "label": "Google Play Text",
         "type": "text",
         "default": "GET IT ON Google Play"
-      },  {
+      }, 
+      {
         "id": "about",
         "label": "About Menu",
         "type": "link_list"
-      }, {
+      }, 
+      {
 
         "id": "support",
         "label": "Support Menu",
         "type": "link_list"
 
-      },
+      }, 
       {
         "id": "disclaimer",
         "label": "Disclaimer Menu",
@@ -198,7 +200,8 @@
             "id": "icon_image",
             "type": "image_picker",
             "label": "Icon Image"
-          }, {
+          }, 
+          {
             "id": "icon_link",
             "type": "url",
             "label": "Icon Link"
