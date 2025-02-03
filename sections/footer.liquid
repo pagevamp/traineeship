@@ -1,18 +1,17 @@
 {{ 'footer.css' | asset_url | stylesheet_tag }}
-<div class="footer">
+<footer class="footer">
   <div class="footer__content">
-    <div class="footer__content-email-store">
+    <section class="footer__content-email-store">
       <div class="footer__content-email">
         <div class="footer__content-email__container">
           <h2 class="footer__content-email__title">{{ section.settings.title }}</h2>
-
           <div class="footer__content-email__box">
-            <form action="contact-form.liquid" class="footer__content-email__form">
-
+            {%- form 'customer', class: 'footer__content-email__form' -%}
               <label for="footer-email" class="footer__content-email__label">{{ section.settings.email_title }}</label>
               <input
                 id="footer-email"
                 type="email"
+                name="contact[email]"
                 class="footer__content-email__input"
                 placeholder="{{ section.settings.email_title }}"
                 aria-label="{{ section.settings.email_title }}"
@@ -22,7 +21,7 @@
                 {% render 'icon-chevron-right' %}
                 <span class="footer__content-email__button-text">Submit Email</span>
               </button>
-            </form>
+            {%- endform -%}
           </div>
         </div>
 
@@ -34,11 +33,13 @@
                         {{ section.settings.apple_store.src | image_url: width: 400 }} 400w"
                 media="(min-width: 1025px)"
                 sizes="172px">
+
               <source
                 srcset="{{ section.settings.apple_store.src | image_url: width: 375 }} 375w,
                         {{ section.settings.apple_store.src | image_url: width: 300 }} 300w"
                 media="(max-width: 1024px)"
                 sizes="172px">
+
               <img
                 class="footer__content-store__img"
                 src="{{ section.settings.apple_store.src | image_url: width: 400 }}"
@@ -56,11 +57,13 @@
                         {{ section.settings.google_play.src | image_url: width: 400 }} 400w"
                 media="(min-width: 1025px)"
                 sizes="115px">
+
               <source
                 srcset="{{ section.settings.google_play.src | image_url: width: 375 }} 375w,
                         {{ section.settings.google_play.src | image_url: width: 300 }} 300w"
                 media="(max-width: 1024px)"
                 sizes="172px">
+
               <img
                 class="footer__content-store__img"
                 src="{{ section.settings.google_play.src | image_url: width: 400 }}"
@@ -70,33 +73,29 @@
                 width="172" />
             </picture>
           </div>
-
         </div>
       </div>
 
-      <div class="footer__content-about-support">
-        <div class="footer__content-about">
-          <div class="footer__content-about__title">{{ section.settings.about.title }}</div>
+      <nav class="footer__content-about-support">
+        <section class="footer__content-about">
+          <h3 class="footer__content-about__title">{{ section.settings.about.title }}</h3>
           <div class="footer__content-about__items">
-
             {% for link in linklists[section.settings.about].links %}
               <a href="{{ link.url }}" class="footer__content-about__link">{{ link.title }}</a>
             {% endfor %}
-
           </div>
-        </div>
+        </section>
 
-        <div class="footer__content-support">
-          <div class="footer__content-support__title">{{ section.settings.support.title }}</div>
+        <section class="footer__content-support">
+          <h3 class="footer__content-support__title">{{ section.settings.support.title }}</h3>
           <div class="footer__content-support__items">
             {% for link in linklists[section.settings.support].links %}
               <a href="{{ link.url }}" class="footer__content-about__link">{{ link.title }}</a>
             {% endfor %}
           </div>
-        </div>
-
-      </div>
-    </div>
+        </section>
+      </nav>
+    </section>
 
     <div class="footer__content-socials">
       <div class="footer__content-socials__logo">
@@ -112,11 +111,12 @@
       </div>
 
       <div class="footer__content-socials__icons">
-        {% assign social_platforms = "twitter,facebook,pinterest,instagram,tiktok,tumblr,snapchat,youtube,vimeo" | split: "," %}
+        {% assign social_platforms = settings.social_media_names | downcase | split: ',' %}
           {% for platform in social_platforms %}
-          {% comment %} Dynamically generate the setting names for links and icons {% endcomment %}
-          {% assign link_setting = "social_" | append: platform | append: "_link" %}
-          {% assign icon_setting = platform | append: "_icon" %}
+          {% assign cleaned_platform = platform | strip %}
+
+          {% assign link_setting = "social_" | append: cleaned_platform | append: "_link" %}
+          {% assign icon_setting = cleaned_platform | append: "_icon" %}
 
           {% comment %} Check if both the link and icon are provided {% endcomment %}
           {% if settings[link_setting] != blank and settings[icon_setting] != blank %}
@@ -126,20 +126,19 @@
               class="social-icon">
               <img
                 src="{{ settings[icon_setting] | image_url: width: 24, height: 24 }}"
-                alt="{{ platform | capitalize }}"
+                alt="{{ cleaned_platform | capitalize }}"
                 height="24"
-                width=""24>
+                width="24">
             </a>
           {% endif %}
         {% endfor %}
       </div>
-
     </div>
 
-    <div class="footer__content-disclaimer">
+    <section class="footer__content-disclaimer">
       <div class="footer__content-disclaimer__description">
         <p>{{ section.settings.disclaimer_text }}</p>
-        
+
       </div>
 
       <div class="footer__content-disclaimer__links">
@@ -165,9 +164,9 @@
         </div>
       </div>
 
-    </div>
+    </section>
   </div>
-</div>
+</footer>
 
 
 {% schema %}

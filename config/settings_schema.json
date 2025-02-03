@@ -7,6 +7,7 @@
     "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
     "theme_support_url": "https://support.shopify.com/"
   },
+
   {
     "name": "t:settings_schema.colors.name",
     "settings": [
@@ -1481,6 +1482,17 @@
         "id": "vimeo_icon",
         "type": "image_picker",
         "label": "Vimeo Icon"
+      }
+    ]
+  },
+  {
+    "name": "Social media names",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "social_media_names",
+        "label": "Social media names",
+        "info": "Enter the names of the social media platforms you want to display in the footer. Separate each name with a comma."
       }
     ]
   },
