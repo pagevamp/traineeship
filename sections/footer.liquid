@@ -1,17 +1,17 @@
 {{ 'footer.css' | asset_url | stylesheet_tag }}
-<footer class="footer">
+<script src="{{ 'fetch-country.js' | asset_url }}" defer></script>
+<div class="footer">
   <div class="footer__content">
-    <section class="footer__content-email-store">
+    <div class="footer__content-email-store">
       <div class="footer__content-email">
         <div class="footer__content-email__container">
           <h2 class="footer__content-email__title">{{ section.settings.title }}</h2>
           <div class="footer__content-email__box">
-            {%- form 'customer', class: 'footer__content-email__form' -%}
+            <form action="contact-form.liquid" class="footer__content-email__form">
               <label for="footer-email" class="footer__content-email__label">{{ section.settings.email_title }}</label>
               <input
                 id="footer-email"
                 type="email"
-                name="contact[email]"
                 class="footer__content-email__input"
                 placeholder="{{ section.settings.email_title }}"
                 aria-label="{{ section.settings.email_title }}"
@@ -21,7 +21,7 @@
                 {% render 'icon-chevron-right' %}
                 <span class="footer__content-email__button-text">Submit Email</span>
               </button>
-            {%- endform -%}
+            </form>
           </div>
         </div>
 
@@ -76,26 +76,26 @@
         </div>
       </div>
 
-      <nav class="footer__content-about-support">
-        <section class="footer__content-about">
-          <h3 class="footer__content-about__title">{{ section.settings.about.title }}</h3>
+      <div class="footer__content-about-support">
+        <div class="footer__content-about">
+          <div class="footer__content-about__title">{{ section.settings.about.title }}</div>
           <div class="footer__content-about__items">
             {% for link in linklists[section.settings.about].links %}
               <a href="{{ link.url }}" class="footer__content-about__link">{{ link.title }}</a>
             {% endfor %}
           </div>
-        </section>
+        </div>
 
-        <section class="footer__content-support">
-          <h3 class="footer__content-support__title">{{ section.settings.support.title }}</h3>
+        <div class="footer__content-support">
+          <div class="footer__content-support__title">{{ section.settings.support.title }}</div>
           <div class="footer__content-support__items">
             {% for link in linklists[section.settings.support].links %}
               <a href="{{ link.url }}" class="footer__content-about__link">{{ link.title }}</a>
             {% endfor %}
           </div>
-        </section>
-      </nav>
-    </section>
+        </div>
+      </div>
+    </div>
 
     <div class="footer__content-socials">
       <div class="footer__content-socials__logo">
@@ -135,7 +135,7 @@
       </div>
     </div>
 
-    <section class="footer__content-disclaimer">
+    <div class="footer__content-disclaimer">
       <div class="footer__content-disclaimer__description">
         <p>{{ section.settings.disclaimer_text }}</p>
 
@@ -150,8 +150,16 @@
             width="20">
           <label class="footer__content-disclaimer__country-label">{{ section.settings.country }}</label>
           <select class="footer__content-disclaimer__country-select">
-            {% for i in (1..3) %}
-              <option class="footer__content-disclaimer__country-select__option" value="{{ section.settings.country }}">{{ section.settings.country }}</option>
+            {% assign countries = settings.countries_names | split: ',' %}
+            {% for country in countries %}   
+              {% assign cleaned_country = country | strip %}
+              <option 
+                class="footer__content-disclaimer__country-select__option" 
+                value="{{ cleaned_country }}"
+                {% if cleaned_country == section.settings.country %}selected{% endif %}
+              >
+                {{ cleaned_country }}
+              </option>
             {% endfor %}
           </select>
 
@@ -164,9 +172,9 @@
         </div>
       </div>
 
-    </section>
+    </div>
   </div>
-</footer>
+</div>
 
 
 {% schema %}

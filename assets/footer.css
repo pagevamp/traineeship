@@ -250,10 +250,12 @@ input:-webkit-autofill {
   width: 12px;
   aspect-ratio: 1;
 }
+
 .footer__content-store__apple-img {
   height: 50px;
   width: 172px;
 }
+
 .footer__content-email__form {
   display: flex;
   align-items: center;
@@ -264,14 +266,17 @@ input:-webkit-autofill {
 .footer__content-disclaimer__country-label {
   display: none;
 }
+
 .footer__content-disclaimer__country-select {
   border: none;
   outline: none;
   background: transparent;
   color: #ffffffb2;
-  width: 50px;
+  width: 40%;
   border-radius: 100%;
+  padding: 8px 16px;
 }
+
 .footer__content-disclaimer__country-select__option {
   background: #ffffff;
   color: #000000;
@@ -285,9 +290,11 @@ input:-webkit-autofill {
   .footer__content-email {
     gap: 32px;
   }
+
   .footer__content-store {
     gap: 8px;
   }
+
   .footer__content-email__container {
     width: 75%;
     display: flex;
@@ -327,6 +334,7 @@ input:-webkit-autofill {
     height: 34px;
     width: 115px;
   }
+
   .footer__content-disclaimer__links {
     flex-direction: row;
     align-items: center;
@@ -337,6 +345,7 @@ input:-webkit-autofill {
     gap: 14px;
     white-space: nowrap;
   }
+
   .footer__content-store__img {
     height: 34px;
     width: 115px;

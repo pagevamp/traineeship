@@ -1497,6 +1497,17 @@
     ]
   },
   {
+    "name": "Countries names",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "countries_names",
+        "label": "Countries names",
+        "info": "Enter the names of the countries you want to show as options in the footer. Separate each name with a comma."
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.search_input.name",
     "settings": [
       {
