@@ -1,3 +1,25 @@
+:root {
+  --color-white: #ffffff;
+  --color-white-70: #ffffffb2;
+  --color-white-65: #ffffffa6;
+  --color-white-20: #ffffff33;
+  --color-white-10: #ffffff1a;
+  --color-black: #000000;
+  --color-gray: #666666;
+
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 40px;
+
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 20px;
+  --font-size-xl: 24px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,8 +27,8 @@
 }
 
 .footer {
-  background-color: black;
-  padding: 24px 16px;
+  background-color: var(--color-black);
+  padding: var(--spacing-lg) var(--spacing-md);
 }
 
 .footer__content {
@@ -18,7 +40,7 @@
 .footer__content-email {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
 }
 
 .footer__content-email__container {
@@ -28,15 +50,15 @@
 }
 
 .footer__content-email__title {
-  color: #ffffff;
+  color: var(--color-white);
   font-weight: 500;
-  font-size: 20px;
+  font-size: var(--font-size-lg);
   line-height: 24px;
 }
 
 .footer__content-email__box {
-  border: 1px solid #ffffff33;
-  padding: 20px 16px;
+  border: 1px solid var(--color-white-20);
+  padding: 20px var(--spacing-md);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -44,9 +66,9 @@
 
 .footer__content-email__label {
   font-weight: 400;
-  font-size: 16px;
+  font-size: var(--font-size-base);
   line-height: 20px;
-  color: #ffffff33;
+  color: var(--color-white-20);
 }
 
 .footer__content-email__button {
@@ -60,7 +82,7 @@
 .footer__content-store {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  gap: 12px;
   align-items: center;
 }
 
@@ -69,14 +91,10 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding: 8px 16px;
+
   width: 50%;
-  align-items: center;
+
   justify-content: center;
-  font-weight: 500;
-  color: #ffffff;
-  font-size: 16px;
-  line-height: 16px;
 }
 
 .footer__content-about {
@@ -89,9 +107,9 @@
 .footer__content-about__title,
 .footer__content-support__title {
   font-weight: 400;
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   line-height: 18px;
-  color: #ffffffa6;
+  color: var(--color-white-65);
 }
 
 .footer__content-about__items,
@@ -207,13 +225,20 @@
   margin-right: 8px;
 }
 
-.footer__content-email__label {
+.footer__content-email__label,
+.footer__content-email__button-text {
   display: none;
 }
 
 .footer__content-email__input::placeholder {
-  color: #666;
+  color: var(--color-gray);
   opacity: 0.7;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px black inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 .footer__content-about__link {
@@ -225,6 +250,32 @@
   width: 12px;
   aspect-ratio: 1;
 }
+.footer__content-store__apple-img {
+  height: 50px;
+  width: 172px;
+}
+.footer__content-email__form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.footer__content-disclaimer__country-label {
+  display: none;
+}
+.footer__content-disclaimer__country-select {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #ffffffb2;
+  width: 50px;
+  border-radius: 100%;
+}
+.footer__content-disclaimer__country-select__option {
+  background: #ffffff;
+  color: #000000;
+}
 
 @media (min-width: 768px) {
   .footer {
@@ -232,17 +283,16 @@
   }
 
   .footer__content-email {
-    flex-direction: row;
-    align-items: flex-end;
-    width: 100%;
+    gap: 32px;
   }
-
+  .footer__content-store {
+    gap: 8px;
+  }
   .footer__content-email__container {
-    width: 50%;
+    width: 75%;
     display: flex;
     gap: 12px;
     flex-direction: column;
-    align-items: center;
   }
 
   .footer__content-email__title {
@@ -251,7 +301,7 @@
   }
 
   .footer__content-email__box {
-    width: 100%;
+    width: 70%;
   }
 
   .footer__content-store {
@@ -261,11 +311,22 @@
   .footer__content-socials {
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
+    margin-top: 64px;
+  }
+
+  .footer__content-store__apple,
+  .footer__content-store__android {
+    width: fit-content;
+    gap: 8px;
   }
 }
 
 @media (min-width: 1024px) {
+  .footer__content-store__apple-img {
+    height: 34px;
+    width: 115px;
+  }
   .footer__content-disclaimer__links {
     flex-direction: row;
     align-items: center;
@@ -275,6 +336,10 @@
     flex-direction: row;
     gap: 14px;
     white-space: nowrap;
+  }
+  .footer__content-store__img {
+    height: 34px;
+    width: 115px;
   }
 }
 

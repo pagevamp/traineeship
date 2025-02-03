@@ -4,30 +4,71 @@
     <div class="footer__content-email-store">
       <div class="footer__content-email">
         <div class="footer__content-email__container">
-          <div class="footer__content-email__title">{{ section.settings.title }}</div>
+          <h2 class="footer__content-email__title">{{ section.settings.title }}</h2>
 
           <div class="footer__content-email__box">
-            <label for="footer-email" class="footer__content-email__label">{{ section.settings.email_title }}</label>
-            <input
-              type="text"
-              class="footer__content-email__input"
-              placeholder="{{ section.settings.email_title }}"
-              aria-label="{{ section.settings.email_title }}">
+            <form action="contact-form.liquid" class="footer__content-email__form">
 
-            <button class="footer__content-email__button">
-              {% render 'icon-chevron-right' %}
-            </button>
+              <label for="footer-email" class="footer__content-email__label">{{ section.settings.email_title }}</label>
+              <input
+                id="footer-email"
+                type="email"
+                class="footer__content-email__input"
+                placeholder="{{ section.settings.email_title }}"
+                aria-label="{{ section.settings.email_title }}"
+                required>
 
+              <button type="submit" class="footer__content-email__button">
+                {% render 'icon-chevron-right' %}
+                <span class="footer__content-email__button-text">Submit Email</span>
+              </button>
+            </form>
           </div>
         </div>
 
         <div class="footer__content-store">
           <div class="footer__content-store__apple">
-            <span>{{ section.settings.store_apple }}</span>
+            <picture>
+              <source
+                srcset="{{ section.settings.apple_store.src | image_url: width: 500 }} 500w,
+                        {{ section.settings.apple_store.src | image_url: width: 400 }} 400w"
+                media="(min-width: 1025px)"
+                sizes="172px">
+              <source
+                srcset="{{ section.settings.apple_store.src | image_url: width: 375 }} 375w,
+                        {{ section.settings.apple_store.src | image_url: width: 300 }} 300w"
+                media="(max-width: 1024px)"
+                sizes="172px">
+              <img
+                class="footer__content-store__img"
+                src="{{ section.settings.apple_store.src | image_url: width: 400 }}"
+                alt="Apple Store"
+                loading="lazy"
+                height="50"
+                width="172" />
+            </picture>
           </div>
 
           <div class="footer__content-store__android">
-            <span>{{ section.settings.store_android }}</span>
+            <picture>
+              <source
+                srcset="{{ section.settings.google_play.src | image_url: width: 500 }} 500w,
+                        {{ section.settings.google_play.src | image_url: width: 400 }} 400w"
+                media="(min-width: 1025px)"
+                sizes="115px">
+              <source
+                srcset="{{ section.settings.google_play.src | image_url: width: 375 }} 375w,
+                        {{ section.settings.google_play.src | image_url: width: 300 }} 300w"
+                media="(max-width: 1024px)"
+                sizes="172px">
+              <img
+                class="footer__content-store__img"
+                src="{{ section.settings.google_play.src | image_url: width: 400 }}"
+                alt="Google Play"
+                loading="lazy"
+                height="50"
+                width="172" />
+            </picture>
           </div>
 
         </div>
@@ -62,10 +103,11 @@
         <a href="{{settings.logo_url}}">
           <img
             src="{{ settings.secondary_logo  | image_url: width: 80, height: 40 }}"
-            alt="Logo"
-            height=""
-            width="">
+            alt="{{shop.name}} Logo"
+            height="40"
+            width="80">
         </a>
+
         <span class="copyright-date">&copy; {{ 'now' | date: "%Y" }} {{ section.settings.socials_logo_text }}</span>
       </div>
 
@@ -85,18 +127,19 @@
               <img
                 src="{{ settings[icon_setting] | image_url: width: 24, height: 24 }}"
                 alt="{{ platform | capitalize }}"
-                height=""
-                width="">
+                height="24"
+                width=""24>
             </a>
           {% endif %}
         {% endfor %}
       </div>
 
     </div>
-    
+
     <div class="footer__content-disclaimer">
       <div class="footer__content-disclaimer__description">
         <p>{{ section.settings.disclaimer_text }}</p>
+        
       </div>
 
       <div class="footer__content-disclaimer__links">
@@ -104,10 +147,15 @@
           <img
             src="{{ section.settings.country_flag | image_url: width: 20, height: 10 }}"
             alt="Country Flag"
-            height=""
-            width="">
-          <span>{{ section.settings.country }}</span>
-          <span class="icon-caret">{% render 'icon-caret' %}</span>
+            height="10"
+            width="20">
+          <label class="footer__content-disclaimer__country-label">{{ section.settings.country }}</label>
+          <select class="footer__content-disclaimer__country-select">
+            {% for i in (1..3) %}
+              <option class="footer__content-disclaimer__country-select__option" value="{{ section.settings.country }}">{{ section.settings.country }}</option>
+            {% endfor %}
+          </select>
+
         </div>
         <div class="footer__content-disclaimer__content">
 
@@ -139,84 +187,54 @@
         "default": "Enter your email"
       },
       {
-        "id": "store_apple",
-        "label": "Apple Store Text",
-        "type": "text",
-        "default": "Download on the App Store"
+        "id": "apple_store",
+        "label": "Apple Store",
+        "type": "image_picker"
       },
       {
-        "id": "store_android",
-        "label": "Google Play Text",
-        "type": "text",
-        "default": "GET IT ON Google Play"
-      }, 
+        "id": "google_play",
+        "label": "Google Play",
+        "type": "image_picker"
+      },
       {
         "id": "about",
         "label": "About Menu",
         "type": "link_list"
-      }, 
+      },
       {
 
         "id": "support",
         "label": "Support Menu",
         "type": "link_list"
 
-      }, 
+      },
       {
         "id": "disclaimer",
         "label": "Disclaimer Menu",
         "type": "link_list"
-      }, 
+      },
       {
         "id": "socials_logo_text",
         "label": "Socials Logo Text",
         "type": "text",
         "default": " New Era Cap"
-      }, 
+      },
       {
         "id": "disclaimer_text",
         "label": "Disclaimer Text",
         "type": "textarea",
         "default": "All rights reserved. Product name, logos, visor stickers are New Era Trademarks: All other marks are trademarks for their owners. Nothing on this site may be copied without written permission."
-      }, 
+      },
       {
         "id": "country_flag",
         "label": "Country Flag",
         "type": "image_picker"
-      }, 
+      },
       {
         "id": "country",
         "label": "Country",
         "type": "text",
         "default": "USA"
-      }
-    ],
-    "blocks": [
-      {
-        "type": "social_icon",
-        "name": "Social Icon",
-        "settings": [
-          {
-            "id": "icon_image",
-            "type": "image_picker",
-            "label": "Icon Image"
-          }, 
-          {
-            "id": "icon_link",
-            "type": "url",
-            "label": "Icon Link"
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Default",
-        "blocks": [
-          {
-            "type": "social_icon"
-          }
-        ]
       }
     ]
   }

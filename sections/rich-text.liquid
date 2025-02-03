@@ -15,8 +15,8 @@
             class="richtext__image"
             src="{{ block.settings.brand_image.src | image_url: width:358, height:358 }}"
             alt="Brand Image"
-            height=""
-            width="">
+            height="358"
+            width="358">
         </picture>
       {% endif %}
       <div class="richtext__description" style="position: absolute; {{ block.settings.description_position }}; {% if block.settings.description_position contains 'right' %}margin-left: auto; text-align: right; width: fit-content;{% endif %}">
@@ -26,9 +26,9 @@
               <div class="richtext__description-country-icon">
                 <img
                   src="{{ block.settings.country_icon.src |  image_url: width: 12, height: 12 }}"
-                  alt=""
-                  width=""
-                  height="">
+                  alt="Country Icon "
+                  width="12"
+                  height="12">
               </div>
             {% endif %}
             {% if block.settings.country %}
@@ -56,8 +56,9 @@
             <source srcset="{{ block.settings.signature.src |  image_url: width: 355, height: 138 }}" media="(min-width: 1024px)">
             <img
               src="{{ block.settings.signature.src | image_url: width: 133, height: 52 }}"
-              height=""
-              width="">
+              alt="Signature"
+              height="52"
+              width="133">
           {% endif %}
         </picture>
       </div>
@@ -82,38 +83,39 @@
             "type": "image_picker"
           },
           {
-        "id":"description_position",
-        "label":"Select the position of the description",
-        "type":"select",
-        "default":"bottom:16px;left:16px",
-        "options":[
-          {
-            "value": "top:16px;left:16px",
-            "label": "Top Left"
-            },
-            {
-              "value":"top:50%;left:16px;width:fit-content;",
-              "label":"Center Left"
-            },{
-              "value": "bottom:16px;left:16px",
-              "label": "Bottom Left"
-            },
-            
-            {
-            "value": "top:16px;right:16px;width:fit-content;",
-            "label": "Top Right"
+            "id": "description_position",
+            "label": "Select the position of the description",
+            "type": "select",
+            "default": "bottom:16px;left:16px",
+            "options": [
+              {
+                "value": "top:16px;left:16px",
+                "label": "Top Left"
+              },
+              {
+                "value": "top:50%;left:16px;width:fit-content;",
+                "label": "Center Left"
+              },
+              {
+                "value": "bottom:16px;left:16px",
+                "label": "Bottom Left"
+              },
+
+              {
+                "value": "top:16px;right:16px;width:fit-content;",
+                "label": "Top Right"
+              },
+              {
+                "value": "top:50%;right:16px;width:fit-content;",
+                "label": "Center Right"
+              },
+              {
+                "value": "bottom:16px;right:16px;width:fit-content;",
+                "label": "Bottom Right"
+              }
+
+            ]
           },
-          {
-            "value":"top:50%;right:16px;width:fit-content;",
-            "label":"Center Right"
-          },
-          {
-            "value": "bottom:16px;right:16px;width:fit-content;",
-            "label": "Bottom Right"
-          }
-          
-        ]
-      },
           {
             "id": "country",
             "label": "Country",
@@ -124,21 +126,25 @@
             "id": "country_icon",
             "label": "Country Icon",
             "type": "image_picker"
-          }, {
+          },
+          {
             "id": "signature",
             "label": "Signature",
             "type": "image_picker"
-          }, {
+          },
+          {
             "id": "name",
             "label": "Name",
             "type": "text",
             "default": "EMEA Ft CJ Wallace"
-          }, {
+          },
+          {
             "id": "first_button",
             "label": "First Button",
             "type": "text",
             "default": "Shop Now"
-          }, {
+          },
+          {
             "id": "second_button",
             "label": "Second Button",
             "type": "text",
