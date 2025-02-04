@@ -6,8 +6,9 @@
       <div class="footer__content-email">
         <div class="footer__content-email__container">
           <h2 class="footer__content-email__title">{{ section.settings.title }}</h2>
+          {% form  'contact'%} 
           <div class="footer__content-email__box">
-            <form action="contact-form.liquid" class="footer__content-email__form">
+            <div  class="footer__content-email__form">
               <label for="footer-email" class="footer__content-email__label">{{ section.settings.email_title }}</label>
               <input
                 id="footer-email"
@@ -21,8 +22,9 @@
                 {% render 'icon-chevron-right' %}
                 <span class="footer__content-email__button-text">Submit Email</span>
               </button>
-            </form>
+            </div>
           </div>
+        {% endform %}
         </div>
 
         <div class="footer__content-store">
