@@ -13,12 +13,16 @@
   position: relative;
 }
 .richtext__image {
+  display: block;
   width: 100%;
+  height: auto;
+  max-width: 100%;
 
   aspect-ratio: 1;
   object-fit: contain;
   overflow: hidden;
 }
+
 .richtext__description {
   position: absolute;
   bottom: 16px;
@@ -91,7 +95,4 @@
     top: 24px;
     left: 24px;
   } */
-  .richtext__image {
-    width: 100%;
-  }
 }
