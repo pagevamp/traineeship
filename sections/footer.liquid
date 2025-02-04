@@ -148,6 +148,7 @@
             alt="Country Flag"
             height="10"
             width="20">
+         <div class="footer__content-disclaimer__country-container">
           <label class="footer__content-disclaimer__country-label">{{ section.settings.country }}</label>
           <select class="footer__content-disclaimer__country-select">
             {% assign countries = settings.countries_names | split: ',' %}
@@ -162,6 +163,7 @@
               </option>
             {% endfor %}
           </select>
+         </div>
 
         </div>
         <div class="footer__content-disclaimer__content">
