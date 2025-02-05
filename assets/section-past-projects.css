@@ -5,12 +5,12 @@
 }
 .pastprojects {
   background-color: #f1f1f1;
-  padding: 64px 16px 16px 16px;
 }
 .pastprojects__container {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  padding: 64px 16px 0 16px;
 }
 .pastprojects__title {
   font-size: 48px;
@@ -47,10 +47,10 @@
 }
 .pastprojects__projects-container {
   display: flex;
+  justify-content: center;
   max-width: 100%;
   gap: 4px;
   margin-top: 24px;
-  margin-left: -12px;
 }
 .pastprojects__project {
   width: 120px;
@@ -86,7 +86,6 @@
   }
   .pastprojects__projects-container {
     flex-wrap: wrap;
-    margin-left: 0;
   }
 
   @keyframes marquee {

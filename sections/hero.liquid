@@ -1,22 +1,42 @@
 {{ "section-hero.css" | asset_url | stylesheet_tag }}
-<div class="hero">
+<div class="hero" style="padding:{% if section.settings.hero_variation == "variation_1" %}40px 16px 52px{% else %}40px 16px 0px{% endif %}">
   <div class="hero__wrapper">
-    <div class="hero__content">
-      <div class="hero__content-first">
-        <span class="hero__content-first-title">{{ section.settings.title_first }}</span>
-        <div class="hero__description">
-          <div class="hero__description-text">{{ section.settings.description }}</div>
-          <div class="hero__description-button">
-            <a href="{{ section.settings.button_url }}">{{ section.settings.button_text }}</a>
+    {% if section.settings.hero_variation == "variation_1" %}
+      <div class="hero__content">
+        <div class="hero__content-first">
+          <span class="hero__content-first-title">{{ section.settings.title_first }}</span>
+          <div class="hero__description">
+            <div class="hero__description-text">{{ section.settings.description }}</div>
+            <div class="hero__description-button">
+              <a href="{{ section.settings.button_url }}">{{ section.settings.button_text }}</a>
+            </div>
           </div>
         </div>
+        <div class="hero__content-second">{{ section.settings.title_second }}</div>
+        <div class="hero__content-third">{{ section.settings.title_third }}</div>
+
       </div>
-      <div class="hero__content-second">{{ section.settings.title_second }}</div>
-      <div class="hero__content-third">{{ section.settings.title_third }}</div>
-    </div>
+    {% else %}
+      <div class="hero__content-variation-2">
+        <div class="hero__content-variation-2-title">
+          <div class="hero__content-variation-2-title-first">
+            {{ section.settings.title_variation_2 }}
+          </div>
+        </div>
+        {% if section.settings.hero_variation == "variation_2" %}
+          <div class="hero__description-variation-2">
+            <div class="hero__description-text-variation-2">{{ section.settings.description }}</div>
+            <div class="hero__description-button-variation-2">
+              <a href="{{ section.settings.button_url }}">{{ section.settings.button_text }}</a>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+
+    {% endif %}
 
   </div>
-  <div>
+  <div style="display:{% if section.settings.hero_variation == "variation_1" %}flex{% else %}none{% endif %}">
     <div class="hero__description-small">
       <div class="hero__description-text">{{ section.settings.description }}</div>
       <div class="hero__description-button">
@@ -30,6 +50,30 @@
   {
     "name": "Hero",
     "settings": [
+      {
+        "type": "header",
+        "content": "Hero Variation"
+      },
+      {
+        "type": "select",
+        "id": "hero_variation",
+        "label": "Hero Variation",
+        "options": [
+          {
+            "value": "variation_1",
+            "label": "Variation 1"
+          },
+          {
+            "value": "variation_2",
+            "label": "Variation 2"
+          }
+        ],
+        "default": "variation_1"
+      },
+      {
+        "type": "header",
+        "content": "Hero Variation 1"
+      },
       {
         "type": "text",
         "id": "title_first",
@@ -47,6 +91,21 @@
         "id": "title_third",
         "label": "Title Third",
         "default": "Projects"
+      },
+
+      {
+        "type": "header",
+        "content": "Hero Variation 2"
+      },
+      {
+        "type": "text",
+        "id": "title_variation_2",
+        "label": "Title Variation 2",
+        "default": "NEW ERA GLOBAL DESIGN"
+      },
+      {
+        "type": "header",
+        "content": "Hero Button and Description"
       },
       {
         "type": "text",

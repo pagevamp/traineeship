@@ -18,19 +18,17 @@
             height="358"
             width="358">
         </picture>
+      {% else %}
+        <div class="richtext__image-substitute"></div>
       {% endif %}
       <div class="richtext__description" style="position: absolute; {{ block.settings.description_position }}; {% if block.settings.description_position contains 'right' %}margin-left: auto; text-align: right; width: fit-content;{% endif %}">
         {% if block.settings.country != blank %}
           <div class="richtext__description-country">
-            {% if block.settings.country_icon %}
-              <div class="richtext__description-country-icon">
-                <img
-                  src="{{ block.settings.country_icon.src |  image_url: width: 12, height: 12 }}"
-                  alt="Country Icon "
-                  width="12"
-                  height="12">
-              </div>
-            {% endif %}
+
+            <div class="richtext__description-country-icon">
+              {% render 'icon-universe' %}
+            </div>
+
             {% if block.settings.country %}
               <span class="richtext__description-country-text">{{ block.settings.country }}</span>
             {% endif %}
@@ -122,11 +120,7 @@
             "type": "text",
             "default": "Nepal"
           },
-          {
-            "id": "country_icon",
-            "label": "Country Icon",
-            "type": "image_picker"
-          },
+
           {
             "id": "signature",
             "label": "Signature",

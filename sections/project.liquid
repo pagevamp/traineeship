@@ -1,69 +1,35 @@
 {{ 'project.css' | asset_url | stylesheet_tag }}
-{% comment %} {% assign cards_per_row = 3 %}
-{% for block in section.blocks %}
-  {% assign modulos = forloop.index0 | modulo: cards_per_row %}
-  {% if modulos == 0 %}
-    {% if forloop.first == false %}
-      </div>
-    {% endif %}
-    <div class="projects">
-  {% endif %}
-    <div class="project__card">
-      {% if block.settings.project_image != blank %}
-        <div class="project__card-image">
-          <img src="{{block.settings.project_image.src |  image_url: width: 171, height: 159 }}" alt="" width="" height="">
-        </div>
-      {% endif %}
-      <div class="project__card-details">
-        {% if block.settings.project_location != blank and section.settings.project_location_icon != blank %}
-          <div class="project__card-location">
-            {% if section.settings.project_location_icon != blank %}
-              <div class="project__card-location-icon">
-                <img src="{{section.settings.project_location_icon.src |  image_url: width: 12, height: 12 }}" alt="" width="" height="">
-              </div>
-            {% endif %}
-            <span class="project__card-location-text">{{block.settings.project_location}}</span>
-          </div>
-        {% endif %}
-        {% if block.settings.project_name != blank %}
-          <div class="project__card-name">{{block.settings.project_name}}</div>
-        {% endif %}
-        {% if block.settings.project_description != blank %}
-          <div class="project__card-description">{{block.settings.project_description}}</div>
-        {% endif %}
-      </div>
-    </div>
-  {% if forloop.last %}
-    </div>
-  {% endif %}
-{% endfor %} {% endcomment %}
 <div class="projects">
-{% for block in section.blocks %}
-  <div class="project__card">
-  <div class="project__card-image">
-    <picture>
-      <source srcset="{{block.settings.project_image.src |  image_url: width: 437, height: 437 }}" media="(min-width: 1440px)">
-      <source srcset="{{block.settings.project_image.src |  image_url: width: 300, height: 300 }}" media="(min-width: 1024px)">
-      <source srcset="{{block.settings.project_image.src |  image_url: width: 200, height: 200 }}" media="(min-width: 768px)">
-      <img src="{{block.settings.project_image.src |  image_url: width: 171, height: 159 }}" alt="" width="" height="">
-    </picture>
-  </div>
-  <div class="project__card-details">
-    <div class="project__card-location">
-      {% if block.settings.project_location != blank or section.settings.project_location_icon != blank %}
-        <div class="project__card-location-icon">
-          {%render 'icon-universe'%}
+  {% for block in section.blocks %}
+    <div class="project__card">
+      <div class="project__card-image">
+        <picture>
+          <source srcset="{{block.settings.project_image.src |  image_url: width: 437, height: 437 }}" media="(min-width: 1440px)">
+          <source srcset="{{block.settings.project_image.src |  image_url: width: 300, height: 300 }}" media="(min-width: 1024px)">
+          <source srcset="{{block.settings.project_image.src |  image_url: width: 200, height: 200 }}" media="(min-width: 768px)">
+          <img
+            src="{{block.settings.project_image.src |  image_url: width: 171, height: 159 }}"
+            alt=""
+            width=""
+            height="">
+        </picture>
+      </div>
+      <div class="project__card-details">
+        <div class="project__card-location">
+          {% if block.settings.project_location != blank or section.settings.project_location_icon != blank %}
+            <div class="project__card-location-icon">
+              {% render 'icon-universe' %}
+            </div>
+            <span class="project__card-location-text">{{ block.settings.project_location }}</span>
+          {% endif %}
         </div>
-        <span class="project__card-location-text">{{block.settings.project_location}}</span>
-      {% endif %}
+        <div class="project__card-text">
+          <div class="project__card-name">{{ block.settings.project_name }}</div>
+          <div class="project__card-description">{{ block.settings.project_description }}</div>
+        </div>
+      </div>
     </div>
-    <div class="project__card-text">
-      <div class="project__card-name">{{block.settings.project_name}}</div>
-      <div class="project__card-description">{{block.settings.project_description}}</div>
-    </div>
-  </div>
-</div>
-  {%endfor%}
+  {% endfor %}
 </div>
 
 {% schema %}
@@ -79,23 +45,25 @@
             "id": "project_image",
             "label": "Project Image",
             "type": "image_picker"
-          }, {
+          },
+          {
             "id": "project_location",
             "label": "Project Location",
             "type": "text",
-            "default":"Nepal"
+            "default": "Nepal"
           },
-          
+
           {
             "id": "project_name",
             "label": "Project Name",
             "type": "text",
-            "default":"Project 1"
-          }, {
+            "default": "Project 1"
+          },
+          {
             "id": "project_description",
             "label": "Project Description",
             "type": "textarea",
-            "default":"Lorem ipsum dolor sit amet consectetur. "
+            "default": "Lorem ipsum dolor sit amet consectetur. "
           }
         ]
       }
@@ -106,8 +74,4 @@
       }
     ]
   }
-{% endschema %} 
-
-
-
-
+{% endschema %}
