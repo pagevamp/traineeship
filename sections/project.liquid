@@ -2,18 +2,24 @@
 <div class="projects">
   {% for block in section.blocks %}
     <div class="project__card">
-      <div class="project__card-image">
-        <picture>
-          <source srcset="{{block.settings.project_image.src |  image_url: width: 437, height: 437 }}" media="(min-width: 1440px)">
-          <source srcset="{{block.settings.project_image.src |  image_url: width: 300, height: 300 }}" media="(min-width: 1024px)">
-          <source srcset="{{block.settings.project_image.src |  image_url: width: 200, height: 200 }}" media="(min-width: 768px)">
-          <img
-            src="{{block.settings.project_image.src |  image_url: width: 171, height: 159 }}"
-            alt=""
-            width=""
-            height="">
-        </picture>
-      </div>
+      {% if block.settings.project_image != blank %}
+        <div class="project__card-image">
+          <picture>
+            <source srcset="{{block.settings.project_image.src |  image_url: width: 437, height: 437 }}" media="(min-width: 1440px)">
+            <source srcset="{{block.settings.project_image.src |  image_url: width: 300, height: 300 }}" media="(min-width: 1024px)">
+            <source srcset="{{block.settings.project_image.src |  image_url: width: 200, height: 200 }}" media="(min-width: 768px)">
+            <img
+              src="{{block.settings.project_image.src |  image_url: width: 171, height: 159 }}"
+              alt=""
+              width=""
+              height="">
+          </picture>
+        </div>
+
+      {% else %}
+        <div class="project__card-image-substitution"></div>
+      {% endif %}
+
       <div class="project__card-details">
         <div class="project__card-location">
           {% if block.settings.project_location != blank or section.settings.project_location_icon != blank %}
