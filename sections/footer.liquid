@@ -149,22 +149,22 @@
             alt="Country Flag"
             height="10"
             width="20">
-          <div class="footer__content-disclaimer__country-container">
-            <label class="footer__content-disclaimer__country-label">{{ section.settings.country }}</label>
-            <select class="footer__content-disclaimer__country-select">
-              {% assign countries = settings.countries_names | split: ',' %}
-              {% for country in countries %}
-                {% assign cleaned_country = country | strip %}
-                <option
-                  class="footer__content-disclaimer__country-select__option"
-                  value="{{ cleaned_country }}"
-                  {% if cleaned_country == section.settings.country %}
-                  selected{% endif %}>
-                  {{ cleaned_country }}
-                </option>
-              {% endfor %}
-            </select>
-          </div>
+
+          <label class="footer__content-disclaimer__country-label">{{ section.settings.country }}</label>
+          <select class="footer__content-disclaimer__country-select">
+            {% assign countries = settings.countries_names | split: ',' %}
+            {% for country in countries %}
+              {% assign cleaned_country = country | strip %}
+              <option
+                class="footer__content-disclaimer__country-select__option"
+                value="{{ cleaned_country }}"
+                {% if cleaned_country == section.settings.country %}
+                selected{% endif %}>
+                {{ cleaned_country }}
+              </option>
+            {% endfor %}
+          </select>
+
 
         </div>
         <div class="footer__content-disclaimer__content">

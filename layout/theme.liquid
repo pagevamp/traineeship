@@ -40,10 +40,11 @@
     {% endif %}
 
     {% render 'meta-tags' %}
-    <link href="https://cdn.shopify.com/s/files/1/0915/6535/9395/files/Helvetica.woff?v=1738725644" rel="stylesheet">
 
-    <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
+
+    <script src="{{ 'global.js' | asset_url }}" defer="defer">
+  </script>
+    {% comment %} <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script> {% endcomment %}
     {{ content_for_header }}
 
     {%- liquid
@@ -257,21 +258,19 @@ body {
     {% endstyle %}
 
     {% comment %} {{ 'base.css' | asset_url | stylesheet_tag }}
-                    {{ 'app.css' | asset_url | stylesheet_tag }} {% endcomment %}
+                                {{ 'app.css' | asset_url | stylesheet_tag }} {% endcomment %}
 
     {%- unless settings.type_body_font.system? -%}
       <link
-        rel="preload"
         as="font"
-        href="{{ settings.type_body_font | font_url }}"
+        href="{{ settings.type_body_font | font_url | preload_tag }}"
         type="font/woff2"
         crossorigin>
     {%- endunless -%}
     {%- unless settings.type_header_font.system? -%}
       <link
-        rel="preload"
         as="font"
-        href="{{ settings.type_header_font | font_url }}"
+        href="{{ settings.type_header_font | font_url | preload_tag }}"
         type="font/woff2"
         crossorigin>
     {%- endunless -%}
@@ -294,8 +293,8 @@ body {
 
   <body class="gradient">
     {% comment %} <a class="skip-to-content-link button visually-hidden" href="#MainContent">
-                              {{ "accessibility.skip_to_text" | t }}
-                    </a> {% endcomment %}
+                                                {{ "accessibility.skip_to_text" | t }}
+                                </a> {% endcomment %}
 
     {%- if settings.cart_type == 'drawer' -%}
       {%- render 'cart-drawer' -%}
