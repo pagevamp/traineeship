@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.pastprojects {
+  background-color: #f1f1f1;
+}
+.pastprojects__container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 64px 16px 0 16px;
+}
+.pastprojects__title {
+  font-size: 48px;
+  font-weight: 300;
+  line-height: 40px;
+  letter-spacing: -0.04em;
+}
+.pastprojects__description-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.pastprojects__description {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}
+.pastprojects__button {
+  padding: 9px 16px;
+
+  background-color: #000000;
+  border-radius: 1000px;
+  border: none;
+  cursor: pointer;
+  width: fit-content;
+  white-space: nowrap;
+}
+.pastprojects__button a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 14px;
+  color: #ffffff;
+}
+.pastprojects__projects-container {
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  gap: 4px;
+  margin-top: 24px;
+}
+.pastprojects__project {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+.pastprojects__project-second {
+  display: none;
+}
+.pastprojects__project-third {
+  display: none;
+}
+.marquee__content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+@media (min-width: 425px) {
+  .marquee {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+    position: relative;
+  }
+
+  .marquee__content {
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    animation: marquee 20s linear infinite;
+  }
+  .pastprojects__projects-container {
+    flex-wrap: wrap;
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-30%);
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .pastprojects__container {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 48px;
+  }
+  .pastprojects__project {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .pastprojects__title {
+    font-size: 160px;
+    font-weight: 300;
+    line-height: 144px;
+    letter-spacing: -0.04em;
+    max-width: 60%;
+  }
+  .pastprojects__projects-container {
+    gap: 4px;
+  }
+  .pastprojects__description-container {
+    max-width: 30%;
+    justify-content: flex-end;
+  }
+  .pastprojects__project-second {
+    display: block;
+    margin-top: 0;
+  }
+  .pastprojects__project-third {
+    display: block;
+    margin-top: 0;
+  }
+}

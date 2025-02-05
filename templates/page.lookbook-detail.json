@@ -1,0 +1,276 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "detail_page_landing_eeqRxd": {
+      "type": "detail-page-landing",
+      "disabled": true,
+      "settings": {
+        "title": "EMEA Ft CJ Wallace",
+        "description": "Lorem ipsum dolor sit amet consectetur. Purus pharetra mi id at proin integer sed in. Lorem ipsum dolor sit amet conse. Lorem ipsum dolor sit amet consectetur. Purus pharetra mi id at proin integer sed in. Lorem ipsum dolor sit amet conse.",
+        "project_name": "Global Design Project",
+        "country": "Japan",
+        "image": "shopify://shop_images/Frame_260.png",
+        "design": "EMEA Design Studio Styling CJ Wallace",
+        "styling": "– CJ Wallace",
+        "button_1": "Shop All",
+        "button_2": "Lookbook",
+        "url": "https://traineehship.myshopify.com",
+        "video_url": "shopify://shop_images/Frame_18797.png",
+        "background_color": "#000000"
+      }
+    },
+    "detail_page_product_xh9R8g": {
+      "type": "detail-page-product",
+      "blocks": {
+        "detail_page_product_eVXFBE": {
+          "type": "detail_page_product",
+          "settings": {
+            "image": "shopify://shop_images/image2_2_e11d2b8e-053f-4c54-abe1-0ec76f5723dd.png",
+            "price": "80",
+            "title": "Global Design Project",
+            "description": "Product 1"
+          }
+        },
+        "detail_page_product_4pppCW": {
+          "type": "detail_page_product",
+          "settings": {
+            "image": "shopify://shop_images/image2_9056e1e1-ff21-4a0c-81e6-b20173da58e4.png",
+            "price": "80",
+            "title": "Global Design Project",
+            "description": "Product 1"
+          }
+        },
+        "detail_page_product_w7iKfH": {
+          "type": "detail_page_product",
+          "settings": {
+            "image": "shopify://shop_images/image2_1_cc90dd6e-2f5f-4051-81bb-db5b50b70ef9.png",
+            "price": "80",
+            "title": "Global Design Product",
+            "description": "Product 1"
+          }
+        },
+        "detail_page_product_6gKWEQ": {
+          "type": "detail_page_product",
+          "settings": {
+            "image": "shopify://shop_images/image2_2_e11d2b8e-053f-4c54-abe1-0ec76f5723dd.png",
+            "price": "80",
+            "title": "Global Project Design",
+            "description": "Product 1"
+          }
+        },
+        "detail_page_product_mLFqwH": {
+          "type": "detail_page_product",
+          "settings": {
+            "image": "shopify://shop_images/image2_3_a8625a9a-cf48-42ac-be20-e504141f750f.png",
+            "price": "80",
+            "title": "Global Project Design",
+            "description": "Project 1"
+          }
+        },
+        "detail_page_product_QbLcaH": {
+          "type": "detail_page_product",
+          "settings": {
+            "image": "shopify://shop_images/image2_2_e11d2b8e-053f-4c54-abe1-0ec76f5723dd.png",
+            "price": "80",
+            "title": "Global Project Design",
+            "description": "Project 1"
+          }
+        }
+      },
+      "block_order": [
+        "detail_page_product_eVXFBE",
+        "detail_page_product_4pppCW",
+        "detail_page_product_w7iKfH",
+        "detail_page_product_6gKWEQ",
+        "detail_page_product_mLFqwH",
+        "detail_page_product_QbLcaH"
+      ],
+      "settings": {
+        "title": "Detail Page Product"
+      }
+    },
+    "detail_page_single_product_CnDnTk": {
+      "type": "detail-page-single-product",
+      "settings": {
+        "image": "shopify://shop_images/Frame_18797_1.png"
+      }
+    },
+    "detail_page_image_text_qEBjU7": {
+      "type": "detail-page-image-text",
+      "settings": {
+        "image_first": "shopify://shop_images/Frame_270.png",
+        "image_second": "shopify://shop_images/Frame_18797.png",
+        "description": "Orem ipsum dolor sit amet consectetur. Purus pharetra mi id at proin integer sed in. ae. Egestas sed ultricies mauris ut diam dictum ac. Lorem ipsum dolor sit amet con",
+        "description_alignment": "flex-end",
+        "image_alignment": "flex-end"
+      }
+    },
+    "detail_page_product_BAGGHU": {
+      "type": "detail-page-product",
+      "blocks": {
+        "detail_page_product_6wyik9": {
+          "type": "detail_page_product",
+          "settings": {
+            "image": "shopify://shop_images/image2_2_e11d2b8e-053f-4c54-abe1-0ec76f5723dd.png",
+            "price": "80",
+            "title": "Global Design Project",
+            "description": "Product 1"
+          }
+        },
+        "detail_page_product_JWVnwF": {
+          "type": "detail_page_product",
+          "settings": {
+            "image": "shopify://shop_images/image2_9056e1e1-ff21-4a0c-81e6-b20173da58e4.png",
+            "price": "80",
+            "title": "Global Design Project",
+            "description": "Product 1"
+          }
+        },
+        "detail_page_product_RaDTFn": {
+          "type": "detail_page_product",
+          "settings": {
+            "image": "shopify://shop_images/image2_1_cc90dd6e-2f5f-4051-81bb-db5b50b70ef9.png",
+            "price": "80",
+            "title": "Global Design Product",
+            "description": "Product 1"
+          }
+        },
+        "detail_page_product_HjJEeN": {
+          "type": "detail_page_product",
+          "settings": {
+            "image": "shopify://shop_images/image2_2_e11d2b8e-053f-4c54-abe1-0ec76f5723dd.png",
+            "price": "80",
+            "title": "Global Project Design",
+            "description": "Product 1"
+          }
+        },
+        "detail_page_product_8MNmWe": {
+          "type": "detail_page_product",
+          "settings": {
+            "image": "shopify://shop_images/image2_3_a8625a9a-cf48-42ac-be20-e504141f750f.png",
+            "price": "80",
+            "title": "Global Project Design",
+            "description": "Project 1"
+          }
+        },
+        "detail_page_product_XDpUQP": {
+          "type": "detail_page_product",
+          "settings": {
+            "image": "shopify://shop_images/image2_2_e11d2b8e-053f-4c54-abe1-0ec76f5723dd.png",
+            "price": "80",
+            "title": "Global Project Design",
+            "description": "Project 1"
+          }
+        }
+      },
+      "block_order": [
+        "detail_page_product_6wyik9",
+        "detail_page_product_JWVnwF",
+        "detail_page_product_RaDTFn",
+        "detail_page_product_HjJEeN",
+        "detail_page_product_8MNmWe",
+        "detail_page_product_XDpUQP"
+      ],
+      "settings": {
+        "title": "Detail Page Product"
+      }
+    },
+    "detail_page_image_text_UhLYTD": {
+      "type": "detail-page-image-text",
+      "settings": {
+        "image_first": "shopify://shop_images/Frame_18801.png",
+        "image_second": "shopify://shop_images/Frame_18803.png",
+        "description": "Orem ipsum dolor sit amet consectetur. Purus pharetra mi id at proin integer sed in. ae. Egestas sed ultricies mauris ut diam dictum ac. Lorem ipsum dolor sit amet con",
+        "description_alignment": "flex-start",
+        "image_alignment": "flex-start"
+      }
+    },
+    "detail_page_product_wF7wgE": {
+      "type": "detail-page-product",
+      "blocks": {
+        "detail_page_product_K8wbxH": {
+          "type": "detail_page_product",
+          "settings": {
+            "image": "shopify://shop_images/image2_2_e11d2b8e-053f-4c54-abe1-0ec76f5723dd.png",
+            "price": "80",
+            "title": "Global Design Project",
+            "description": "Product 1"
+          }
+        },
+        "detail_page_product_WziaRz": {
+          "type": "detail_page_product",
+          "settings": {
+            "image": "shopify://shop_images/image2_9056e1e1-ff21-4a0c-81e6-b20173da58e4.png",
+            "price": "80",
+            "title": "Global Design Project",
+            "description": "Product 1"
+          }
+        },
+        "detail_page_product_eFDTjp": {
+          "type": "detail_page_product",
+          "settings": {
+            "image": "shopify://shop_images/image2_1_cc90dd6e-2f5f-4051-81bb-db5b50b70ef9.png",
+            "price": "80",
+            "title": "Global Design Product",
+            "description": "Product 1"
+          }
+        },
+        "detail_page_product_y34hrX": {
+          "type": "detail_page_product",
+          "settings": {
+            "image": "shopify://shop_images/image2_2_e11d2b8e-053f-4c54-abe1-0ec76f5723dd.png",
+            "price": "80",
+            "title": "Global Project Design",
+            "description": "Product 1"
+          }
+        },
+        "detail_page_product_3XepkH": {
+          "type": "detail_page_product",
+          "settings": {
+            "image": "shopify://shop_images/image2_3_a8625a9a-cf48-42ac-be20-e504141f750f.png",
+            "price": "80",
+            "title": "Global Project Design",
+            "description": "Project 1"
+          }
+        },
+        "detail_page_product_GPz74W": {
+          "type": "detail_page_product",
+          "settings": {
+            "image": "shopify://shop_images/image2_2_e11d2b8e-053f-4c54-abe1-0ec76f5723dd.png",
+            "price": "80",
+            "title": "Global Project Design",
+            "description": "Project 1"
+          }
+        }
+      },
+      "block_order": [
+        "detail_page_product_K8wbxH",
+        "detail_page_product_WziaRz",
+        "detail_page_product_eFDTjp",
+        "detail_page_product_y34hrX",
+        "detail_page_product_3XepkH",
+        "detail_page_product_GPz74W"
+      ],
+      "settings": {
+        "title": "Detail Page Product"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "detail_page_landing_eeqRxd",
+    "detail_page_product_xh9R8g",
+    "detail_page_single_product_CnDnTk",
+    "detail_page_image_text_qEBjU7",
+    "detail_page_product_BAGGHU",
+    "detail_page_image_text_UhLYTD",
+    "detail_page_product_wF7wgE"
+  ]
+}

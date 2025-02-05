@@ -1,0 +1,146 @@
+{{ 'detail-page-landing.css' | asset_url | stylesheet_tag }}
+<div class="detail-page-landing">
+  <div class="detail-page-landing-container" style="background-color: {{ section.settings.background_color }};">
+    <div class="detail-page-landing-text">
+      <a href="{{ section.settings.url }}">
+        <div class="detail-page-landing-text-top">
+          <span class="detail-page-landing-text-project-name">{{ section.settings.project_name }}</span>
+          <span class="detail-page-landing-text-country">{{ section.settings.country }}</span>
+
+        </div>
+      </a>
+      <div class="detail-page-landing-text-bottom">
+        <span>{{ section.settings.title }}</span>
+
+      </div>
+
+    </div>
+    <div class="detail-page-landing-image">
+      <div class="detail-page-landing-image-container">
+        <img
+          src="{{ section.settings.image | image_url: width: 437, height: 409 }}"
+          alt="{{ section.settings.image.alt }}"
+          height=""
+          width="">
+        <div class="detail-page-landing-image-text">
+          <span class="detail-page-landing-image-text-description">{{ section.settings.description }}</span>
+          <div class="detail-page-landing-image-text-buttons">
+            <a href="{{ section.settings.button_1_url }}" class="button">{{ section.settings.button_1 }}</a>
+            <a href="{{ section.settings.button_2_url }}" class="button">{{ section.settings.button_2 }}</a>
+          </div>
+        </div>
+      </div>
+      <div class="detail-page-landing-image-text-design">
+        <span>Design: {{ section.settings.design }}</span>
+      </div>
+    </div>
+    <div class="detail-page-landing-video">
+      <img
+        class="detail-page-landing-video-image"
+        src="{{ section.settings.video_url | image_url: width: 905, height: 678 }}"
+        alt="{{ section.settings.video_url.alt }}"
+        height=""
+        width="" />
+    </div>
+
+  </div>
+  <div class="detail-page-landing-bottom">
+    <div class="detail-page-landing-bottom-text">
+      <q class="detail-page-landing-bottom-description">{{ section.settings.description }}</q>
+      <span class="detail-page-landing-bottom-styling">{{ section.settings.styling }}</span>
+    </div>
+    <div class="detail-page-landing-bottom-image">
+      <img
+        src="{{ section.settings.image | image_url: width: 437, height: 432 }}"
+        alt="{{ section.settings.image.alt }}"
+        height=""
+        width="">
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Detail Page Landing",
+    "settings": [
+      {
+        "id": "title",
+        "label": "Title",
+        "type": "text"
+      },
+      {
+        "id": "description",
+        "label": "Description",
+        "type": "text"
+      },
+      {
+        "id": "project_name",
+        "label": "Project Name",
+        "type": "text"
+      },
+      {
+        "id": "country",
+        "label": "Country",
+        "type": "text"
+      }, {
+        "id": "image",
+        "label": "Image",
+        "type": "image_picker"
+      }, {
+        "id": "design",
+        "label": "Design",
+        "type": "text"
+      }, {
+        "id": "styling",
+        "label": "Styling",
+        "type": "text"
+      }, {
+        "id": "button_1",
+        "label": "Button 1",
+        "type": "text"
+      }, {
+        "id": "button_2",
+        "label": "Button 2",
+        "type": "text"
+      }, {
+        "id": "button_1_url",
+        "label": "Button 1 URL",
+        "type": "url"
+      }, {
+        "id": "button_2_url",
+        "label": "Button 2 URL",
+        "type": "url"
+      }, {
+        "id": "url",
+        "label": "URL",
+        "type": "url"
+      }, {
+        "id": "video_url",
+        "label": "Video URL",
+        "type": "image_picker"
+      }, {
+        "id": "background_color",
+        "label": "Background Color",
+        "type": "select",
+        "default": "#000000",
+        "options": [
+          {
+            "value": "#000000",
+            "label": "Black"
+          }, {
+            "value": "#E9e5e2",
+            "label": "Off White"
+          }, {
+            "value": "#a8a8a8",
+            "label": "Gray"
+          }
+        ]
+      }
+    ],
+    "blocks": [],
+    "presets": [
+      {
+        "name": "Detail Page Landing"
+      }
+    ]
+  }
+{% endschema %}

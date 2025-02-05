@@ -1,0 +1,206 @@
+:root {
+  --font-weight-light: 300;
+  --border-radius-pill: 1000px;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --font-size-base: 16px;
+  --line-height-base: 24px;
+  --font-family-base: Helvetica, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family-base);
+}
+.hero {
+  padding: 40px 16px 52px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
+}
+.hero__description {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  display: none;
+}
+.hero__description-small {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.hero__description-text {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+}
+.hero__description-button {
+  padding: 16px;
+  background-color: var(--color-black);
+  border-radius: var(--border-radius-pill);
+  width: fit-content;
+}
+.hero__description-button a {
+  color: var(--color-white);
+  text-decoration: none;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+}
+.hero__content-first-title {
+  font-size: 48px;
+  font-weight: var(--font-weight-light);
+  line-height: 40px;
+  letter-spacing: -0.04em;
+}
+.hero__content-second {
+  font-size: 48px;
+  line-height: 56px;
+  font-weight: var(--font-weight-light);
+  text-align: center;
+}
+.hero__content-third {
+  font-size: 48px;
+  line-height: 56px;
+  font-weight: var(--font-weight-light);
+  text-align: right;
+}
+
+.hero__content-variation-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.hero__content-variation-2-title {
+  font-size: 40px;
+  line-height: 56px;
+  font-weight: 600;
+}
+.hero__description-variation-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.hero__description-text-variation-2 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20.8px;
+}
+.hero__description-button-variation-2 {
+  background-color: var(--color-black);
+  width: fit-content;
+  padding: 8px 16px;
+  border-radius: var(--border-radius-pill);
+
+  & a {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 14.4px;
+    text-decoration: none;
+    color: var(--color-white);
+  }
+}
+
+@media (min-width: 425px) {
+  .hero__content-variation-2-title-first {
+    width: 95%;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero__content-first-title {
+    font-size: 64px;
+  }
+  .hero__content-second {
+    font-size: 64px;
+  }
+  .hero__content-third {
+    font-size: 64px;
+  }
+  .hero__content-variation-2 {
+    text-align: right;
+  }
+  .hero__content-variation-2-title {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .hero__content-variation-2-title-first {
+    width: 80%;
+    font-size: 64px;
+    line-height: 80px;
+  }
+  .hero__description-variation-2 {
+    align-items: flex-end;
+  }
+  .hero__description-text-variation-2 {
+    width: 50%;
+  }
+}
+@media (min-width: 1024px) {
+  .hero__wrapper {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .hero__content {
+    width: 100%;
+  }
+  .hero__description {
+    display: flex;
+    max-width: 30%;
+  }
+  .hero__content-first {
+    display: flex;
+    justify-content: space-between;
+  }
+  .hero__content-first-title,
+  .hero__content-second,
+  .hero__content-third {
+    font-size: 80px;
+    line-height: 60px;
+    font-weight: var(--font-weight-light);
+  }
+  .hero__description-button {
+    padding: 16px 24px;
+  }
+  .hero__description-small {
+    display: none;
+  }
+  .hero__content-variation-2-title-first {
+    width: 70%;
+    font-size: 80px;
+    line-height: 96px;
+  }
+
+  .hero__description-text-variation-2 {
+    width: 40%;
+  }
+}
+@media (min-width: 1440px) {
+  .hero__content-first-title,
+  .hero__content-second,
+  .hero__content-third {
+    font-size: 162px;
+    line-height: 144px;
+    font-weight: var(--font-weight-light);
+  }
+  .hero__content-variation-2-title-first {
+    width: 100%;
+    font-size: 154px;
+    line-height: 140px;
+    font-weight: 700;
+  }
+
+  .hero__description-text-variation-2 {
+    width: 31%;
+  }
+}

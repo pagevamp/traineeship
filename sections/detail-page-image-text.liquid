@@ -1,0 +1,81 @@
+{{ 'detail-page-image-text.css' | asset_url | stylesheet_tag }}
+<div class="detail-page-image-text">
+  <div class="detail-page-image-text__description" style="justify-content: {{ section.settings.description_alignment }};">
+    <p>{{ section.settings.description }}</p>
+  </div>
+  <div class="detail-page-image-text__image_first">
+    <img
+      src="{{ section.settings.image_first | image_url: width: 1374, height: 815 }}"
+      alt=""
+      height=""
+      width="">
+  </div>
+  <div class="detail-page-image-text__image_second" style="justify-content: {{ section.settings.image_alignment }};">
+    <img
+      src="{{ section.settings.image_second | image_url: width: 902, height: 902 }}"
+      alt=""
+      height=""
+      width="">
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Detail Page Image Text",
+    "settings": [
+      {
+        "id": "image_first",
+        "label": "Image First",
+        "type": "image_picker"
+      },
+      {
+        "id": "image_second",
+        "label": "Image Second",
+        "type": "image_picker"
+      },
+      {
+        "id": "description",
+        "label": "Description",
+        "type": "text"
+      },
+      {
+        "id": "description_alignment",
+        "label": "Description Alignment",
+        "type": "select",
+        "options": [
+          {
+            "value": "flex-start",
+            "label": "Left"
+          }, {
+            "value": "center",
+            "label": "Center"
+          }, {
+            "value": "flex-end",
+            "label": "Right"
+          }
+        ]
+      }, {
+        "id": "image_alignment",
+        "label": "Image Alignment",
+        "type": "select",
+        "options": [
+          {
+            "value": "flex-start",
+            "label": "Left"
+          }, {
+            "value": "center",
+            "label": "Center"
+          }, {
+            "value": "flex-end",
+            "label": "Right"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Detail Page Image Text"
+      }
+    ]
+  }
+{% endschema %}
