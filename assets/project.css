@@ -80,13 +80,28 @@
   }
 }
 @media screen and (min-width: 1440px) {
+  .projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 84px 32px 40px 32px;
+    gap: 24px;
+  }
   .project__card {
+    flex: 0 0 calc(33.33% - 16px);
     max-width: 437px;
     max-height: 566px;
   }
   .project__card-image img {
-    width: 437px;
+    width: 100%;
+    max-width: 437px;
     aspect-ratio: 1;
+  }
+  .project__card:nth-child(3n + 2) {
+    margin-top: 80px;
+  }
+  .project__card:nth-child(3n) {
+    margin-top: 160px;
   }
 }
 
