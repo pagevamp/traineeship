@@ -1,7 +1,7 @@
 {{ 'section-past-projects.css' | asset_url | stylesheet_tag }}
 <div class="pastprojects" style="background-color:{{section.settings.background_color}}">
   <div class="pastprojects__container">
-    <div class="pastprojects__title" >
+    <div class="pastprojects__title">
       {{ section.settings.title }}
     </div>
 
@@ -9,6 +9,7 @@
       <div class="pastprojects__description">
         {{ section.settings.description }}
       </div>
+
       <div class="pastprojects__button">
         <a href="{{ section.settings.button_url }}">{{ section.settings.button }}</a>
       </div>
@@ -32,14 +33,14 @@
             {% assign image = block.settings.projects_image %}
             {% if image != blank %}
               <div class="pastprojects__project">
-              <img
-                src="{{ image | image_url: width:200, height:200 }}"
-                loading="{% if marquee == 1 and forloop.index < 8 %}eager{% else %}lazy{% endif %}"
-                width="120"
-                height="120"
-                alt="{{ image.alt | escape }}">
-            </div>
-            {%endif%}
+                <img
+                  src="{{ image | image_url: width:200, height:200 }}"
+                  loading="{% if marquee == 1 and forloop.index < 8 %}eager{% else %}lazy{% endif %}"
+                  width="120"
+                  height="120"
+                  alt="{{ image.alt | escape }}">
+              </div>
+            {% endif %}
           {% endfor %}
         {% endfor %}
       </div>
@@ -55,26 +56,31 @@
         "id": "title",
         "label": "Title",
         "type": "text",
-        "default":"Past Projects"
-      }, {
+        "default": "Past Projects"
+      },
+      {
         "id": "description",
         "label": "Description",
         "type": "text",
-        "default":"Shop all 402 products what we’ve built over the past 4 years with the Global Design Project"
-      }, {
+        "default": "Shop all 402 products what we’ve built over the past 4 years with the Global Design Project"
+      },
+      {
         "id": "button",
         "label": "Button",
         "type": "text",
-        "default":"Shop All Projects"
-      }, {
+        "default": "Shop All Projects"
+      },
+      {
         "id": "button_url",
         "label": "Button URL",
         "type": "url"
-      },{
+      },
+      {
         "type": "header",
-        "content":"Styles",
-        "info":"Select Styles"
-      },{
+        "content": "Styles",
+        "info": "Select Styles"
+      },
+      {
         "id": "background_color",
         "label": "Background Color",
         "type": "select",
@@ -83,10 +89,12 @@
           {
             "value": "#f1f1f1",
             "label": "Default"
-          }, {
+          },
+          {
             "value": "#E9e5e2",
             "label": "Off White"
-          }, {
+          },
+          {
             "value": "#a8a8a8",
             "label": "Gray"
           }
