@@ -1,52 +1,37 @@
-:root {
-  --spacing-xs: 4px;
-  --spacing-sm: 16px;
-  --spacing-md: 24px;
-  --spacing-lg: 48px;
-  --spacing-xl: 64px;
-
-  --font-weight-light: 300;
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-
-  --color-black: #000000;
-  --color-white: #ffffff;
-  --color-background: #f1f1f1;
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 .pastprojects {
-  background-color: var(--color-background);
+  background-color: #f1f1f1;
 }
 .pastprojects__container {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
-  padding: var(--spacing-xl) var(--spacing-sm) 0 var(--spacing-sm);
+  gap: 24px;
+  padding: 64px 16px 0 16px;
 }
 .pastprojects__title {
   font-size: 48px;
-  font-weight: var(--font-weight-light);
+  font-weight: 300;
   line-height: 40px;
   letter-spacing: -0.04em;
 }
 .pastprojects__description-container {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
+  gap: 24px;
 }
 .pastprojects__description {
   font-size: 14px;
-  font-weight: var(--font-weight-regular);
+  font-weight: 400;
   line-height: 18px;
 }
 .pastprojects__button {
-  padding: 9px var(--spacing-sm);
-  background-color: var(--color-black);
+  padding: 9px 16px;
+
+  background-color: #000000;
   border-radius: 1000px;
   border: none;
   cursor: pointer;
@@ -56,16 +41,16 @@
 .pastprojects__button a {
   text-decoration: none;
   font-size: 16px;
-  font-weight: var(--font-weight-medium);
+  font-weight: 500;
   line-height: 14px;
-  color: var(--color-white);
+  color: #ffffff;
 }
 .pastprojects__projects-container {
   display: flex;
   justify-content: center;
   max-width: 100%;
-  gap: var(--spacing-xs);
-  margin-top: var(--spacing-md);
+  gap: 4px;
+  margin-top: 24px;
 }
 .pastprojects__project {
   width: 120px;
@@ -81,7 +66,7 @@
 .marquee__content {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xs);
+  gap: 4px;
 }
 
 @media (min-width: 425px) {
@@ -117,22 +102,23 @@
   .pastprojects__container {
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: 48px;
+    padding: 64px 28px 0 28px;
   }
   .pastprojects__project {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xs);
+    gap: 4px;
   }
   .pastprojects__title {
     font-size: 160px;
-    font-weight: var(--font-weight-light);
+    font-weight: 300;
     line-height: 144px;
     letter-spacing: -0.04em;
     max-width: 60%;
   }
   .pastprojects__projects-container {
-    gap: var(--spacing-xs);
+    gap: 4px;
   }
   .pastprojects__description-container {
     max-width: 30%;
