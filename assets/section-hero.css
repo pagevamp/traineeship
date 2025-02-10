@@ -227,12 +227,42 @@
   }
 }
 @media (min-width: 1440px) {
-  .hero__content-first-title,
-  .hero__content-second,
-  .hero__content-third {
+  .hero__description {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .parallax {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    overflow-y: auto;
+  }
+  .parallax-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: visible;
+    text-align: center;
+  }
+  .text {
+    position: absolute;
     font-size: var(--font-size-162);
     line-height: var(--line-height-144);
     font-weight: var(--font-weight-light);
+    letter-spacing: -4%;
+  }
+  .global {
+    top: 0;
+    left: 0;
+  }
+  .design {
+    top: 35%;
+    left: 33%;
+  }
+  .project {
+    top: 60%;
+    right: 16px;
   }
 
   .hero__content-variation-2-title-first {

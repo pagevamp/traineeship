@@ -71,7 +71,6 @@
 
 @media (min-width: 425px) {
   .marquee {
-    display: flex;
     overflow: hidden;
     width: 100%;
     white-space: nowrap;
@@ -79,7 +78,6 @@
   }
 
   .marquee__content {
-    display: flex;
     flex-direction: row;
     max-width: 100%;
     animation: marquee 20s linear infinite;

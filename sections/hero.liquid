@@ -1,10 +1,11 @@
 {{ "section-hero.css" | asset_url | stylesheet_tag }}
+<script src="{{ 'parallax.js' | asset_url }}" defer></script>
 <div class="hero" style="padding:{% if section.settings.hero_variation == "variation_1" %}40px 16px 52px{% else %}40px 16px 0px{% endif %}">
-  <div class="hero__wrapper">
+  <div class="hero__wrapper parallax">
     {% if section.settings.hero_variation == "variation_1" %}
-      <div class="hero__content">
+      <div class="hero__content parallax-container">
         <div class="hero__content-first">
-          <span class="hero__content-first-title">{{ section.settings.title_first }}</span>
+          <span class="hero__content-first-title text global">{{ section.settings.title_first }}</span>
           <div class="hero__description">
             <div class="hero__description-text">{{ section.settings.description }}</div>
             <div class="hero__description-button">
@@ -12,8 +13,8 @@
             </div>
           </div>
         </div>
-        <div class="hero__content-second">{{ section.settings.title_second }}</div>
-        <div class="hero__content-third">{{ section.settings.title_third }}</div>
+        <div class="hero__content-second text design">{{ section.settings.title_second }}</div>
+        <div class="hero__content-third text project">{{ section.settings.title_third }}</div>
       </div>
     {% else %}
       <div class="hero__content-variation-2">
