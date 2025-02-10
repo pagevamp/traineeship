@@ -1,3 +1,19 @@
+:root {
+  --gap-small: 8px;
+  --gap-medium: 16px;
+  --gap-large: 24px;
+  --gap-xlarge: 80px;
+
+  --border-radius: 1000px;
+  --border-color: #000000;
+
+  --font-small: 12px;
+  --font-medium: 16px;
+  --font-large: 24px;
+
+  --letter-spacing: -0.03em;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -17,7 +33,7 @@
 .project__card {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: var(--gap-medium);
 }
 
 .project__card-image {
@@ -36,40 +52,40 @@
 .project__card-details {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--gap-small);
 }
 
 .project__card-location {
   display: flex;
   align-items: center;
   gap: 4px;
-  padding: 4px 8px;
-  border: 1px solid #000000;
-  border-radius: 1000px;
+  padding: 4px var(--gap-small);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
   width: fit-content;
-  font-size: 16px;
+  font-size: var(--font-medium);
   font-weight: 400;
-  line-height: 16px;
-  letter-spacing: -0.03em;
+  line-height: var(--font-medium);
+  letter-spacing: var(--letter-spacing);
 }
 
 .project__card-text {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--gap-small);
 }
 
 .project__card-name {
-  font-size: 24px;
+  font-size: var(--font-large);
   font-weight: 300;
-  line-height: 24px;
-  letter-spacing: -0.03em;
+  line-height: var(--font-large);
+  letter-spacing: var(--letter-spacing);
 }
 
 .project__card-description {
-  font-size: 12px;
+  font-size: var(--font-small);
   font-weight: 400;
-  line-height: 16px;
+  line-height: var(--font-medium);
 }
 
 .project__card-location-icon {
@@ -105,7 +121,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 84px 32px 40px 32px;
-    gap: 24px;
+    gap: var(--gap-large);
   }
 
   .project__card {
@@ -126,11 +142,11 @@
   }
 
   .project__card:nth-child(3n + 2) {
-    margin-top: 80px;
+    margin-top: var(--gap-xlarge);
   }
 
   .project__card:nth-child(3n) {
-    margin-top: 160px;
+    margin-top: calc(var(--gap-xlarge) * 2);
   }
 }
 

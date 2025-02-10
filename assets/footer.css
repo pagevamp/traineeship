@@ -1,4 +1,5 @@
 :root {
+  /* Colors */
   --color-white: #ffffff;
   --color-white-70: #ffffffb2;
   --color-white-65: #ffffffa6;
@@ -7,17 +8,42 @@
   --color-black: #000000;
   --color-gray: #666666;
 
+  /* Spacing */
   --spacing-xs: 4px;
   --spacing-sm: 8px;
   --spacing-md: 16px;
   --spacing-lg: 24px;
   --spacing-xl: 32px;
   --spacing-2xl: 40px;
+  --spacing-3xl: 80px;
+  --spacing-4xl: 108px;
 
+  /* Font sizes */
   --font-size-sm: 14px;
   --font-size-base: 16px;
   --font-size-lg: 20px;
   --font-size-xl: 24px;
+
+  /* Line heights */
+  --line-height-sm: 18px;
+  --line-height-base: 20px;
+  --line-height-lg: 24px;
+  --line-height-xl: 28px;
+
+  /* Gaps */
+  --gap-xs: 4px;
+  --gap-sm: 8px;
+  --gap-md: 16px;
+  --gap-lg: 24px;
+  --gap-xl: 32px;
+  --gap-2xl: 40px;
+
+  /* Component specific */
+  --footer-email-box-padding: 20px var(--spacing-md);
+  --footer-icon-size: 32px;
+  --footer-logo-height: 40px;
+  --footer-store-img-height: 50px;
+  --footer-store-img-width: 172px;
 }
 
 * {
@@ -34,19 +60,19 @@
 .footer__content {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: var(--gap-xl);
 }
 
 .footer__content-email {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--gap-md);
 }
 
 .footer__content-email__container {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--gap-md);
 }
 
 .footer__content-email__title {
@@ -58,7 +84,7 @@
 
 .footer__content-email__box {
   border: 1px solid var(--color-white-20);
-  padding: 20px var(--spacing-md);
+  padding: var(--footer-email-box-padding);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -72,11 +98,11 @@
 }
 
 .footer__content-email__button {
-  background-color: white;
+  background-color: var(--color-white);
   border: none;
   border-radius: 100%;
-  width: 32px;
-  height: 32px;
+  width: var(--footer-icon-size);
+  height: var(--footer-icon-size);
 }
 
 .footer__content-store {
@@ -117,7 +143,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  color: #ffffff;
+  color: var(--color-white);
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
@@ -128,7 +154,7 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
-  border-bottom: 1px solid #ffffff1a;
+  border-bottom: 1px solid var(--color-white-10);
 }
 
 .footer__content-socials__logo {
@@ -139,7 +165,7 @@
 }
 
 .footer__content-socials__logo > img {
-  height: 40px;
+  height: var(--footer-logo-height);
   display: flex;
   aspect-ratio: 2;
   object-fit: scale-down;
@@ -150,7 +176,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
-  color: #ffffffb2;
+  color: var(--color-white-65);
 }
 
 .footer__content-socials__icons {
@@ -171,21 +197,21 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
-  color: #ffffffb2;
+  color: var(--color-white-65);
   width: 100%;
 }
 
 .footer__content-disclaimer__links {
   display: flex;
   flex-direction: column;
-  color: #ffffffb2;
+  color: var(--color-white-65);
   gap: 16px;
   font-size: 14px;
 }
 
 .footer__content-disclaimer__link {
   text-decoration: none;
-  color: #ffffffb2;
+  color: var(--color-white-65);
 }
 
 .footer__content-disclaimer__country {
@@ -222,7 +248,7 @@
   font-weight: 400;
   line-height: 20px;
   width: 100%;
-  color: #ffffff;
+  color: var(--color-white);
   margin-right: 8px;
 }
 
@@ -238,12 +264,12 @@
 
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px black inset !important;
-  -webkit-text-fill-color: #ffffff !important;
+  -webkit-text-fill-color: var(--color-white) !important;
   transition: background-color 5000s ease-in-out 0s;
 }
 
 .footer__content-about__link {
-  color: #ffffff;
+  color: var(--color-white);
   text-decoration: none;
 }
 
@@ -253,8 +279,8 @@ input:-webkit-autofill {
 }
 
 .footer__content-store__apple-img {
-  height: 50px;
-  width: 172px;
+  height: var(--footer-store-img-height);
+  width: var(--footer-store-img-width);
 }
 
 .footer__content-email__form {
@@ -275,20 +301,20 @@ input:-webkit-autofill {
   border: none;
   outline: none;
   background: transparent;
-  color: #ffffffb2;
+  color: var(--color-white-65);
   border-radius: 100%;
   padding: 8px 16px;
   width: 100%;
 }
 
 .footer__content-disclaimer__country-select__option {
-  background: #ffffff;
-  color: #000000;
+  background: var(--color-white);
+  color: var(--color-black);
 }
 
 @media (min-width: 768px) {
   .footer {
-    padding: 40px;
+    padding: 4px;
   }
 
   .footer__content-email {
@@ -338,11 +364,6 @@ input:-webkit-autofill {
 }
 
 @media (min-width: 1024px) {
-  .footer__content-store__apple-img {
-    height: 34px;
-    width: 115px;
-  }
-
   .footer__content-disclaimer__links {
     flex-direction: column;
   }
@@ -350,8 +371,9 @@ input:-webkit-autofill {
   .footer__content-disclaimer__country {
     width: 8%;
   }
+
   .footer__content-disclaimer__country-select {
-    padding: 0;
+    padding: 4px;
   }
 
   .footer__content-disclaimer__content {
@@ -368,7 +390,7 @@ input:-webkit-autofill {
 
 @media (min-width: 1440px) {
   .footer {
-    padding: 80px 108px 40px;
+    padding: var(--spacing-3xl) var(--spacing-4xl) var(--spacing-2xl);
   }
 
   .footer__content-email {

@@ -1,13 +1,25 @@
+:root {
+  --spacing-base: 16px;
+  --spacing-large: 32px;
+  --border-radius: 1000px;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --color-black: black;
+  --color-white: white;
+  --color-background: #f5f5f5;
+}
+
 * {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
 }
 .richtext {
-  margin: 52px 16px 0 16px;
+  margin: 52px var(--spacing-base) 0 var(--spacing-base);
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--spacing-base);
 }
 .richtext__container {
   position: relative;
@@ -30,12 +42,12 @@
 
 .richtext__description {
   position: absolute;
-  bottom: 16px;
-  left: 16px;
+  bottom: var(--spacing-base);
+  left: var(--spacing-base);
   height: auto;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--spacing-base);
 }
 .richtext__description-country-icon {
   width: 16px;
@@ -49,14 +61,14 @@
   aspect-ratio: 1;
 }
 .richtext__description-country {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 16px;
-  border: 1px solid black;
-  color: black;
+  font-weight: var(--font-weight-regular);
+  font-size: var(--spacing-base);
+  line-height: var(--spacing-base);
+  border: 1px solid var(--color-black);
+  color: var(--color-black);
   text-align: center;
   padding: 4px 8px;
-  border-radius: 1000px;
+  border-radius: var(--border-radius);
   width: fit-content;
   display: flex;
   align-items: center;
@@ -64,30 +76,30 @@
   gap: 4px;
 }
 .richtext__description-name {
-  color: black;
-  font-weight: 300;
+  color: var(--color-black);
+  font-weight: var(--font-weight-light);
   font-size: 24px;
   line-height: 24px;
 }
 .richtext__description-btn-container {
   display: flex;
-  gap: 16px;
+  gap: var(--spacing-base);
 }
 .richtext__description-btn {
-  padding: 16px;
+  padding: var(--spacing-base);
   text-align: center;
-  font-weight: 500;
-  font-size: 16px;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--spacing-base);
   line-height: 14px;
   border: none;
-  border-radius: 1000px;
+  border-radius: var(--border-radius);
   &:nth-child(1) {
-    background-color: black;
-    color: white;
+    background-color: var(--color-black);
+    color: var(--color-white);
   }
   &:nth-child(2) {
-    background-color: white;
-    color: black;
+    background-color: var(--color-white);
+    color: var(--color-black);
   }
 }
 .richtext__signature {
@@ -97,12 +109,12 @@
 }
 @media (min-width: 768px) {
   .richtext__description {
-    bottom: 32px;
-    left: 32px;
+    bottom: var(--spacing-large);
+    left: var(--spacing-large);
   }
   .richtext__signature {
-    top: 32px;
-    right: 32px;
+    top: var(--spacing-large);
+    right: var(--spacing-large);
   }
   .richtext__image-substitute {
     height: 600px;
