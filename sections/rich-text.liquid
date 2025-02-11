@@ -43,10 +43,10 @@
         {% if block.settings.first_button or block.settings.second_button %}
           <div class="richtext__description-btn-container">
             {% if block.settings.first_button != blank %}
-              <button class="richtext__description-btn">{{ block.settings.first_button }}</button>
+              <a class="richtext__description-btn" href="{{ block.settings.first_button_link }}">{{ block.settings.first_button }}</a>
             {% endif %}
             {% if block.settings.second_button != blank %}
-              <button class="richtext__description-btn">{{ block.settings.second_button }}</button>
+              <a class="richtext__description-btn" href="{{ block.settings.second_button_link }}">{{ block.settings.second_button }}</a>
             {% endif %}
           </div>
         {% endif %}
