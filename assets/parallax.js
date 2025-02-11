@@ -3,11 +3,11 @@ document.addEventListener("scroll", () => {
   let viewportHeight = window.innerHeight;
 
   let startGlobal = viewportHeight * 0;
-  let stopPosition = viewportHeight * 0.35;
-  let startProject = viewportHeight * 0.6;
+  let stopPosition = viewportHeight * 0.2;
+  let startProject = viewportHeight * 0.4;
 
   let globalY = Math.min(startGlobal + scrollY * 1.25, stopPosition);
-  let projectY = Math.max(startProject - scrollY * 1, stopPosition);
+  let projectY = Math.max(startProject - scrollY * 0.8, stopPosition);
 
   document.querySelector(".global").style.top = `${globalY}px`;
   document.querySelector(".project").style.top = `${projectY}px`;

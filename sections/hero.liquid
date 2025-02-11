@@ -1,6 +1,6 @@
 {{ "section-hero.css" | asset_url | stylesheet_tag }}
 <script src="{{ 'parallax.js' | asset_url }}" defer></script>
-<div class="hero" style="padding:{% if section.settings.hero_variation == "variation_1" %}40px 16px 52px{% else %}40px 16px 0px{% endif %}">
+<div class="hero" style="padding:{% if section.settings.hero_variation == "variation_1" %}40px 16px 0px{% else %}40px 16px 0px{% endif %}">
   <div class="hero__wrapper parallax">
     {% if section.settings.hero_variation == "variation_1" %}
       <div class="hero__content parallax-container">

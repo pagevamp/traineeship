@@ -31,7 +31,7 @@
 }
 
 .hero {
-  padding: 40px 16px 52px;
+  padding: 40px 16px 0;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -233,7 +233,6 @@
     right: 0;
   }
   .parallax {
-    min-height: 100vh;
     display: flex;
     justify-content: center;
     overflow-y: auto;
@@ -241,8 +240,8 @@
   .parallax-container {
     position: relative;
     width: 100%;
-    min-height: 100vh;
-    overflow: visible;
+    min-height: 65vh;
+    overflow: hidden;
     text-align: center;
   }
   .text {
@@ -254,17 +253,19 @@
   }
   .global {
     top: 0;
-    left: 0;
+    left: 16px;
   }
   .design {
     top: 35%;
-    left: 33%;
+    left: 35%;
   }
   .project {
-    top: 60%;
+    top: 63%;
     right: 16px;
   }
-
+  .hero {
+    padding: 40px 16px 0 16px;
+  }
   .hero__content-variation-2-title-first {
     width: 100%;
     font-size: 154px;

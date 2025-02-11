@@ -1,13 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
   const menuLinks = document.querySelectorAll(".header__nav-menu-link");
 
-  menuLinks.forEach((link) => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-      menuLinks.forEach((link) => link.classList.remove("active"));
-      link.classList.add("active");
+  // Add this new function to set active state based on current URL
+  const setActiveMenuLink = () => {
+    const currentPath = window.location.pathname;
+    menuLinks.forEach((link) => {
+      const linkPath = link.getAttribute("href");
+      if (linkPath === currentPath) {
+        link.classList.add("active");
+        link.querySelector(".header__nav-menu-dot").classList.add("active");
+      } else {
+        link.classList.remove("active");
+        link.querySelector(".header__nav-menu-dot").classList.remove("active");
+      }
     });
-  });
+  };
+
+  // Call it when page loads
+  setActiveMenuLink();
 
   // Drawer/mobile menu functionality
   const drawerTrigger = document.querySelector(".drawer-trigger");
@@ -16,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const drawerBlur = document.querySelectorAll(
     "#MainContent, #shopify-section-footer"
   );
+
   function handleDrawer(action) {
     if (action === "open") {
       drawer.classList.add("active");
@@ -49,13 +60,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
-function handleMenuClick(event, element) {
-  event.preventDefault();
-
-  document.querySelectorAll(".header__nav-menu-link").forEach((link) => {
-    link.classList.remove("active");
-  });
-
-  element.classList.add("active");
-}

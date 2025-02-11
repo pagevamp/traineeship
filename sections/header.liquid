@@ -16,10 +16,7 @@
         <div class="drawer__menu">
           {% if linklists[section.settings.main_menu].links.size > 0 %}
             {% for link in linklists[section.settings.main_menu].links %}
-              <a
-                href="{{ link.url }}"
-                class="drawer__menu-link {% if forloop.first %}active{% endif %}"
-                onclick="event.preventDefault();">
+              <a href="{{ link.url }}" class="drawer__menu-link {% if link.url == request.path %}active{% endif %}">
                 <span class="drawer__menu-text">{{ link.title }}</span>
               </a>
             {% endfor %}
@@ -45,11 +42,7 @@
       <div class="header__nav-menu">
         {% if linklists[section.settings.main_menu].links.size > 0 %}
           {% for link in linklists[section.settings.main_menu].links %}
-            {% assign active_index = section.settings.active_menu | default: 1 | at_most: linklists[section.settings.main_menu].links.size | at_least: 1 %}
-            <a
-              href="{{ link.url }}"
-              class="header__nav-menu-link {% if forloop.index == active_index %}active{% endif %}"
-              onclick="handleMenuClick(event, this);">
+            <a href="{{ link.url }}" class="header__nav-menu-link {% if forloop.first %}active{% endif %}">
               <span class="header__nav-menu-text">{{ link.title }}</span>
               <span class="header__nav-menu-dot"></span>
             </a>
@@ -122,17 +115,6 @@
         "id": "secondary_menu",
         "label": "Secondary Menu",
         "default": "main-menu"
-      },
-      {
-        "type": "header",
-        "content": "Menu Settings"
-      },
-      {
-        "id": "active_menu",
-        "type": "number",
-        "label": "Active Menu",
-        "info": "This menu will be used to determine which menu item should be active",
-        "default": 1
       }
     ]
   }
