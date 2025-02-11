@@ -1,79 +1,53 @@
 {{ 'project.css' | asset_url | stylesheet_tag }}
 <div class="projects">
-  {% for block in section.blocks %}
-    <div class="project__card">
-      {% if block.settings.project_image != blank %}
-        <div class="project__card-image">
-          <picture>
-            <source srcset="{{block.settings.project_image.src |  image_url: width: 600, height: 600 }}" media="(min-width: 1440px)">
-            <source srcset="{{block.settings.project_image.src |  image_url: width: 300, height: 300 }}" media="(min-width: 1024px)">
-            <source srcset="{{block.settings.project_image.src |  image_url: width: 200, height: 200 }}" media="(min-width: 768px)">
-            <img
-              src="{{block.settings.project_image.src |  image_url: width: 171, height: 159 }}"
-              alt=""
-              width=""
-              height="">
-          </picture>
-        </div>
+  {% assign projects = blogs.projects.articles | sort: "title" %}
+  {% for project in projects %}
+    <a href="{{project.url}}">
+      <div class="project__card">
+        {% if project.image != blank %}
+          <div class="project__card-image">
+            <picture>
+              <source srcset="{{project.image.src |  image_url: width: 600, height: 600 }}" media="(min-width: 1440px)">
+              <source srcset="{{project.image.src |  image_url: width: 300, height: 300 }}" media="(min-width: 1024px)">
+              <source srcset="{{project.image.src |  image_url: width: 200, height: 200 }}" media="(min-width: 768px)">
+              <img
+                src="{{project.image.src |  image_url: width: 171, height: 159 }}"
+                alt=""
+                width=""
+                height="">
+            </picture>
+          </div>
 
-      {% else %}
-        <div class="project__card-image-substitution"></div>
-      {% endif %}
+        {% else %}
+          <div class="project__card-image-substitution"></div>
+        {% endif %}
 
-      <div class="project__card-details">
-        <div class="project__card-location">
-          {% if block.settings.project_location != blank or section.settings.project_location_icon != blank %}
-            <div class="project__card-location-icon">
-              {% render 'icon-universe' %}
-            </div>
-            <span class="project__card-location-text">{{ block.settings.project_location }}</span>
-          {% endif %}
-        </div>
-        <div class="project__card-text">
-          <div class="project__card-name">{{ block.settings.project_name }}</div>
-          <div class="project__card-description">{{ block.settings.project_description }}</div>
+        <div class="project__card-details">
+          <div class="project__card-location">
+            {% if project.metafields.custom.country != blank or section.settings.project_location_icon != blank %}
+              <div class="project__card-location-icon">
+                {% render 'icon-universe' %}
+              </div>
+              <span class="project__card-location-text">{{ project.metafields.custom.country }}</span>
+            {% endif %}
+          </div>
+          <div class="project__card-text">
+            <div class="project__card-name">{{ project.title }}</div>
+            <div class="project__card-description">{{ project.content }}</div>
+          </div>
         </div>
       </div>
-    </div>
+    </a>
   {% endfor %}
+
 </div>
+
 
 {% schema %}
   {
     "name": "Projects",
     "settings": [],
-    "blocks": [
-      {
-        "name": "projects",
-        "type": "projects",
-        "settings": [
-          {
-            "id": "project_image",
-            "label": "Project Image",
-            "type": "image_picker"
-          },
-          {
-            "id": "project_location",
-            "label": "Project Location",
-            "type": "text",
-            "default": "Nepal"
-          },
-
-          {
-            "id": "project_name",
-            "label": "Project Name",
-            "type": "text",
-            "default": "Project 1"
-          },
-          {
-            "id": "project_description",
-            "label": "Project Description",
-            "type": "textarea",
-            "default": "Lorem ipsum dolor sit amet consectetur. "
-          }
-        ]
-      }
-    ],
+    "blocks": [],
     "presets": [
       {
         "name": "Projects"

@@ -5,7 +5,8 @@
   --gap-xlarge: 80px;
 
   --border-radius: 1000px;
-  --border-color: #000000;
+  --primary-color: #000000;
+  --secondary-color: #0000000c
 
   --font-small: 12px;
   --font-medium: 16px;
@@ -29,6 +30,10 @@
 
   width: 100%;
 }
+.projects a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
 
 .project__card {
   display: flex;
@@ -46,7 +51,7 @@
 .project__card-image-substitution {
   width: 171px;
   height: 159px;
-  background-color: #0000000c;
+  background-color: var(--secondary-color);
 }
 
 .project__card-details {
@@ -60,7 +65,7 @@
   align-items: center;
   gap: 4px;
   padding: 4px var(--gap-small);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--primary-color);
   border-radius: var(--border-radius);
   width: fit-content;
   font-size: var(--font-medium);
