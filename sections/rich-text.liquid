@@ -2,7 +2,6 @@
 
 <div class="richtext">
   {% for block in section.blocks %}
-
     <div class="richtext__container">
       {% if block.settings.brand_image.src %}
         <picture>
@@ -18,9 +17,11 @@
             height="358"
             width="358">
         </picture>
+
       {% else %}
         <div class="richtext__image-substitute"></div>
       {% endif %}
+
       <div class="richtext__description" style="position: absolute; {{ block.settings.description_position }}; {% if block.settings.description_position contains 'right' %}margin-left: auto; text-align: right; width: fit-content;{% endif %}">
         {% if block.settings.country != blank %}
           <div class="richtext__description-country">
@@ -34,9 +35,11 @@
             {% endif %}
           </div>
         {% endif %}
+
         {% if block.settings.name != blank %}
           <div class="richtext__description-name">{{ block.settings.name }}</div>
         {% endif %}
+
         {% if block.settings.first_button or block.settings.second_button %}
           <div class="richtext__description-btn-container">
             {% if block.settings.first_button != blank %}
@@ -48,11 +51,13 @@
           </div>
         {% endif %}
       </div>
+
       <div class="richtext__signature">
         <picture>
           {% if block.settings.signature %}
             <source srcset="{{ block.settings.signature.src |  image_url: width: 355, height: 138 }}" media="(min-width: 1024px)">
             <img
+              class="richtext__signature-image"
               src="{{ block.settings.signature.src | image_url: width: 133, height: 52 }}"
               alt="Signature"
               height="52"
@@ -61,7 +66,6 @@
         </picture>
       </div>
     </div>
-
   {% endfor %}
 </div>
 

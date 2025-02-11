@@ -15,25 +15,28 @@
   padding: 0px;
   box-sizing: border-box;
 }
+
 .richtext {
   margin: 52px var(--spacing-base) 0 var(--spacing-base);
   display: flex;
   flex-direction: column;
   gap: var(--spacing-base);
 }
+
 .richtext__container {
   position: relative;
 }
+
 .richtext__image {
   display: block;
   width: 100%;
   height: auto;
   max-width: 100%;
-
   aspect-ratio: 1;
   object-fit: contain;
   overflow: hidden;
 }
+
 .richtext__image-substitute {
   width: 100%;
   height: 400px;
@@ -49,6 +52,7 @@
   flex-direction: column;
   gap: var(--spacing-base);
 }
+
 .richtext__description-country-icon {
   width: 16px;
   height: 16px;
@@ -56,10 +60,12 @@
   align-items: center;
   justify-content: center;
 }
+
 .richtext__description-country-icon img {
   width: 12px;
   aspect-ratio: 1;
 }
+
 .richtext__description-country {
   font-weight: var(--font-weight-regular);
   font-size: var(--spacing-base);
@@ -75,16 +81,19 @@
   justify-content: space-between;
   gap: 4px;
 }
+
 .richtext__description-name {
   color: var(--color-black);
   font-weight: var(--font-weight-light);
   font-size: 24px;
   line-height: 24px;
 }
+
 .richtext__description-btn-container {
   display: flex;
   gap: var(--spacing-base);
 }
+
 .richtext__description-btn {
   padding: var(--spacing-base);
   text-align: center;
@@ -93,30 +102,42 @@
   line-height: 14px;
   border: none;
   border-radius: var(--border-radius);
+
   &:nth-child(1) {
     background-color: var(--color-black);
     color: var(--color-white);
   }
+
   &:nth-child(2) {
     background-color: var(--color-white);
     color: var(--color-black);
   }
 }
+
 .richtext__signature {
   position: absolute;
   top: 16px;
   right: 16px;
 }
+
 @media (min-width: 768px) {
   .richtext__description {
     bottom: var(--spacing-large);
     left: var(--spacing-large);
   }
+
   .richtext__signature {
     top: var(--spacing-large);
     right: var(--spacing-large);
   }
+
   .richtext__image-substitute {
     height: 600px;
+  }
+}
+@media (min-width: 1024px) {
+  .richtext__signature-image {
+    width: 355px;
+    height: 138px;
   }
 }
