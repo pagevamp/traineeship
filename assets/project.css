@@ -130,10 +130,14 @@
     max-height: 566px;
   }
 
+  .project__card-image {
+    height: 437px;
+    aspect-ratio: 1;
+  }
+
   .project__card-image img {
     width: 100%;
-    max-width: 437px;
-    aspect-ratio: 1;
+    height: 100%;
   }
 
   .project__card-image-substitution {

@@ -3,7 +3,7 @@ document.addEventListener("scroll", () => {
   let viewportHeight = window.innerHeight;
 
   let startGlobal = viewportHeight * 0;
-  let stopPosition = viewportHeight * 0.2;
+  let stopPosition = viewportHeight * 0.23;
   let startProject = viewportHeight * 0.4;
 
   let globalY = Math.min(startGlobal + scrollY * 1.25, stopPosition);
