@@ -46,12 +46,39 @@
         {% endif %}
 
         {% if block.settings.first_button or block.settings.second_button %}
-          <div class="richtext__description-btn-container">
-            {% if block.settings.first_button != blank %}
-              <a class="richtext__description-btn" href="{{ block.settings.first_button_link }}">{{ block.settings.first_button }}</a>
+          <div class="richtext__description-btn-container" style="justify-content: {{ block.settings.button_position }}">
+
+            {% if block.settings.primary_button == 'first' and block.settings.first_button != blank %}
+              <a
+                class="richtext__description-btn primary"
+                href="{{ block.settings.first_button_link }}"
+                style="background-color: {{ block.settings.primary_button_bg }}; color: {{ block.settings.primary_button_text_color }};">
+                {{ block.settings.first_button }}
+              </a>
+            {% elsif block.settings.primary_button == 'second' and block.settings.second_button != blank %}
+              <a
+                class="richtext__description-btn primary"
+                href="{{ block.settings.second_button_link }}"
+                style="background-color: {{ block.settings.primary_button_bg }}; color: {{ block.settings.primary_button_text_color }};">
+                {{ block.settings.second_button }}
+              </a>
             {% endif %}
-            {% if block.settings.second_button != blank %}
-              <a class="richtext__description-btn" href="{{ block.settings.second_button_link }}">{{ block.settings.second_button }}</a>
+
+
+            {% if block.settings.primary_button == 'second' and block.settings.first_button != blank %}
+              <a
+                class="richtext__description-btn secondary"
+                href="{{ block.settings.first_button_link }}"
+                style="background-color: {{ block.settings.secondary_button_bg }}; color: {{ block.settings.secondary_button_text_color }};">
+                {{ block.settings.first_button }}
+              </a>
+            {% elsif block.settings.primary_button == 'first' and block.settings.second_button != blank %}
+              <a
+                class="richtext__description-btn secondary"
+                href="{{ block.settings.second_button_link }}"
+                style="background-color: {{ block.settings.secondary_button_bg }}; color: {{ block.settings.secondary_button_text_color }};">
+                {{ block.settings.second_button }}
+              </a>
             {% endif %}
           </div>
         {% endif %}
@@ -144,11 +171,27 @@
           },
           {
             "type": "header",
-            "content": "First Button"
+            "content": "Buttons"
+          },
+          {
+            "id": "primary_button",
+            "label": "Select Primary Button",
+            "type": "select",
+            "options": [
+              {
+                "value": "first",
+                "label": "First Button"
+              },
+              {
+                "value": "second",
+                "label": "Second Button"
+              }
+            ],
+            "default": "first"
           },
           {
             "id": "first_button",
-            "label": "First Button",
+            "label": "First Button Text",
             "type": "text",
             "default": "Shop Now"
           },
@@ -158,19 +201,63 @@
             "type": "url"
           },
           {
-            "type": "header",
-            "content": "Second Button"
-          },
-          {
             "id": "second_button",
-            "label": "Second Button",
+            "label": "Second Button Text",
             "type": "text",
-            "default": "Primary"
+            "default": "Learn More"
           },
           {
             "id": "second_button_link",
             "label": "Second Button Link",
             "type": "url"
+          },
+          {
+            "type": "header",
+            "content": "Button Styles"
+          },
+          {
+            "id": "button_position",
+            "label": "Button Position",
+            "type": "select",
+            "options": [
+              {
+                "value": "flex-start",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "flex-end",
+                "label": "Right"
+              }
+            ],
+            "default": "flex-start"
+          },
+          {
+            "id": "primary_button_bg",
+            "label": "Primary Button Background",
+            "type": "color",
+            "default": "#000000"
+          },
+          {
+            "id": "primary_button_text_color",
+            "label": "Primary Button Text Color",
+            "type": "color",
+            "default": "#FFFFFF"
+          },
+          {
+            "id": "secondary_button_bg",
+            "label": "Secondary Button Background",
+            "type": "color",
+            "default": "#FFFFFF"
+          },
+          {
+            "id": "secondary_button_text_color",
+            "label": "Secondary Button Text Color",
+            "type": "color",
+            "default": "#000000"
           }
         ],
         "limit": 1

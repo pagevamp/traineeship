@@ -244,6 +244,11 @@
     overflow: hidden;
     text-align: center;
   }
+
+  .parallax-container ::-webkit-scrollbar {
+    display: none;
+  }
+
   .text {
     position: absolute;
     font-size: var(--font-size-162);
