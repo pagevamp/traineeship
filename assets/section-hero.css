@@ -254,7 +254,7 @@
     font-size: var(--font-size-162);
     line-height: var(--line-height-144);
     font-weight: var(--font-weight-light);
-    letter-spacing: -4%;
+    letter-spacing: -0.04em;
   }
   .global {
     top: 0;
