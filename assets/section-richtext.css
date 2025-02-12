@@ -136,6 +136,7 @@
     height: 600px;
   }
 }
+
 @media (min-width: 1024px) {
   .richtext__signature-image {
     width: 355px;

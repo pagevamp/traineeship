@@ -11,8 +11,11 @@
           <div class="project__card-image">
             <picture>
               <source srcset="{{project.image.src |  image_url: width: 600, height: 600 }}" media="(min-width: 1440px)">
+
               <source srcset="{{project.image.src |  image_url: width: 300, height: 300 }}" media="(min-width: 1024px)">
+
               <source srcset="{{project.image.src |  image_url: width: 200, height: 200 }}" media="(min-width: 768px)">
+
               <img
                 src="{{project.image.src |  image_url: width: 171, height: 159 }}"
                 alt=""
@@ -20,11 +23,9 @@
                 height="">
             </picture>
           </div>
-
         {% else %}
           <div class="project__card-image-substitution"></div>
         {% endif %}
-
         <div class="project__card-details">
           <div class="project__card-location">
             {% if project.metafields.custom.country != blank or section.settings.project_location_icon != blank %}
@@ -34,9 +35,12 @@
               <span class="project__card-location-text">{{ project.metafields.custom.country }}</span>
             {% endif %}
           </div>
+
           <div class="project__card-text">
             <div class="project__card-name">{{ project.title }}</div>
+
             <div class="project__card-description">{{ project.content }}</div>
+
           </div>
         </div>
       </a>

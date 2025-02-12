@@ -7,11 +7,11 @@
       <a href="#" class="drawer-trigger">{% render 'icon-hamburger' %}</a>
     </div>
 
-
     <div class="drawer">
       <div class="drawer__header">
         <button class="drawer__close">{% render 'icon-close' %}</button>
       </div>
+
       <div class="drawer__content">
         <div class="drawer__menu">
           {% if linklists[section.settings.main_menu].links.size > 0 %}
@@ -24,7 +24,6 @@
         </div>
       </div>
     </div>
-
 
     <div class="header__nav-menu-container">
       {% if settings.primary_logo != blank %}
@@ -49,9 +48,7 @@
           {% endfor %}
         {% endif %}
       </div>
-
     </div>
-
 
     <div class="header__nav-icons">
       {% if linklists[section.settings.secondary_menu].links.size > 0 %}

@@ -6,23 +6,28 @@
       <div class="hero__content parallax-container">
         <div class="hero__content-first">
           <span class="hero__content-first-title text global">{{ section.settings.title_first }}</span>
+
           <div class="hero__description">
             <div class="hero__description-text">{{ section.settings.description }}</div>
+
             <div class="hero__description-button">
               <a href="#">{{ section.settings.button_text }}</a>
             </div>
+
           </div>
         </div>
         <div class="hero__content-second text design">{{ section.settings.title_second }}</div>
         <div class="hero__content-third text project">{{ section.settings.title_third }}</div>
       </div>
     {% else %}
+
       <div class="hero__content-variation-2">
         <div class="hero__content-variation-2-title">
           <div class="hero__content-variation-2-title-first">
             {{ section.settings.title_variation_2 }}
           </div>
         </div>
+
         {% if section.settings.hero_variation == "variation_2" %}
           <div class="hero__description-variation-2">
             <div class="hero__description-text-variation-2">{{ section.settings.description }}</div>
@@ -31,17 +36,20 @@
             </div>
           </div>
         {% endif %}
+
       </div>
 
     {% endif %}
-
   </div>
+
   <div style="display:{% if section.settings.hero_variation == "variation_1" %}flex{% else %}none{% endif %}">
     <div class="hero__description-small">
       <div class="hero__description-text">{{ section.settings.description }}</div>
+
       <div class="hero__description-button">
         <a href="{{ section.settings.button_url }}">{{ section.settings.button_text }}</a>
       </div>
+
     </div>
   </div>
 </div>

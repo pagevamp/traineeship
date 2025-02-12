@@ -80,6 +80,7 @@
       <div class="footer__content-about-support">
         <div class="footer__content-about">
           <div class="footer__content-about__title">{{ section.settings.about.title }}</div>
+
           <div class="footer__content-about__items">
             {% for link in linklists[section.settings.about].links %}
               <a href="{{ link.url }}" class="footer__content-about__link">{{ link.title }}</a>
@@ -89,6 +90,7 @@
 
         <div class="footer__content-support">
           <div class="footer__content-support__title">{{ section.settings.support.title }}</div>
+
           <div class="footer__content-support__items">
             {% for link in linklists[section.settings.support].links %}
               <a href="{{ link.url }}" class="footer__content-about__link">{{ link.title }}</a>
@@ -109,17 +111,20 @@
         </a>
 
         <span class="copyright-date">&copy; {{ 'now' | date: "%Y" }} {{ section.settings.socials_logo_text }}</span>
+
       </div>
 
       <div class="footer__content-socials__icons">
         {% assign social_platforms = settings.social_media_names | downcase | split: ',' %}
-          {% for platform in social_platforms %}
+
+        {% for platform in social_platforms %}
+
           {% assign cleaned_platform = platform | strip %}
 
           {% assign link_setting = "social_" | append: cleaned_platform | append: "_link" %}
+
           {% assign icon_setting = cleaned_platform | append: "_icon" %}
 
-          {% comment %} Check if both the link and icon are provided {% endcomment %}
           {% if settings[link_setting] != blank and settings[icon_setting] != blank %}
             <a
               href="{{ settings[link_setting] }}"
@@ -139,7 +144,6 @@
     <div class="footer__content-disclaimer">
       <div class="footer__content-disclaimer__description">
         <p>{{ section.settings.disclaimer_text }}</p>
-
       </div>
 
       <div class="footer__content-disclaimer__links">
@@ -151,6 +155,7 @@
             width="20">
 
           <label class="footer__content-disclaimer__country-label">{{ section.settings.country }}</label>
+
           <select class="footer__content-disclaimer__country-select">
             {% assign countries = settings.countries_names | split: ',' %}
             {% for country in countries %}
@@ -162,19 +167,17 @@
                 selected{% endif %}>
                 {{ cleaned_country }}
               </option>
+
             {% endfor %}
           </select>
-
-
         </div>
-        <div class="footer__content-disclaimer__content">
 
+        <div class="footer__content-disclaimer__content">
           {% for link in linklists[section.settings.disclaimer].links %}
             <a href="{{ link.url }}" class="footer__content-disclaimer__link">{{ link.title }}</a>
           {% endfor %}
         </div>
       </div>
-
     </div>
   </div>
 </div>

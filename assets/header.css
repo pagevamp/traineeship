@@ -56,6 +56,7 @@
   justify-content: center;
   width: var(--icon-size);
   height: var(--icon-size);
+
   & a {
     display: flex;
     align-items: center;
@@ -82,6 +83,7 @@
   align-items: center;
   gap: var(--spacing-xs);
   list-style: none;
+
   & a {
     display: flex;
     align-items: center;
@@ -168,6 +170,7 @@
     align-items: center;
     gap: var(--spacing-xl);
     list-style: none;
+
     & a {
       font-size: var(--font-size-base);
       font-weight: var(--font-weight-medium);
@@ -186,6 +189,7 @@
 
   .header__nav-loyalty {
     list-style: none;
+
     & a {
       font-size: 16px;
       font-weight: 500;

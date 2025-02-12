@@ -6,10 +6,15 @@
       {% if block.settings.brand_image.src %}
         <picture>
           <source srcset="{{ block.settings.brand_image.src | image_url: width:1100, height:1100 }}" media="(min-width: 1440px)">
+
           <source srcset="{{ block.settings.brand_image.src | image_url: width:800, height:800 }}" media="(min-width: 1024px)">
+
           <source srcset="{{ block.settings.brand_image.src | image_url: width:600, height:600 }}" media="(min-width: 768px)">
+
           <source srcset="{{ block.settings.brand_image.src | image_url: width:500, height:500 }}" media="(min-width: 425px)">
+
           <source srcset="{{ block.settings.brand_image.src | image_url: width:358, height:358 }}" media="(min-width: 375px)">
+
           <img
             class="richtext__image"
             src="{{ block.settings.brand_image.src | image_url: width:358, height:358 }}"
@@ -56,6 +61,7 @@
         <picture>
           {% if block.settings.signature %}
             <source srcset="{{ block.settings.signature.src |  image_url: width: 355, height: 138 }}" media="(min-width: 1024px)">
+
             <img
               class="richtext__signature-image"
               src="{{ block.settings.signature.src | image_url: width: 133, height: 52 }}"
