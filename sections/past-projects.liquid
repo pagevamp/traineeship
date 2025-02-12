@@ -44,6 +44,24 @@
                 </div>
               {% endif %}
             {% endfor %}
+            {% for product in products %}
+              {% if product.featured_image != blank %}
+                <div class="marquee__item">
+                  {% if product.metafields.custom.country != blank %}
+                    <div class="product__country">
+                      <p>{% render 'icon-universe' %}</p>
+                      <span>{{ product.metafields.custom.country | capitalize }}</span>
+                    </div>
+                  {% endif %}
+                  <img
+                    src="{{ product.featured_image | image_url: width:200, height:200 }}"
+                    loading="eager"
+                    width="120"
+                    height="120"
+                    alt="{{ product.featured_image.alt | escape }}">
+                </div>
+              {% endif %}
+            {% endfor %}
           </div>
         </div>
       {% endif %}

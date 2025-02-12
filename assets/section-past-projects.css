@@ -133,6 +133,12 @@
   .marquee__content {
     flex-direction: row;
     animation: marquee 10s linear infinite;
+    max-width: max-content;
+  }
+  .marquee__item {
+    flex: 0 0 auto;
+    width: 120px;
+    height: 120px;
   }
 
   .pastprojects__projects-container {
