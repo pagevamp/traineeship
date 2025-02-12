@@ -65,11 +65,17 @@
 .pastprojects__project-third {
   display: none;
 }
+.marquee {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
 .marquee__content {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
+
 .product__country {
   display: flex;
   visibility: hidden;
@@ -103,6 +109,7 @@
 
 @media (min-width: 425px) {
   .marquee {
+    display: flex;
     overflow: hidden;
     width: 100%;
     white-space: nowrap;
@@ -111,8 +118,7 @@
 
   .marquee__content {
     flex-direction: row;
-    max-width: 100%;
-    animation: marquee 20s linear infinite;
+    animation: marquee 40s linear infinite;
   }
   .pastprojects__projects-container {
     flex-wrap: wrap;
