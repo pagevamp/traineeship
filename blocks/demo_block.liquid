@@ -1,0 +1,22 @@
+<div>
+  {{ section.settings.demo_object }}
+</div>
+
+{% schema %}
+  {
+    "name": "Demo Block",
+    "settings": [
+        {
+            "type": "metaobject",
+            "id": "demo_object",
+            "label": "Demo Object",
+            "metaobject_type": "demo_object"
+        }
+    ],
+    "presets": [
+      {
+        "name": "Demo Block"
+      }
+    ]
+  }
+{% endschema %}

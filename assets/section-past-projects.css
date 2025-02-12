@@ -135,6 +135,7 @@
     animation: marquee 10s linear infinite;
     max-width: max-content;
   }
+
   .marquee__item {
     flex: 0 0 auto;
     width: 120px;

@@ -3,7 +3,7 @@
 <div class="richtext">
   {% for block in section.blocks %}
     <div class="richtext__container">
-      {% if block.settings.brand_image.src %}
+      {% if block.settings.brand_image.src != blank %}
         <picture>
           <source srcset="{{ block.settings.brand_image.src | image_url: width:1100, height:1100 }}" media="(min-width: 1440px)">
 
@@ -101,152 +101,142 @@
     </div>
   {% endfor %}
 </div>
-
-
 {% schema %}
   {
-    "name": "Brand",
-    "settings": [],
-    "blocks": [
+    "name": "Brand Block",
+    "settings": [
       {
-        "name": "Brand",
-        "type": "Brand",
-        "settings": [
+        "id": "brand_image",
+        "label": "Pick Image",
+        "type": "image_picker"
+      },
+      {
+        "id": "description_position",
+        "label": "Select the position of the description",
+        "type": "select",
+        "default": "bottom:16px;left:16px",
+        "options": [
           {
-            "id": "brand_image",
-            "label": "Pick Image",
-            "type": "image_picker"
+            "value": "top:16px;left:16px",
+            "label": "Top Left"
           },
           {
-            "id": "description_position",
-            "label": "Select the position of the description",
-            "type": "select",
-            "default": "bottom:16px;left:16px",
-            "options": [
-              {
-                "value": "top:16px;left:16px",
-                "label": "Top Left"
-              },
-              {
-                "value": "top:50%;left:16px;width:fit-content;",
-                "label": "Center Left"
-              },
-              {
-                "value": "bottom:16px;left:16px",
-                "label": "Bottom Left"
-              },
-
-              {
-                "value": "top:16px;right:16px;width:fit-content;",
-                "label": "Top Right"
-              },
-              {
-                "value": "top:50%;right:16px;width:fit-content;",
-                "label": "Center Right"
-              },
-              {
-                "value": "bottom:16px;right:16px;width:fit-content;",
-                "label": "Bottom Right"
-              }
-
-            ]
+            "value": "top:50%;left:16px;width:fit-content;",
+            "label": "Center Left"
           },
           {
-            "id": "country",
-            "label": "Country",
-            "type": "text",
-            "default": "Nepal"
+            "value": "bottom:16px;left:16px",
+            "label": "Bottom Left"
           },
 
           {
-            "id": "signature",
-            "label": "Signature",
-            "type": "image_picker"
+            "value": "top:16px;right:16px;width:fit-content;",
+            "label": "Top Right"
           },
           {
-            "id": "name",
-            "label": "Name",
-            "type": "text",
-            "default": "EMEA Ft CJ Wallace"
+            "value": "top:50%;right:16px;width:fit-content;",
+            "label": "Center Right"
           },
           {
-            "type": "header",
-            "content": "Buttons"
-          },
-          {
-            "id": "primary_button",
-            "label": "Select Primary Button",
-            "type": "select",
-            "options": [
-              {
-                "value": "first",
-                "label": "First Button"
-              },
-              {
-                "value": "second",
-                "label": "Second Button"
-              }
-            ],
-            "default": "first"
-          },
-          {
-            "id": "first_button",
-            "label": "First Button Text",
-            "type": "text",
-            "default": "Shop Now"
-          },
-          {
-            "id": "first_button_link",
-            "label": "First Button Link",
-            "type": "url"
-          },
-          {
-            "id": "second_button",
-            "label": "Second Button Text",
-            "type": "text",
-            "default": "Learn More"
-          },
-          {
-            "id": "second_button_link",
-            "label": "Second Button Link",
-            "type": "url"
-          },
-          {
-            "type": "header",
-            "content": "Button Styles"
-          },
-          {
-            "id": "primary_button_bg",
-            "label": "Primary Button Background",
-            "type": "color",
-            "default": "#000000"
-          },
-          {
-            "id": "primary_button_text_color",
-            "label": "Primary Button Text Color",
-            "type": "color",
-            "default": "#FFFFFF"
-          },
-          {
-            "id": "secondary_button_bg",
-            "label": "Secondary Button Background",
-            "type": "color",
-            "default": "#FFFFFF"
-          },
-          {
-            "id": "secondary_button_text_color",
-            "label": "Secondary Button Text Color",
-            "type": "color",
-            "default": "#000000"
+            "value": "bottom:16px;right:16px;width:fit-content;",
+            "label": "Bottom Right"
           }
+
         ]
+      },
+      {
+        "id": "country",
+        "label": "Country",
+        "type": "text",
+        "default": "Nepal"
+      },
+
+      {
+        "id": "signature",
+        "label": "Signature",
+        "type": "image_picker"
+      },
+      {
+        "id": "name",
+        "label": "Name",
+        "type": "text",
+        "default": "EMEA Ft CJ Wallace"
+      },
+      {
+        "type": "header",
+        "content": "Buttons"
+      },
+      {
+        "id": "primary_button",
+        "label": "Select Primary Button",
+        "type": "select",
+        "options": [
+          {
+            "value": "first",
+            "label": "First Button"
+          },
+          {
+            "value": "second",
+            "label": "Second Button"
+          }
+        ],
+        "default": "first"
+      },
+      {
+        "id": "first_button",
+        "label": "First Button Text",
+        "type": "text",
+        "default": "Shop Now"
+      },
+      {
+        "id": "first_button_link",
+        "label": "First Button Link",
+        "type": "url"
+      },
+      {
+        "id": "second_button",
+        "label": "Second Button Text",
+        "type": "text",
+        "default": "Learn More"
+      },
+      {
+        "id": "second_button_link",
+        "label": "Second Button Link",
+        "type": "url"
+      },
+      {
+        "type": "header",
+        "content": "Button Styles"
+      },
+      {
+        "id": "primary_button_bg",
+        "label": "Primary Button Background",
+        "type": "color",
+        "default": "#000000"
+      },
+      {
+        "id": "primary_button_text_color",
+        "label": "Primary Button Text Color",
+        "type": "color",
+        "default": "#FFFFFF"
+      },
+      {
+        "id": "secondary_button_bg",
+        "label": "Secondary Button Background",
+        "type": "color",
+        "default": "#FFFFFF"
+      },
+      {
+        "id": "secondary_button_text_color",
+        "label": "Secondary Button Text Color",
+        "type": "color",
+        "default": "#000000"
       }
     ],
     "presets": [
       {
-        "name": "Brand"
+        "name": "Brand Block"
       }
-
     ]
   }
 {% endschema %}
