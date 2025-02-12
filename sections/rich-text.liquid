@@ -46,7 +46,7 @@
         {% endif %}
 
         {% if block.settings.first_button or block.settings.second_button %}
-          <div class="richtext__description-btn-container" style="justify-content: {{ block.settings.button_position }}">
+          <div class="richtext__description-btn-container">
 
             {% if block.settings.primary_button == 'first' and block.settings.first_button != blank %}
               <a
@@ -214,26 +214,6 @@
           {
             "type": "header",
             "content": "Button Styles"
-          },
-          {
-            "id": "button_position",
-            "label": "Button Position",
-            "type": "select",
-            "options": [
-              {
-                "value": "flex-start",
-                "label": "Left"
-              },
-              {
-                "value": "center",
-                "label": "Center"
-              },
-              {
-                "value": "flex-end",
-                "label": "Right"
-              }
-            ],
-            "default": "flex-start"
           },
           {
             "id": "primary_button_bg",
