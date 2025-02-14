@@ -258,15 +258,15 @@
   }
   .global {
     top: 0;
-    left: 16px;
+    left: 0;
   }
   .design {
     top: 35%;
-    left: 35%;
+    left: 33%;
   }
   .project {
     top: 63%;
-    right: 16px;
+    right: 0;
   }
   .hero {
     padding: 40px 16px 0 16px;
@@ -280,5 +280,17 @@
 
   .hero__description-text-variation-2 {
     width: 31%;
+  }
+}
+
+@media (min-width: 1920px) {
+  .global {
+    left: 16px;
+  }
+  .design {
+    left: 37%;
+  }
+  .project {
+    right: 16px;
   }
 }
