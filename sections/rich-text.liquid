@@ -29,7 +29,7 @@
 
       <div class="richtext__description" style="position: absolute; {{ block.settings.description_position }}; {% if block.settings.description_position contains 'right' %}margin-left: auto; text-align: right; width: fit-content;{% endif %}">
         {% if block.settings.country != blank %}
-          <div class="richtext__description-country">
+          <div class="richtext__description-country" style="color: {{ block.settings.description_color }}; border-color: {{ block.settings.description_color }};">
 
             <div class="richtext__description-country-icon">
               {% render 'icon-universe' %}
@@ -42,7 +42,7 @@
         {% endif %}
 
         {% if block.settings.name != blank %}
-          <div class="richtext__description-name">{{ block.settings.name }}</div>
+          <div class="richtext__description-name" style="color: {{ block.settings.description_color }};">{{ block.settings.name }}</div>
         {% endif %}
 
         {% if block.settings.first_button or block.settings.second_button %}
@@ -150,6 +150,12 @@
               }
 
             ]
+          },
+          {
+            "id": "description_color",
+            "label": "Description Color",
+            "type": "color",
+            "default": "#000000"
           },
           {
             "id": "country",
