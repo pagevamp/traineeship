@@ -70,12 +70,6 @@
   position: relative;
 }
 
-.pastprojects__project:hover,
-.marquee__item:hover {
-  transform: scale(1.1);
-  transition: transform 0.3s ease-in-out;
-}
-
 .pastprojects__project-second,
 .pastprojects__project-third {
   display: none;
