@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   const menuLinks = document.querySelectorAll(".header__nav-menu-link");
-
-  // Add this new function to set active state based on current URL
   const setActiveMenuLink = () => {
     const currentPath = window.location.pathname;
     menuLinks.forEach((link) => {
@@ -15,11 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   };
-
-  // Call it when page loads
   setActiveMenuLink();
 
-  // Drawer/mobile menu functionality
   const drawerTrigger = document.querySelector(".drawer-trigger");
   const drawer = document.querySelector(".drawer");
   const drawerClose = document.querySelector(".drawer__close");

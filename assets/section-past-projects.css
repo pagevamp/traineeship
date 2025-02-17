@@ -67,7 +67,7 @@
   width: 120px;
   height: 120px;
   object-fit: contain;
-  position: relative; /* Ensures absolute elements inside can be positioned correctly */
+  position: relative;
 }
 
 .pastprojects__project-second,
@@ -116,7 +116,6 @@
   letter-spacing: -0.03em;
 }
 
-/* Fix for hover effect on all project images */
 .pastprojects__project:hover .product__country,
 .marquee__item:hover .product__country {
   visibility: visible;
@@ -142,7 +141,7 @@
     flex: 0 0 auto;
     width: 120px;
     height: 120px;
-    position: relative; /* Added to ensure hover works */
+    position: relative;
   }
 
   .pastprojects__projects-container {
