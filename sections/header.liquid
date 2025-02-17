@@ -42,7 +42,7 @@
       <div class="header__nav-menu">
         {% if linklists[section.settings.main_menu].links.size > 0 %}
           {% for link in linklists[section.settings.main_menu].links %}
-            <a href="{{ link.url }}" class="header__nav-menu-link {% if forloop.first %}active{% endif %}">
+            <a href="{{ link.url }}" class="header__nav-menu-link {% if forloop.first %}active{% endif %} animated-hover">
               <span class="header__nav-menu-text">{{ link.title }}</span>
               <span class="header__nav-menu-dot"></span>
             </a>
@@ -56,7 +56,7 @@
         {% for link in linklists[section.settings.secondary_menu].links %}
           <ul class="header__nav-loyalty">
 
-            <li class="header__nav-loyalty">
+            <li class="header__nav-loyalty animated-hover">
               <a href="{{ link.url }}">{{ link.title }}</a>
             </li>
 
@@ -65,7 +65,7 @@
       {% endif %}
       <ul class="header__nav-icons-list">
 
-        <li class="header__nav-icon-search">
+        <li class="header__nav-icon-search animated-hover">
           <a href="#">{% render 'icon-search' %}</a>
         </li>
 
@@ -73,11 +73,11 @@
           <a href="#">{% render 'icon-cart' %}</a>
         </li>
 
-        <li class="header__nav-icon-user">
+        <li class="header__nav-icon-user animated-hover">
           <a href="#">{% render 'icon-user' %}</a>
         </li>
 
-        <li class="header__nav-icon-cart-item">
+        <li class="header__nav-icon-cart-item animated-hover">
           <a href="#">{% render 'icon-cart-item' %}</a>
         </li>
 

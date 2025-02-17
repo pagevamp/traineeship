@@ -42,6 +42,11 @@
   cursor: pointer;
   width: fit-content;
   white-space: nowrap;
+
+  &:hover {
+    transform: scale(1.1);
+    transition: transform 0.5s ease-in-out;
+  }
 }
 
 .pastprojects__button a {

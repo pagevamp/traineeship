@@ -149,6 +149,13 @@
   line-height: 20px;
 }
 
+.footer__content-about__link:hover,
+.footer__content-support__link:hover,
+.footer__content-store__img:hover {
+  transform: scale(1.1);
+  transition: transform 0.5s ease-in-out;
+}
+
 .footer__content-socials {
   padding: 24px 0;
   display: flex;

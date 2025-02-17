@@ -244,11 +244,6 @@
     align-items: center;
     text-decoration: none;
     cursor: pointer;
-
-    &:hover {
-      transform: scale(1.2);
-      transition: transform 0.2s ease-in;
-    }
   }
 
   .header__nav-menu-dot {
@@ -265,5 +260,12 @@
 
   .header__nav-menu-link.active .header__nav-menu-dot {
     opacity: 1;
+  }
+
+  .animated-hover {
+    &:hover {
+      transform: scale(1.2);
+      transition: transform 0.2s ease-in;
+    }
   }
 }
