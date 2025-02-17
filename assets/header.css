@@ -154,7 +154,7 @@
   color: var(--color-black);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 4px;
 }
 
 .drawer__menu-text {
@@ -162,6 +162,20 @@
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-base);
   letter-spacing: var(--letter-spacing);
+}
+
+.drawer__menu-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  display: none;
+  position: relative;
+  top: 4px;
+}
+
+.drawer__menu-link.active .drawer__menu-dot {
+  display: block;
 }
 
 @media (min-width: 1024px) {

@@ -24,6 +24,7 @@
           <div class="marquee__content">
             {% assign products = collection.products %}
             {% assign product_count = products.size %}
+
             {% for i in (1..product_count) %}
               {% assign random_index = "now" | date: "%N" | modulo: product_count %}
               {% assign product = products[random_index] %}
@@ -44,7 +45,10 @@
                 </div>
               {% endif %}
             {% endfor %}
-            {% for product in products %}
+
+            {% for i in (1..product_count) %}
+              {% assign random_index = "now" | date: "%N" | modulo: product_count %}
+              {% assign product = products[random_index] %}
               {% if product.featured_image != blank %}
                 <div class="marquee__item">
                   {% if product.metafields.custom.country != blank %}
@@ -67,6 +71,7 @@
       {% endif %}
     {% endfor %}
   </div>
+
 </div>
 
 {% schema %}
