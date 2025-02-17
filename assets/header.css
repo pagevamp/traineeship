@@ -244,6 +244,11 @@
     align-items: center;
     text-decoration: none;
     cursor: pointer;
+
+    &:hover {
+      transform: scale(1.2);
+      transition: transform 0.2s ease-in;
+    }
   }
 
   .header__nav-menu-dot {
