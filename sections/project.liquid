@@ -6,7 +6,7 @@
     <div class="project__card">
       {% if project.image != blank %}
         <div class="project__card-image">
-          <a href="{{project.url}}" class="project__card-link">
+          <a href="{{section.settings.project_link}}" class="project__card-link">
             <picture>
               <source srcset="{{project.image.src |  image_url: width: 600, height: 600 }}" media="(min-width: 1440px)">
 
@@ -53,7 +53,13 @@
 {% schema %}
   {
     "name": "Projects",
-    "settings": [],
+    "settings": [
+      {
+        "type": "url",
+        "id": "project_link",
+        "label": "Project Link"
+      }
+    ],
     "blocks": [],
     "presets": [
       {
