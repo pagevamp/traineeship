@@ -1,6 +1,11 @@
 .detail-page-single-product {
   background-color: #ffffff;
-  padding: 68px 24px 24px 28px;
+  padding: 16px;
+}
+@media (min-width: 768px) {
+  .detail-page-single-product {
+    padding: 68px 24px 24px 28px;
+  }
 }
 .detail-page-single-product__container {
   object-fit: contain;

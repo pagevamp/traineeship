@@ -4,46 +4,45 @@
   {% for project in projects %}
 
     <div class="project__card">
-      <a href="{{project.url}}">
-        {% if project.image != blank %}
-
-
-          <div class="project__card-image">
+      {% if project.image != blank %}
+        <div class="project__card-image">
+          <a href="{{project.url}}" class="project__card-link">
             <picture>
               <source srcset="{{project.image.src |  image_url: width: 600, height: 600 }}" media="(min-width: 1440px)">
 
-              <source srcset="{{project.image.src |  image_url: width: 300, height: 300 }}" media="(min-width: 1024px)">
+              <source srcset="{{project.image.src |  image_url: width: 312, height: 312 }}" media="(min-width: 1024px)">
 
-              <source srcset="{{project.image.src |  image_url: width: 200, height: 200 }}" media="(min-width: 768px)">
+              <source srcset="{{project.image.src |  image_url: width: 230, height: 230 }}" media="(min-width: 768px)">
+              <source srcset="{{project.image.src |  image_url: width: 187, height: 159 }}" media="(min-width: 425px)">
 
               <img
-                src="{{project.image.src |  image_url: width: 171, height: 159 }}"
+                src="{{project.image.src |  image_url: width: 160, height: 159 }}"
                 alt=""
                 width=""
                 height="">
             </picture>
-          </div>
-        {% else %}
-          <div class="project__card-image-substitution"></div>
-        {% endif %}
-        <div class="project__card-details">
-          <div class="project__card-location">
-            {% if project.metafields.custom.country != blank or section.settings.project_location_icon != blank %}
-              <div class="project__card-location-icon">
-                {% render 'icon-universe' %}
-              </div>
-              <span class="project__card-location-text">{{ project.metafields.custom.country }}</span>
-            {% endif %}
-          </div>
-
-          <div class="project__card-text">
-            <div class="project__card-name">{{ project.title }}</div>
-
-            <div class="project__card-description">{{ project.content }}</div>
-
-          </div>
+          </a>
         </div>
-      </a>
+      {% else %}
+        <div class="project__card-image-substitution"></div>
+      {% endif %}
+      <div class="project__card-details">
+        <div class="project__card-location">
+          {% if project.metafields.custom.country != blank or section.settings.project_location_icon != blank %}
+            <div class="project__card-location-icon">
+              {% render 'icon-universe' %}
+            </div>
+            <span class="project__card-location-text">{{ project.metafields.custom.country }}</span>
+          {% endif %}
+        </div>
+
+        <div class="project__card-text">
+          <div class="project__card-name">{{ project.title }}</div>
+
+          <div class="project__card-description">{{ project.content }}</div>
+
+        </div>
+      </div>
     </div>
 
   {% endfor %}

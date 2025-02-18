@@ -7,15 +7,15 @@
     <img
       src="{{ section.settings.image_first | image_url: width: 1374, height: 815 }}"
       alt=""
-      height=""
-      width="">
+      height="815"
+      width="1374">
   </div>
   <div class="detail-page-image-text__image_second" style="justify-content: {{ section.settings.image_alignment }};">
     <img
       src="{{ section.settings.image_second | image_url: width: 902, height: 902 }}"
       alt=""
-      height=""
-      width="">
+      height="902"
+      width="902">
   </div>
 </div>
 
@@ -46,15 +46,18 @@
           {
             "value": "flex-start",
             "label": "Left"
-          }, {
+          },
+          {
             "value": "center",
             "label": "Center"
-          }, {
+          },
+          {
             "value": "flex-end",
             "label": "Right"
           }
         ]
-      }, {
+      },
+      {
         "id": "image_alignment",
         "label": "Image Alignment",
         "type": "select",
@@ -62,10 +65,12 @@
           {
             "value": "flex-start",
             "label": "Left"
-          }, {
+          },
+          {
             "value": "center",
             "label": "Center"
-          }, {
+          },
+          {
             "value": "flex-end",
             "label": "Right"
           }
