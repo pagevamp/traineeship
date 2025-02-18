@@ -1,4 +1,5 @@
 {{ 'section-past-projects.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'pastproject-play-pause.js' | asset_url }}" defer></script>
 <div class="pastprojects" style="background-color:{{section.settings.background_color}}">
   <div class="pastprojects__container">
     <div class="pastprojects__title">
@@ -10,10 +11,19 @@
         {{ section.settings.description }}
       </div>
 
-      <div class="pastprojects__button">
+      <div class="pastprojects__button btn-style510">
         <a href="{{ section.settings.button_url }}">{{ section.settings.button }}</a>
       </div>
     </div>
+  </div>
+
+  <div class="pastprojects__animation-pause">
+    <button class="pause-button active">
+      {% render 'icon-pause' %}
+    </button>
+    <button class="play-button">
+      {% render 'icon-play' %}
+    </button>
   </div>
 
   <div class="pastprojects__projects-container">
@@ -23,11 +33,8 @@
         <div class="marquee">
           <div class="marquee__content">
             {% assign products = collection.products %}
-            {% assign product_count = products.size %}
 
-            {% for i in (1..product_count) %}
-              {% assign random_index = "now" | date: "%N" | modulo: product_count %}
-              {% assign product = products[random_index] %}
+            {% for product in products %}
               {% if product.featured_image != blank %}
                 <div class="pastprojects__project">
                   {% if product.metafields.custom.country != blank %}
@@ -46,9 +53,8 @@
               {% endif %}
             {% endfor %}
 
-            {% for i in (1..product_count) %}
-              {% assign random_index = "now" | date: "%N" | modulo: product_count %}
-              {% assign product = products[random_index] %}
+            <!-- Duplicate content for smooth looping -->
+            {% for product in products %}
               {% if product.featured_image != blank %}
                 <div class="marquee__item">
                   {% if product.metafields.custom.country != blank %}
@@ -71,8 +77,8 @@
       {% endif %}
     {% endfor %}
   </div>
-
 </div>
+
 
 {% schema %}
   {
