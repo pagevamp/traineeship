@@ -72,7 +72,7 @@
     &::before,
     &::after {
       transform: translateX(300px) skewX(-15deg);
-      transition: all 0.9s ease;
+      transition: all 1s ease;
     }
   }
 }
@@ -104,6 +104,7 @@
   position: relative;
 }
 
+.hidden-text,
 .pastprojects__project-second,
 .pastprojects__project-third {
   display: none;
@@ -121,7 +122,6 @@
   flex-direction: column;
   gap: 4px;
   width: max-content;
-  animation-fill-mode: forwards;
 }
 
 .marquee__content.paused {
@@ -166,50 +166,60 @@
   display: none;
 }
 
-@media (min-width: 425px) {
-  .marquee {
-    display: flex;
-    flex-direction: row;
-    overflow: hidden;
-    width: 100%;
-    white-space: nowrap;
-    position: relative;
-  }
+.marquee {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+  position: relative;
+}
 
+.marquee__content {
+  flex-direction: row;
+  animation: scroll linear infinite;
+  animation-duration: var(--marquee-speed-desktop);
+  max-width: max-content;
+}
+
+.marquee__item {
+  flex: 0 0 auto;
+  width: 120px;
+  height: 120px;
+  position: relative;
+  display: block;
+}
+
+.pastprojects__projects-container {
+  flex-wrap: wrap;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.pastprojects__animation-pause {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  right: 12px;
+  bottom: -8px;
+  cursor: pointer;
+
+  & svg {
+    width: 16px;
+    aspect-ratio: 1;
+  }
+}
+
+@media (min-width: 768px) {
   .marquee__content {
-    flex-direction: row;
-    animation: marquee 40s linear infinite;
-    max-width: max-content;
-  }
-
-  .marquee__item {
-    flex: 0 0 auto;
-    width: 120px;
-    height: 120px;
-    position: relative;
-    display: block;
-  }
-
-  .pastprojects__projects-container {
-    flex-wrap: wrap;
-  }
-
-  @keyframes marquee {
-    from {
-      transform: translateX(0%);
-    }
-    to {
-      transform: translateX(-50%);
-    }
-  }
-
-  .pastprojects__animation-pause {
-    display: flex;
-    justify-content: flex-end;
-    position: relative;
-    right: 12px;
-    bottom: -8px;
-    cursor: pointer;
+    animation-duration: var(--marquee-speed-desktop);
   }
 }
 
@@ -267,11 +277,8 @@
   display: block;
 }
 
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
+@media screen and (max-width: 749px) {
+  .marquee__content {
+    animation-duration: var(--marquee-speed-mobile);
   }
 }

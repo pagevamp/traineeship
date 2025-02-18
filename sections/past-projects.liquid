@@ -18,11 +18,13 @@
   </div>
 
   <div class="pastprojects__animation-pause">
-    <button class="pause-button active">
+    <button class="pause-button active" aria-label="Pause Animation">
       {% render 'icon-pause' %}
+      <span class="hidden-text" aria-label="Pause Animation">Pause</span>
     </button>
-    <button class="play-button">
+    <button class="play-button" aria-label="Play Animation">
       {% render 'icon-play' %}
+      <span class="hidden-text" aria-label="Play Animation">Play</span>
     </button>
   </div>
 
@@ -31,7 +33,7 @@
       {% assign collection = block.settings.product_collection %}
       {% if collection != blank %}
         <div class="marquee">
-          <div class="marquee__content">
+          <div class="marquee__content" style="--marquee-speed-mobile: {{ section.settings.marquee_speed_mobile }}s; --marquee-speed-desktop: {{ section.settings.marquee_speed_desktop }}s;">
             {% assign products = collection.products %}
 
             {% for product in products %}
@@ -43,6 +45,7 @@
                       <span>{{ product.metafields.custom.country | capitalize }}</span>
                     </div>
                   {% endif %}
+
                   <img
                     src="{{ product.featured_image | image_url: width:200, height:200 }}"
                     loading="eager"
@@ -53,7 +56,8 @@
               {% endif %}
             {% endfor %}
 
-            <!-- Duplicate content for smooth looping -->
+            <!-- Duplicate content -->
+
             {% for product in products %}
               {% if product.featured_image != blank %}
                 <div class="marquee__item">
@@ -131,6 +135,28 @@
             "label": "Gray"
           }
         ]
+      },
+      {
+        "type": "header",
+        "content": "Marquee Settings"
+      },
+      {
+        "id": "marquee_speed_mobile",
+        "label": "Marquee Speed (Mobile)",
+        "type": "range",
+        "default": 20,
+        "step": 5,
+        "min": 5,
+        "max": 100
+      },
+      {
+        "id": "marquee_speed_desktop",
+        "label": "Marquee Speed (Desktop)",
+        "type": "range",
+        "default": 40,
+        "step": 5,
+        "min": 5,
+        "max": 100
       }
 
     ],
