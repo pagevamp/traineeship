@@ -18,6 +18,7 @@
   flex-grow: 1;
   display: flex;
   gap: 32px;
+  justify-content: center;
 }
 .detail-page-product__card-image {
   display: flex;
@@ -27,13 +28,13 @@
   object-fit: contain;
   transition: transform 0.8s ease;
 }
+.detail-page-product__card-image:hover {
+  transform: scale(1.05);
+}
 @media (max-width: 768px) {
   .detail-page-product__card-image {
     width: 100%;
   }
-}
-.detail-page-product__card-image:hover {
-  transform: scale(1.02);
 }
 .detail-page-product__card-image > img {
   width: 100%;

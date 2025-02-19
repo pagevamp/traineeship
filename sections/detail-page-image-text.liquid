@@ -3,19 +3,21 @@
   <div class="detail-page-image-text__description" style="justify-content: {{ section.settings.description_alignment }};">
     <p>{{ section.settings.description }}</p>
   </div>
-  <div class="detail-page-image-text__image_first" style="justify-content: {{ section.settings.first_image_alignment }};">
-    <img
-      src="{{ section.settings.image_first | image_url: width: 1374, height: 815 }}"
-      alt=""
-      height="815"
-      width="1374">
-  </div>
-  <div class="detail-page-image-text__image_second" style="justify-content: {{ section.settings.second_image_alignment }};">
-    <img
-      src="{{ section.settings.image_second | image_url: width: 902, height: 902 }}"
-      alt=""
-      height="902"
-      width="902">
+  <div class="detail-page-image-text__images">
+    <div class="detail-page-image-text__image_first" style="justify-content: {{ section.settings.first_image_alignment }};">
+      <img
+        src="{{ section.settings.image_first | image_url: width: 1374, height: 815 }}"
+        alt=""
+        height="815"
+        width="1374">
+    </div>
+    <div class="detail-page-image-text__image_second" style="justify-content: {{ section.settings.second_image_alignment }};">
+      <img
+        src="{{ section.settings.image_second | image_url: width: 902, height: 902 }}"
+        alt=""
+        height="902"
+        width="902">
+    </div>
   </div>
 </div>
 
