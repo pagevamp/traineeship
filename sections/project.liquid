@@ -6,22 +6,21 @@
     <div class="project__card">
       {% if project.image != blank %}
         <div class="project__card-image">
-          <a href="{{section.settings.project_link}}" class="project__card-link">
-            <picture>
-              <source srcset="{{project.image.src |  image_url: width: 600, height: 600 }}" media="(min-width: 1440px)">
+          <picture>
+            <source srcset="{{project.image.src |  image_url: width: 600, height: 600 }}" media="(min-width: 1440px)">
 
-              <source srcset="{{project.image.src |  image_url: width: 312, height: 312 }}" media="(min-width: 1024px)">
+            <source srcset="{{project.image.src |  image_url: width: 312, height: 312 }}" media="(min-width: 1024px)">
 
-              <source srcset="{{project.image.src |  image_url: width: 230, height: 230 }}" media="(min-width: 768px)">
-              <source srcset="{{project.image.src |  image_url: width: 187, height: 159 }}" media="(min-width: 425px)">
+            <source srcset="{{project.image.src |  image_url: width: 230, height: 230 }}" media="(min-width: 768px)">
+            <source srcset="{{project.image.src |  image_url: width: 187, height: 159 }}" media="(min-width: 425px)">
 
-              <img
-                src="{{project.image.src |  image_url: width: 160, height: 159 }}"
-                alt=""
-                width=""
-                height="">
-            </picture>
-          </a>
+            <img
+              src="{{project.image.src |  image_url: width: 160, height: 159 }}"
+              alt=""
+              width=""
+              height="">
+          </picture>
+
         </div>
       {% else %}
         <div class="project__card-image-substitution"></div>
@@ -43,6 +42,7 @@
 
         </div>
       </div>
+      <a href="{{section.settings.project_link}}" class="project__card-link"></a>
     </div>
 
   {% endfor %}

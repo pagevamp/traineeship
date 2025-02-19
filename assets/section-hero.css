@@ -37,7 +37,9 @@
   gap: 24px;
   margin-top: 24px;
 }
-
+.parallax {
+  margin-top: 24px;
+}
 .hero__content {
   display: flex;
   flex-direction: column;
@@ -307,6 +309,7 @@
     display: flex;
     justify-content: center;
     overflow-y: auto;
+    margin-top: 32px;
   }
   .parallax-container {
     position: relative;

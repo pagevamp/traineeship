@@ -1,71 +1,84 @@
 {{ 'detail-page-product.css' | asset_url | stylesheet_tag }}
 <div class="detail-page-product">
-  {% if section.blocks.size > 0 %}
-    <div class="detail-page-product__container">
-      <div class="detail-page-product__card">
-        {% for block in section.blocks %}
-          <div class="detail-page-product__card-image">
-            {% if block.settings.image %}
-              <img
-                src="{{ block.settings.image | image_url: width: 438, height: 438 }}"
-                alt="Product Image"
-                height="438"
-                width="438">
-            {% else %}
-              <div class="detail-page-product__card-image-substitution">Image</div>
-            {% endif %}
-            <div class="detail-page-product__card-content">
-              <div class="detail-page-product__card-content-title">
-                <span class="detail-page-product__card-content-title-text">{{ block.settings.title }}</span>
-                <span class="detail-page-product__card-content-title-text">${{ block.settings.price }}</span>
-              </div>
-              <span class="detail-page-product__card-content-description">{{ block.settings.description }}</span>
-            </div>
-
+  <div class="detail-page-product__container">
+    {% for block in section.blocks %}
+      <div class="detail-page-card">
+        <div class="detail-page-card__image">
+          <picture>
+            <source srcset="{{ block.settings.image | image_url: width: 437  , height: 437 }}" media="(min-width: 768px)">
+            <source srcset="{{ block.settings.image | image_url: width: 332  , height: 332 }}">
+            <img
+              src="{{ block.settings.image | image_url: width: 332  , height: 332 }}"
+              alt="Product Image"
+              width="332"
+              height="332">
+          </picture>
+        </div>
+        <div class="detail-page-card__content">
+          <div class="detail-page-card__content-title">
+            <h3>{{ block.settings.title }}</h3>
+            <p>${{ block.settings.price }}</p>
           </div>
-        {% endfor %}
+          <div class="detail-page-card__content-description">
+            <p>{{ block.settings.description }}</p>
+          </div>
+        </div>
+        <a class="detail-page-card__view-button" href="{{ block.settings.url }}">View</a>
       </div>
-    </div>
-  {% endif %}
+    {% endfor %}
+  </div>
 </div>
 {% schema %}
   {
-    "name": "Detail Page Product",
+    "name": "Detail Page Products",
+    "max_blocks": 12,
     "settings": [],
     "blocks": [
       {
-        "name": "Detail Page Product",
+        "name": "Product Card",
         "type": "detail_page_product",
         "settings": [
           {
+            "type": "image_picker",
             "id": "image",
-            "label": "Image",
-            "type": "image_picker"
+            "label": "Product Image",
+            "info": "437 x 437px recommended"
           },
           {
-            "id": "price",
-            "label": "Price",
             "type": "text",
-            "default": "100"
-          },
-          {
             "id": "title",
-            "label": "Title",
-            "type": "text",
-            "default": "Global Project Design"
+            "label": "Product Title",
+            "default": "Product Name"
           },
           {
-            "id": "description",
-            "label": "Description",
             "type": "text",
-            "default": "Project 1"
+            "id": "price",
+            "label": "Product Price",
+            "default": "99.99"
+          },
+          {
+            "type": "textarea",
+            "id": "description",
+            "label": "Product Description",
+            "default": "Enter product description here"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Product URL",
+            "info": "Link to the product detail page"
           }
         ]
       }
     ],
     "presets": [
       {
-        "name": "Detail Page Product"
+        "name": "Detail Page Products",
+        "blocks": [
+          {
+            "type": "detail_page_product"
+          }
+        ]
       }
     ]
   }
