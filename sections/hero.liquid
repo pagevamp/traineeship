@@ -10,9 +10,9 @@
           <div class="hero__description">
             <div class="hero__description-text">{{ section.settings.description }}</div>
 
-            <div class="hero__description-button">
-              <a href="#">{{ section.settings.button_text }}</a>
-            </div>
+
+            <a class="hero__description-button" href="{{ section.settings.button_url }}">{{ section.settings.button_text }}</a>
+
 
           </div>
         </div>
@@ -31,9 +31,9 @@
         {% if section.settings.hero_variation == "variation_2" %}
           <div class="hero__description-variation-2">
             <div class="hero__description-text-variation-2">{{ section.settings.description }}</div>
-            <div class="hero__description-button-variation-2">
-              <a href="#">{{ section.settings.button_text }}</a>
-            </div>
+
+            <a class="hero__description-button-variation-2" href="{{ section.settings.button_url }}">{{ section.settings.button_text }}</a>
+
           </div>
         {% endif %}
 

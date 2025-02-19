@@ -69,6 +69,10 @@
   width: fit-content;
   position: relative;
   overflow: hidden;
+  color: var(--color-white);
+  text-decoration: none;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
   &::before,
   &::after {
     height: 100%;
@@ -156,6 +160,8 @@
 
 .hero__description-button-variation-2 {
   background-color: var(--color-black);
+  color: var(--color-white);
+  text-decoration: none;
   width: fit-content;
   padding: 8px var(--padding-16);
   border-radius: var(--border-radius-pill);
