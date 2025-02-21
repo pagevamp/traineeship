@@ -172,7 +172,7 @@
   border-radius: 50%;
   display: none;
   position: relative;
-  top: 4px;
+  bottom: 2px;
 }
 
 .drawer__menu-link.active .drawer__menu-dot {
