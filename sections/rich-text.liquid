@@ -32,7 +32,8 @@
           <div class="richtext__description-country" style="color: {{ block.settings.description_color }}; border-color: {{ block.settings.description_color }};">
 
             <div class="richtext__description-country-icon">
-              {% render 'icon-universe' %}
+              {% render 'icon-universe'
+                , stroke_color: block.settings.description_color %}
             </div>
 
             {% if block.settings.country %}
