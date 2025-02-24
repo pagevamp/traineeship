@@ -1,0 +1,132 @@
+{{ 'detail-page-product.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'add-to-cart-form.js' | asset_url }}" defer></script>
+<div class="detail-page-product">
+  <div class="detail-page-product__container">
+    {% for block in section.blocks %}
+      {% if block.settings.product.featured_image != blank %}
+        <div class="detail-page-card">
+          <div class="detail-page-card__image">
+            <picture>
+              <source srcset="{{ block.settings.product.featured_image | image_url: width: 437  , height: 437 }}" media="(min-width: 768px)">
+              <source srcset="{{ block.settings.product.featured_image | image_url: width: 332  , height: 332 }}">
+              <img
+                src="{{ block.settings.product.featured_image | image_url: width: 332  , height: 332 }}"
+                alt="Product Image"
+                width="332"
+                height="332">
+            </picture>
+          </div>
+          <div class="detail-page-card__content">
+            <div class="detail-page-card__content-title">
+              {%if block.settings.product.title != blank %}
+                <h3>{{ block.settings.product.title }}</h3>
+              {%else%}
+                <h3>{{ block.settings.title }}</h3>
+              {%endif%}
+              {%if block.settings.product.price != blank %}
+                <p>{{ block.settings.product.price | money }}</p>
+              {%else%}
+                <p>{{ block.settings.price | money }}</p>
+              {%endif%}
+            </div>
+            <div class="detail-page-card__content-description">
+              {%if block.settings.product.description != blank %}
+                <p>{{ block.settings.product.description }}</p>
+              {%else%}
+                <p>{{ block.settings.description }}</p>
+              {%endif%}
+            </div>
+          </div>
+          {% comment %} <a class="detail-page-card__view-button" href="{{ block.settings.url }}">View</a> {% endcomment %}
+  
+          {% if block.settings.product != blank %}
+            {%- form 'product', block.settings.product, class: 'product-form' -%}
+              {% if block.settings.product.variants.size > 0 %}
+                <input
+                  type="hidden"
+                  name="id"
+                  id="product-id-{{ block.settings.product.id }}"
+                  value="{{ block.settings.product.variants.first.id }}">
+              {% endif %}
+              
+              <input
+                type="hidden"
+                name="quantity"
+                id="product-quantity-{{ block.settings.product.id }}"
+                value="1">
+          
+              <button
+                type="submit"
+                name="add"
+                class="detail-page-card__add-button"
+                {% if block.settings.product.available == false %}
+                  disabled
+                {% endif %}>
+                {%- if block.settings.product.available -%}
+                  Add to Cart
+                {%- else -%}
+                  Sold Out
+                {%- endif -%}
+              </button>
+            {%- endform -%}
+          {% endif %}
+          
+        </div>
+      {%endif%}  
+    {% endfor %}
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Detail Page Products Form",
+    "max_blocks": 12,
+    "settings": [],
+    "blocks": [
+      {
+        "name": "Product Card",
+        "type": "detail_page_product",
+        "settings": [
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Product",
+            "info": "Product"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Product Title"
+          },
+          {
+            "type": "text",
+            "id": "price",
+            "label": "Product Price",
+            "default": "99.99"
+          },
+          {
+            "type": "textarea",
+            "id": "description",
+            "label": "Product Description",
+            "default": "Enter product description here"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Product URL",
+            "info": "Link to the product detail page"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Detail Page Products Form",
+        "blocks": [
+          {
+            "type": "detail_page_product"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

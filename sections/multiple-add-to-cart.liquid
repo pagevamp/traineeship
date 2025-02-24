@@ -1,0 +1,126 @@
+{{ 'detail-page-product.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'multiple-add-to-cart.js' | asset_url }}" defer></script>
+{% if section.blocks.size > 0 %}
+  <div class="detail-page-product">
+    <div class="detail-page-product__container">
+      {% for block in section.blocks %}
+        {%if block.settings.product.featured_image != blank %}
+          <div class="detail-page-card">
+            <div class="detail-page-card__image">
+              <picture>
+                <source srcset="{{ block.settings.product.featured_image | image_url: width: 437  , height: 437 }}" media="(min-width: 768px)">
+                <source srcset="{{ block.settings.product.featured_image | image_url: width: 332  , height: 332 }}">
+                <img
+                  src="{{ block.settings.product.featured_image | image_url: width: 332  , height: 332 }}"
+                  alt="Product Image"
+                  width="332"
+                  height="332">
+              </picture>
+            </div>
+            <div class="detail-page-card__content">
+              <div class="detail-page-card__content-title">
+                {%if block.settings.product.title != blank %}
+                  <h3>{{ block.settings.product.title }}</h3>
+                {%else%}
+                  <h3>{{ block.settings.title }}</h3>
+                {%endif%}
+                {%if block.settings.product.price != blank %}
+                  <p>{{ block.settings.product.price | money }}</p>
+                {%else%}
+                  <p>{{ block.settings.price | money }}</p>
+                {%endif%}
+              </div>
+              <div class="detail-page-card__content-description">
+                <p>
+                  {% if block.settings.product.description != blank %}
+                    {{ block.settings.product.description }}
+                  {% else %}
+                    {{ block.settings.description }}
+                  {% endif %}
+                </p>
+              </div>
+              <div class="detail-page-card__checkbox-container">
+                <label class="checkbox-label">
+                  <input 
+                    type="checkbox" 
+                    class="product-selector" 
+                    data-variant-id="{{ block.settings.product.variants.first.id }}"
+                    {% if block.settings.product.available == false %}disabled{% endif %}
+                  >
+                  <span class="checkbox-text">
+                    {% if block.settings.product.available %}
+                      Select Item
+                    {% else %}
+                      Sold Out
+                    {% endif %}
+                  </span>
+                </label>
+              </div>
+            </div>
+            {% comment %} <a class="detail-page-card__view-button" href="{{ block.settings.url }}">View</a> {% endcomment %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="detail-page-product__bottom-bar">
+      <button class="add-selected-to-cart" onclick="addSelectedToCart('{{ shop.url }}')">
+        Add Selected Items to Cart
+      </button>
+    </div>
+  </div>
+{%endif%}
+
+{% schema %}
+  {
+    "name": "Multiple Add to Cart",
+    "max_blocks": 12,
+    "settings": [],
+    "blocks": [
+      {
+        "name": "Product Card",
+        "type": "multiple_add_to_cart",
+        "settings": [
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Product",
+            "info": "Product"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Product Title"
+          },
+          {
+            "type": "text",
+            "id": "price",
+            "label": "Product Price",
+            "default": "99.99"
+          },
+          {
+            "type": "textarea",
+            "id": "description",
+            "label": "Product Description",
+            "default": "Enter product description here"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Product URL",
+            "info": "Link to the product detail page"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Multiple Add to Cart",
+        "blocks": [
+          {
+            "type": "multiple_add_to_cart"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
