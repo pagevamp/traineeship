@@ -18,8 +18,6 @@ async function addToCart(variantId, shopUrl) {
         errorData.description || `Failed to add to cart: ${response.status}`
       );
     }
-
-    alert("Item added to cart");
   } catch (error) {
     console.error("Failed to add item to cart:", error);
     alert(error.message); // Show error to user

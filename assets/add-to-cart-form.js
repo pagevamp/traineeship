@@ -19,7 +19,6 @@ document.querySelectorAll(".product-form").forEach((form) => {
       });
 
       if (response.ok) {
-        alert("Item added successfully!");
       } else {
         alert("Failed to add item to cart");
       }

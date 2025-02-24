@@ -43,9 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
         if (response.ok) {
-          alert("Items added successfully!");
-          // Optionally refresh the page or redirect to cart
-          // window.location.href = '/cart';
         } else {
           alert("Failed to add items to cart");
         }

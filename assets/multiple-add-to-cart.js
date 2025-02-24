@@ -21,8 +21,6 @@ function addSelectedToCart(shopUrl) {
     }),
   })
     .then((response) => response.json())
-    .then((data) => {
-      alert("Items added successfully!");
-    })
+    .then((data) => {})
     .catch((error) => console.error("Error:", error));
 }
