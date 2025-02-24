@@ -71,6 +71,7 @@
 
         <li class="header__nav-icon-cart">
           <a href="/cart">{% render 'icon-cart' %}</a>
+          <span class="header__nav-icon-cart-item-count" data-cart-count>{{ cart.item_count }}</span>
         </li>
 
         <li class="header__nav-icon-user animated-hover">
@@ -78,7 +79,8 @@
         </li>
 
         <li class="header__nav-icon-cart-item animated-hover">
-          <a href="/cart">{% render 'icon-cart-item' %}</a>
+          <a href="/cart">{% render 'icon-cart' %}</a>
+          <span class="header__nav-icon-cart-item-count" data-cart-count>{{ cart.item_count }}</span>
         </li>
 
       </ul>

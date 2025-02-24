@@ -72,4 +72,39 @@ document.addEventListener("DOMContentLoaded", () => {
       handleDrawer("close");
     }
   });
+
+  // Update cart count
+  function updateCartCount() {
+    fetch("/cart.js")
+      .then((response) => response.json())
+      .then((cart) => {
+        const cartCountElements =
+          document.querySelectorAll("[data-cart-count]");
+        cartCountElements.forEach((element) => {
+          element.textContent = cart.item_count;
+        });
+      })
+      .catch((error) => console.error("Error:", error));
+  }
+
+  document.addEventListener("cart:updated", updateCartCount);
+  document.addEventListener("cart:refresh", updateCartCount);
+  document.addEventListener("cart_update", updateCartCount);
+  document.addEventListener("ajaxProduct:added", updateCartCount);
+  document.addEventListener("product:added", updateCartCount);
+
+  const originalFetch = window.fetch;
+  window.fetch = function (url, options) {
+    const response = originalFetch(url, options);
+    if (
+      url.includes("/cart/add") ||
+      url.includes("/cart/update") ||
+      url.includes("/cart/change")
+    ) {
+      response.then(() => {
+        setTimeout(updateCartCount, 1);
+      });
+    }
+    return response;
+  };
 });
