@@ -3,53 +3,58 @@
 <div class="detail-page-product">
   <div class="detail-page-product__container">
     {% for block in section.blocks %}
-      {%if block.settings.product.featured_image != blank %}
+      {% if block.settings.product.featured_image != blank %}
         <div class="detail-page-card">
-        <div class="detail-page-card__image">
-          <picture>
-            <source srcset="{{ block.settings.product.featured_image | image_url: width: 437  , height: 437 }}" media="(min-width: 768px)">
-            <source srcset="{{ block.settings.product.featured_image | image_url: width: 332  , height: 332 }}">
-            <img
-              src="{{ block.settings.product.featured_image | image_url: width: 332  , height: 332 }}"
-              alt="Product Image"
-              width="332"
-              height="332">
-          </picture>
-        </div>
-        <div class="detail-page-card__content">
-          <div class="detail-page-card__content-title">
-            {%if block.settings.product.title != blank %}
-              <h3>{{ block.settings.product.title }}</h3>
-            {%else%}
-              <h3>{{ block.settings.title }}</h3>
-            {%endif%}
-            {%if block.settings.product.price != blank %}
-              <p>{{ block.settings.product.price | money }}</p>
-            {%else%}
-              <p>{{ block.settings.price | money }}</p>
-            {%endif%}
+          <div class="detail-page-card__image">
+            <picture>
+              <source srcset="{{ block.settings.product.featured_image | image_url: width: 437  , height: 437 }}" media="(min-width: 768px)">
+              <source srcset="{{ block.settings.product.featured_image | image_url: width: 332  , height: 332 }}">
+              <img
+                src="{{ block.settings.product.featured_image | image_url: width: 332  , height: 332 }}"
+                alt="Product Image"
+                width="332"
+                height="332">
+            </picture>
           </div>
-          <div class="detail-page-card__content-description">
-            <p>
-              {% if block.settings.product.description != blank %}
-                {{ block.settings.product.description }}
+          <div class="detail-page-card__content">
+            <div class="detail-page-card__content-title">
+              {% if block.settings.product.title != blank %}
+                <h3>{{ block.settings.product.title }}</h3>
               {% else %}
-                {{ block.settings.description }}
+                <h3>{{ block.settings.title }}</h3>
               {% endif %}
-            </p>
+              {% if block.settings.product.price != blank %}
+                <p>{{ block.settings.product.price | money }}</p>
+              {% else %}
+                <p>{{ block.settings.price | money }}</p>
+              {% endif %}
+            </div>
+            <div class="detail-page-card__content-description">
+              <p>
+                {% if block.settings.product.description != blank %}
+                  {{ block.settings.product.description }}
+                {% else %}
+                  {{ block.settings.description }}
+                {% endif %}
+              </p>
+            </div>
+            <button
+              class="detail-page-card__add-button"
+              onclick="addToCart('{{ block.settings.product.variants.first.id }}', '{{ shop.url }}')"
+              {% if block.settings.product.available == false %}
+              disabled
+              style="cursor: not-allowed; opacity: 0.5;"
+              {% endif %}>
+              {% if block.settings.product.available %}
+                Add to Cart
+              {% else %}
+                Sold Out
+              {% endif %}
+            </button>
           </div>
-          <button class="detail-page-card__add-button" onclick="addToCart('{{ block.settings.product.variants.first.id }}', '{{ shop.url }}')" {% if block.settings.product.available == false %}
-          disabled{% endif %}>
-          {% if block.settings.product.available%}
-            Add to Cart
-          {% else %}
-            Sold Out
-          {% endif %}
-        </button>
-        </div>
         {% comment %} <a class="detail-page-card__view-button" href="{{ block.settings.url }}">View</a> {% endcomment %}
 
-      </div>
+        </div>
       {% endif %}
     {% endfor %}
   </div>

@@ -18,29 +18,31 @@
           </div>
           <div class="detail-page-card__content">
             <div class="detail-page-card__content-title">
-              {%if block.settings.product.title != blank %}
+              {% if block.settings.product.title != blank %}
                 <h3>{{ block.settings.product.title }}</h3>
-              {%else%}
+              {% else %}
                 <h3>{{ block.settings.title }}</h3>
-              {%endif%}
-              {%if block.settings.product.price != blank %}
+              {% endif %}
+              {% if block.settings.product.price != blank %}
                 <p>{{ block.settings.product.price | money }}</p>
-              {%else%}
+              {% else %}
                 <p>{{ block.settings.price | money }}</p>
-              {%endif%}
+              {% endif %}
             </div>
             <div class="detail-page-card__content-description">
-              {%if block.settings.product.description != blank %}
+              {% if block.settings.product.description != blank %}
                 <p>{{ block.settings.product.description }}</p>
-              {%else%}
+              {% else %}
                 <p>{{ block.settings.description }}</p>
-              {%endif%}
+              {% endif %}
             </div>
           </div>
           {% comment %} <a class="detail-page-card__view-button" href="{{ block.settings.url }}">View</a> {% endcomment %}
-  
+
           {% if block.settings.product != blank %}
-            {%- form 'product', block.settings.product, class: 'product-form' -%}
+            {%- form 'product'
+              , block.settings.product
+              , class: 'product-form' -%}
               {% if block.settings.product.variants.size > 0 %}
                 <input
                   type="hidden"
@@ -48,19 +50,20 @@
                   id="product-id-{{ block.settings.product.id }}"
                   value="{{ block.settings.product.variants.first.id }}">
               {% endif %}
-              
+
               <input
                 type="hidden"
                 name="quantity"
                 id="product-quantity-{{ block.settings.product.id }}"
                 value="1">
-          
+
               <button
                 type="submit"
                 name="add"
                 class="detail-page-card__add-button"
                 {% if block.settings.product.available == false %}
-                  disabled
+                disabled
+                style="cursor: not-allowed; opacity: 0.5;"
                 {% endif %}>
                 {%- if block.settings.product.available -%}
                   Add to Cart
@@ -70,9 +73,9 @@
               </button>
             {%- endform -%}
           {% endif %}
-          
+
         </div>
-      {%endif%}  
+      {% endif %}
     {% endfor %}
   </div>
 </div>
