@@ -1,4 +1,4 @@
-function addSelectedToCart(shopUrl) {
+function addSelectedToCart() {
   const selectedProducts = Array.from(
     document.querySelectorAll(".product-selector:checked")
   ).map((checkbox) => ({
@@ -11,7 +11,7 @@ function addSelectedToCart(shopUrl) {
     return;
   }
 
-  fetch(shopUrl + "/cart/add.js", {
+  fetch(`${shopUrl}/cart/add.js`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

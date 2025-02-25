@@ -66,9 +66,17 @@
                 style="cursor: not-allowed; opacity: 0.5;"
                 {% endif %}>
                 {%- if block.settings.product.available -%}
-                  Add to Cart
+                  {% if section.settings.add_to_cart_text != blank %}
+                    {{ section.settings.add_to_cart_text }}
+                  {% else %}
+                    Add to Cart
+                  {% endif %}
                 {%- else -%}
-                  Sold Out
+                  {% if section.settings.sold_out_text != blank %}
+                    {{ section.settings.sold_out_text }}
+                  {% else %}
+                    Sold Out
+                  {% endif %}
                 {%- endif -%}
               </button>
             {%- endform -%}
@@ -82,7 +90,20 @@
 {% schema %}
   {
     "name": "Detail Page Products Form",
-    "settings": [],
+    "settings": [
+      {
+        "type": "text",
+        "id": "add_to_cart_text",
+        "label": "Add to Cart Button Text",
+        "default": "Add to Cart"
+      },
+      {
+        "type": "text",
+        "id": "sold_out_text",
+        "label": "Sold Out Button Text",
+        "default": "Sold Out"
+      }
+    ],
     "blocks": [
       {
         "name": "Product Card",

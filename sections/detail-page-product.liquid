@@ -40,7 +40,7 @@
             </div>
             <button
               class="detail-page-card__add-button"
-              onclick="addToCart('{{ block.settings.product.variants.first.id }}', '{{ shop.url }}')"
+              onclick="addToCart('{{ block.settings.product.variants.first.id }}')"
               {% if block.settings.product.available == false %}
               disabled
               style="cursor: not-allowed; opacity: 0.5;"

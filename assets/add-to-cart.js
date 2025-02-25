@@ -1,4 +1,4 @@
-async function addToCart(variantId, shopUrl) {
+async function addToCart(variantId) {
   try {
     const response = await fetch(`${shopUrl}/cart/add.js`, {
       method: "POST",

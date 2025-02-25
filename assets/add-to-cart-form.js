@@ -3,7 +3,7 @@ document.querySelectorAll(".product-form").forEach((form) => {
     e.preventDefault();
 
     try {
-      const response = await fetch(window.Shopify.routes.root + "cart/add.js", {
+      const response = await fetch(`${shopUrl}/cart/add.js`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
