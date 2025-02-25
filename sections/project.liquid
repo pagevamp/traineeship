@@ -26,14 +26,7 @@
         <div class="project__card-image-substitution"></div>
       {% endif %}
       <div class="project__card-details">
-        <div class="project__card-location">
-          {% if project.metafields.custom.country != blank or section.settings.project_location_icon != blank %}
-            <div class="project__card-location-icon">
-              {% render 'icon-universe' %}
-            </div>
-            <span class="project__card-location-text">{{ project.metafields.custom.country }}</span>
-          {% endif %}
-        </div>
+        {% render 'country-with-location' project: project %}
 
         <div class="project__card-text">
           <div class="project__card-name">{{ project.title }}</div>

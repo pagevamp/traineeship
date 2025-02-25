@@ -11,9 +11,8 @@
         {{ section.settings.description }}
       </div>
 
-      <div class="pastprojects__button btn-style510">
-        <a href="{{ section.settings.button_url }}">{{ section.settings.button }}</a>
-      </div>
+      {% render 'shop-all-projects-button' data: section.settings.button
+        , url: section.settings.button_url %}
     </div>
   </div>
 

@@ -70,19 +70,7 @@
   gap: var(--gap-small);
 }
 
-.project__card-location {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px var(--gap-small);
-  border: 1px solid var(--primary-color);
-  border-radius: var(--border-radius);
-  width: fit-content;
-  font-size: var(--font-medium);
-  font-weight: 400;
-  line-height: var(--font-medium);
-  letter-spacing: var(--letter-spacing);
-}
+
 
 .project__card-text {
   display: flex;
@@ -103,14 +91,7 @@
   line-height: var(--font-medium);
 }
 
-.project__card-location-icon {
-  width: 16px;
-  height: 16px;
-  display: flex;
-  justify-content: center;
 
-  align-items: center;
-}
 
 .project__card-link{
   position: absolute;
