@@ -1,6 +1,7 @@
 {{ "section-hero.css" | asset_url | stylesheet_tag }}
-  <script src="{{ 'parallax.js' | asset_url }}" defer></script>
-<div class="hero" style="padding:{% if section.settings.hero_variation == "variation_1" %}40px 16px 0px{% else %}40px 16px 0px{% endif %}">
+<script src="{{ 'parallax.js' | asset_url }}" defer></script>
+<div class="hero" style="padding:{% if section.settings.hero_variation == " variation_1" %}40px 16px 0px{% else %}40px
+  16px 0px{% endif %}">
   <div class="hero__wrapper parallax">
     {% if section.settings.hero_variation == "variation_1" %}
       <div class="hero__content parallax-container">
@@ -9,11 +10,8 @@
 
           <div class="hero__description">
             <div class="hero__description-text">{{ section.settings.description }}</div>
-
-
-            <a class="hero__description-button" href="{{ section.settings.button_url }}">{{ section.settings.button_text }}</a>
-
-
+            <a class="hero__description-button" href="{{ section.settings.button_url }}">{{ section.settings.button_text
+}}</a>
           </div>
         </div>
         <div class="hero__content-second text design">{{ section.settings.title_second }}</div>
@@ -42,7 +40,7 @@
     {% endif %}
   </div>
 
-  <div style="display:{% if section.settings.hero_variation == "variation_1" %}flex{% else %}none{% endif %}">
+  <div style="display:{% if section.settings.hero_variation == " variation_1" %}flex{% else %}none{% endif %}">
     <div class="hero__description-small">
       <div class="hero__description-text">{{ section.settings.description }}</div>
 
@@ -119,7 +117,7 @@
         "type": "text",
         "id": "description",
         "label": "Description",
-        "default": "Lorem ipsum dolor sit amet consectetur. Purus pharetra mi id at proin integer sed in. Lorem ipsum dolor sit amet consectetur. Purus pharetra mi id at proin integer sed in. "
+        "default": "This is the description for the hero section."
       },
       {
         "type": "text",

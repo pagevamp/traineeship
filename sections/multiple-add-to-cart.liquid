@@ -47,7 +47,11 @@
                     data-variant-id="{{ block.settings.product.variants.first.id }}"
                     {% if block.settings.product.available == false %}
                     disabled{% endif %}>
-                  <span class="checkbox-text">
+                  <span
+                    class="checkbox-text"
+                    {% if block.settings.product.available == false %}
+                    style="color: #999;"
+                    {% endif %}>
                     {% if block.settings.product.available %}
                       Select Item
                     {% else %}
@@ -63,9 +67,15 @@
       {% endfor %}
     </div>
     <div class="detail-page-product__bottom-bar">
+
       <button class="add-selected-to-cart" onclick="addSelectedToCart('{{ shop.url }}')">
-        Add Selected Items to Cart
+        {% if section.settings.button_text != blank %}
+          {{ section.settings.button_text }}
+        {% else %}
+          Add Selected Items to Cart
+        {% endif %}
       </button>
+
     </div>
   </div>
 {% endif %}
@@ -73,8 +83,14 @@
 {% schema %}
   {
     "name": "Multiple Add to Cart",
-    "max_blocks": 12,
-    "settings": [],
+    "settings": [
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text",
+        "default": "Add Selected Items to Cart"
+      }
+    ],
     "blocks": [
       {
         "name": "Product Card",
