@@ -20,6 +20,6 @@ async function addToCart(variantId) {
     }
   } catch (error) {
     console.error("Failed to add item to cart:", error);
-    alert(error.message); // Show error to user
+    alert(error.message);
   }
 }

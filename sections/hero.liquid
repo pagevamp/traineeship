@@ -11,11 +11,8 @@
             <div class="hero__description-text">{{ section.settings.description }}</div>
 
 
-            <a class="hero__description-button" href="{{ section.settings.button_url }}">{{ section.settings.button_text }}</a>
             {% render 'shop-all-projects-button' data: section.settings.button_text
               , url: section.settings.button_url %}
-
-
           </div>
         </div>
         <div class="hero__content-second text design">{{ section.settings.title_second }}</div>
