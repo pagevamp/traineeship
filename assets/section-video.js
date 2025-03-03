@@ -57,7 +57,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const videoWrapper = document.querySelector(".video__wrapper");
   let hideTimeout;
 
-  // Show controls when mouse enters the video area
   videoWrapper.addEventListener("mouseenter", () => {
     clearTimeout(hideTimeout);
     playBtn.style.opacity = "1";
@@ -66,7 +65,6 @@ document.addEventListener("DOMContentLoaded", function () {
     muteBtn.style.pointerEvents = "auto";
   });
 
-  // Hide controls when mouse leaves the video area
   videoWrapper.addEventListener("mouseleave", () => {
     hideTimeout = setTimeout(() => {
       if (!videoWrapper.matches(":focus-within")) {
@@ -75,10 +73,9 @@ document.addEventListener("DOMContentLoaded", function () {
         playBtn.style.pointerEvents = "none";
         muteBtn.style.pointerEvents = "none";
       }
-    }, 2000); // 2 second delay before hiding
+    }, 10000);
   });
 
-  // Keep controls visible when focused
   playBtn.addEventListener("focus", () => {
     clearTimeout(hideTimeout);
     playBtn.style.opacity = "1";
@@ -141,7 +138,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // Set initial state
     pauseIcon.classList.add("is-visible");
     playIcon.classList.remove("is-visible");
   });

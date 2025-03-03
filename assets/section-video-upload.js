@@ -19,8 +19,6 @@ class VideoSection {
   addEventListeners() {
     this.playButton.addEventListener("click", (e) => {
       e.preventDefault();
-      console.log("Before toggle - isPlaying:", this.isPlaying);
-      console.log("Video paused state:", this.video.paused);
 
       if (!this.video.paused) {
         this.pauseVideo();
@@ -47,7 +45,6 @@ class VideoSection {
       await this.video.play();
       this.isPlaying = true;
       this.updatePlayState();
-      console.log("After play - isPlaying:", this.isPlaying);
     } catch (error) {
       console.error("Error playing video:", error);
       this.isPlaying = false;
@@ -59,7 +56,6 @@ class VideoSection {
     this.video.pause();
     this.isPlaying = false;
     this.updatePlayState();
-    console.log("After pause - isPlaying:", this.isPlaying);
   }
 
   updatePlayState() {

@@ -61,7 +61,6 @@
   display: block;
 }
 
-/* Show/hide play/pause icons based on video state */
 .video-section__player.is-playing
   + .video-section__control--play
   .video-section__icon-play {

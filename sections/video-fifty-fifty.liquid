@@ -1,0 +1,103 @@
+<link
+  rel="stylesheet"
+  href="{{ 'section-video-fifty-fifty.css' | asset_url }}"
+  media="print"
+  onload="this.media='all'">
+<script src="{{ 'section-video-fifty-fifty.js' | asset_url }}" defer></script>
+<script src="https://player.vimeo.com/api/player.js" defer></script>
+
+<div class="video-fifty-fifty">
+  <div class="video-fifty-fifty__left">
+    <div class="video">
+      <div class="video__wrapper">
+        {% assign vimeo_url = section.settings.vimeo_url | split: '/' | last %}
+        <iframe
+          class="video__iframe"
+          src="https://player.vimeo.com/video/{{vimeo_url }}?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&mute=1&loop=1&controls=0&dnt=1&cookie_domain=false"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen
+          title="Video player"
+          poster="{{ section.settings.video_poster | image_url }}"
+          loading="lazy"></iframe>
+
+        <button class="video__btn video__btn--play" aria-label="Play/Pause">
+          <span class="video__btn-icon">
+            <span class="video__btn-icon--pause">{% render 'icon-pause' %}</span>
+            <span class="video__btn-icon--play">{% render 'icon-play' %}</span>
+          </span>
+        </button>
+
+        <button class="video__btn video__btn--mute" aria-label="Mute/Unmute">
+          <span class="video__btn-icon">🔇</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="video-fifty-fifty__right">
+    <div class="video-section">
+      <div class="video-section__container">
+        <video
+          class="video-section__player"
+          playsinline
+          loop
+          muted
+          preload="auto"
+          poster="{{ section.settings.video_poster | image_url }}"
+          style="width: 100%; height: 100%; object-fit: cover;">
+          <source src="{{ section.settings.video | video_tag: image_size: '1024x' }}">
+        </video>
+
+        <button class="video-section__control video-section__control--play" aria-label="Play/Pause">
+          <span class="video-section__icon">
+            <span class="video-section__icon-pause">{% render 'icon-pause' %}</span>
+            <span class="video-section__icon-play">{% render 'icon-play' %}</span>
+          </span>
+        </button>
+
+        <button class="video-section__control video-section__control--mute" aria-label="Mute/Unmute">
+          <span class="video-section__icon">🔇</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Video Fifty Fifty",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Video section"
+      },
+      {
+        "type": "header",
+        "content": "Vimeo video"
+      },
+      {
+        "type": "text",
+        "id": "vimeo_url",
+        "label": "Vimeo video url goes here it plays on the left"
+      },
+      {
+        "type": "header",
+        "content": "Upload video"
+      },
+      {
+        "type": "video",
+        "id": "video",
+        "label": "Upload your video here it plays on the right"
+      },
+      {
+        "type": "image_picker",
+        "id": "video_poster",
+        "label": "Video poster"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Video Fifty Fifty"
+      }
+    ]
+  }
+{% endschema %}
