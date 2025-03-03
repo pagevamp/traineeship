@@ -1,18 +1,15 @@
 class VideoSection {
-  constructor() {
-    this.video = document.querySelector(".video-section__player");
-    this.playButton = document.querySelector(".video-section__control--play");
-    this.muteButton = document.querySelector(".video-section__control--mute");
+  constructor(section) {
+    this.video = section.querySelector(".video-section__player");
+    this.playButton = section.querySelector(".video-section__control--play");
+    this.muteButton = section.querySelector(".video-section__control--mute");
 
     if (!this.video || !this.playButton || !this.muteButton) {
       console.error("Missing required elements");
       return;
     }
 
-    // Force load the video
     this.video.load();
-
-    // Set initial states
     this.isPlaying = false;
     this.updatePlayState();
 
@@ -20,8 +17,12 @@ class VideoSection {
   }
 
   addEventListeners() {
-    this.playButton.addEventListener("click", () => {
-      if (this.isPlaying) {
+    this.playButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      console.log("Before toggle - isPlaying:", this.isPlaying);
+      console.log("Video paused state:", this.video.paused);
+
+      if (!this.video.paused) {
         this.pauseVideo();
       } else {
         this.playVideo();
@@ -30,7 +31,6 @@ class VideoSection {
 
     this.muteButton.addEventListener("click", () => this.toggleMute());
 
-    // Video state listeners
     this.video.addEventListener("playing", () => {
       this.isPlaying = true;
       this.updatePlayState();
@@ -47,6 +47,7 @@ class VideoSection {
       await this.video.play();
       this.isPlaying = true;
       this.updatePlayState();
+      console.log("After play - isPlaying:", this.isPlaying);
     } catch (error) {
       console.error("Error playing video:", error);
       this.isPlaying = false;
@@ -58,6 +59,7 @@ class VideoSection {
     this.video.pause();
     this.isPlaying = false;
     this.updatePlayState();
+    console.log("After pause - isPlaying:", this.isPlaying);
   }
 
   updatePlayState() {
@@ -79,8 +81,7 @@ class VideoSection {
   }
 }
 
-// Initialize on DOM load
 document.addEventListener("DOMContentLoaded", () => {
   const videoSections = document.querySelectorAll(".video-section");
-  videoSections.forEach(() => new VideoSection());
+  videoSections.forEach((section) => new VideoSection(section));
 });
