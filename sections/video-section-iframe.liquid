@@ -1,0 +1,46 @@
+{{ 'section-video.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'section-video.js' | asset_url }}" defer></script>
+<script src="https://player.vimeo.com/api/player.js" defer></script>
+<div class="video">
+  <div class="video__wrapper">
+    <iframe
+      class="video__iframe"
+      src="https://player.vimeo.com/video/{{ section.settings.video_url | split: '/' | last }}?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&mute=1&loop=1&controls=0&dnt=1&cookie_domain=false"
+      frameborder="0"
+      allow="autoplay; fullscreen; picture-in-picture"
+      allowfullscreen
+      title="Video player"
+      loading="lazy"></iframe>
+
+    <button class="video__btn video__btn--play" aria-label="Play/Pause">
+      <span class="video__btn-icon">
+        <span class="video__btn-icon--pause">{% render 'icon-pause' %}</span>
+        <span class="video__btn-icon--play">{% render 'icon-play' %}</span>
+      </span>
+    </button>
+
+    <button class="video__btn video__btn--mute" aria-label="Mute/Unmute">
+      <span class="video__btn-icon">🔇</span>
+    </button>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Video Section Iframe",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "video_url",
+        "label": "Video URL",
+        "info": "Enter the URL of the video you want to display"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Video Section Iframe"
+      }
+    ]
+  }
+{% endschema %}

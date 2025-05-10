@@ -1,0 +1,117 @@
+{{ 'past-project-try.css' | asset_url | stylesheet_tag }}
+
+<div class="pastprojects">
+  <div class="pastprojects__container">
+    <div class="pastprojects__title">
+      {{ section.settings.title }}
+    </div>
+
+    <div class="pastprojects__description-container">
+      <div class="pastprojects__description">
+        {{ section.settings.description }}
+      </div>
+
+      <div class="pastprojects__button">
+        <a href="{{ section.settings.button_url }}">{{ section.settings.button }}</a>
+      </div>
+    </div>
+  </div>
+  <div class="pastprojects__projects-container">
+    {% for block in section.blocks %}
+      <div class="marquee">
+        <div class="marquee-content">
+          {% for block in section.blocks %}
+            {% assign collection = block.settings.product_collection %}
+            {% if collection != blank %}
+              {% assign products = collection.products %}
+              {% for product in products %}
+                <img
+                  src="{{ product.featured_image | image_url: width: 100 }}"
+                  alt="{{ product.title }}"
+                  height="120"
+                  width="120" />
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Past Projects Try",
+    "settings": [
+      {
+        "id": "title",
+        "label": "Title",
+        "type": "text",
+        "default": "Past Projects"
+      },
+      {
+        "id": "description",
+        "label": "Description",
+        "type": "text",
+        "default": "Shop all 402 products what we've built over the past 4 years with the Global Design Project"
+      },
+      {
+        "id": "button",
+        "label": "Button",
+        "type": "text",
+        "default": "Shop All Projects"
+      },
+      {
+        "id": "button_url",
+        "label": "Button URL",
+        "type": "url"
+      },
+      {
+        "type": "header",
+        "content": "Styles",
+        "info": "Select Styles"
+      },
+      {
+        "id": "background_color",
+        "label": "Background Color",
+        "type": "select",
+        "default": "#f1f1f1",
+        "options": [
+          {
+            "value": "#f1f1f1",
+            "label": "Default"
+          },
+          {
+            "value": "#E9e5e2",
+            "label": "Off White"
+          },
+          {
+            "value": "#a8a8a8",
+            "label": "Gray"
+          }
+        ]
+      }
+
+    ],
+    "blocks": [
+      {
+        "name": "Product Collection",
+        "type": "product_collection",
+        "settings": [
+          {
+            "id": "product_collection",
+            "label": "Product Collection",
+            "type": "collection"
+          }
+        ],
+        "limit": 5
+      }
+    ],
+    "presets": [
+      {
+        "name": "Past Projects Try"
+      }
+    ]
+  }
+{% endschema %}

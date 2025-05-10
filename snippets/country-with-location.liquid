@@ -1,0 +1,40 @@
+<style>
+  .project__card-location {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px var(--gap-small);
+    border: 1px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    width: fit-content;
+    font-size: var(--font-medium);
+    font-weight: 400;
+    line-height: var(--font-medium);
+    letter-spacing: var(--letter-spacing);
+  }
+  .project__card-location-icon {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+
+    align-items: center;
+  }
+  .project__card-location-text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: -3%;
+
+  }
+
+</style>
+
+<div class="project__card-location">
+  {% if project.metafields.custom.country != blank or section.settings.project_location_icon != blank %}
+    <div class="project__card-location-icon">
+      {% render 'icon-universe' %}
+    </div>
+    <span class="project__card-location-text">{{ project.metafields.custom.country }}</span>
+  {% endif %}
+</div>

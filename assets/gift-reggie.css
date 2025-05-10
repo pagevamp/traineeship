@@ -1,0 +1,28 @@
+/* .giftreggie-pdp-cta-area {
+  display: none !important;
+} */
+
+.custom-cta-area {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+#custom-add-to-registry,
+#custom-add-to-wishlist,
+#custom-get-wishlist {
+  background-color: #000000;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+#custom-add-to-registry:hover,
+#custom-add-to-wishlist:hover {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+}

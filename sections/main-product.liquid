@@ -3,6 +3,7 @@
   class="page-width section-{{ section.id }}-padding"
   data-section="{{ section.id }}"
 >
+{{ 'gift-reggie.css' | asset_url | stylesheet_tag }}
   {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
   {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
   {{ 'component-price.css' | asset_url | stylesheet_tag }}
@@ -27,6 +28,7 @@
   {%- endstyle -%}
 
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'gift-reggie.js' | asset_url }}" defer="defer"></script>
 
   {%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
   {%- if first_3d_model -%}
@@ -640,6 +642,14 @@
                     </div>
                   {%- endform -%}
                 </product-form>
+                <div class="custom-cta-area">
+                        <button id="custom-add-to-registry" data-variant-id="{{ product.variants.first.id }}" data-product-id="{{ product.id }}">
+                          Add to Registry
+                        </button>
+                        <button id="custom-add-to-wishlist" data-variant-id="{{ product.variants.first.id }}">
+                          Add to Wishlist
+                        </button>
+                      </div>
 
                 {{ 'component-pickup-availability.css' | asset_url | stylesheet_tag }}
 

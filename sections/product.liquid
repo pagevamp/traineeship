@@ -1,0 +1,44 @@
+{% for block in collection %}
+  <div>{{ block.settings.product_title }}</div>
+  <div>{{ block.settings.product_description }}</div>
+  <div>{{ block.settings.product_price }}</div>
+  hello
+
+{% endfor %}
+
+{% schema %}
+  {
+    "name": "Product List",
+    "settings": [],
+    "blocks": [
+      {
+        "name": "Product",
+        "type": "product",
+        "settings": [
+          {
+            "id": "product_image",
+            "label": "Product Image",
+            "type": "image_picker"
+          }, {
+            "id": "product_title",
+            "label": "Product Title",
+            "type": "text"
+          }, {
+            "id": "product_description",
+            "label": "Product Description",
+            "type": "text"
+          }, {
+            "id": "product_price",
+            "label": "Product Price",
+            "type": "text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Product List"
+      }
+    ]
+  }
+{% endschema %}

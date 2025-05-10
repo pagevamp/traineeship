@@ -1,0 +1,63 @@
+{{ 'project.css' | asset_url | stylesheet_tag }}
+<div class="projects">
+  {% assign projects = blogs.projects.articles | sort: "published_at" | reverse %}
+  {% for project in projects %}
+
+    <div class="project__card">
+      {% if project.image != blank %}
+        <div class="project__card-image">
+          <picture>
+            <source srcset="{{project.image.src |  image_url: width: 600, height: 600 }}" media="(min-width: 1440px)">
+
+            <source srcset="{{project.image.src |  image_url: width: 312, height: 312 }}" media="(min-width: 1024px)">
+
+            <source srcset="{{project.image.src |  image_url: width: 230, height: 230 }}" media="(min-width: 768px)">
+            <source srcset="{{project.image.src |  image_url: width: 187, height: 159 }}" media="(min-width: 425px)">
+
+            <img
+              src="{{project.image.src |  image_url: width: 160, height: 159 }}"
+              alt="{{project.title}}"
+              width="160"
+              height="159">
+          </picture>
+
+        </div>
+      {% else %}
+        <div class="project__card-image-substitution"></div>
+      {% endif %}
+      <div class="project__card-details">
+        {% render 'country-with-location' project: project %}
+
+        <div class="project__card-text">
+          <div class="project__card-name">{{ project.title }}</div>
+
+          <div class="project__card-description">{{ project.content }}</div>
+
+        </div>
+      </div>
+      <a href="{{section.settings.project_link}}" class="project__card-link"></a>
+    </div>
+
+  {% endfor %}
+
+</div>
+
+
+{% schema %}
+  {
+    "name": "Projects",
+    "settings": [
+      {
+        "type": "url",
+        "id": "project_link",
+        "label": "Project Link"
+      }
+    ],
+    "blocks": [],
+    "presets": [
+      {
+        "name": "Projects"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,209 @@
+:root {
+  --spacing-base: 16px;
+  --spacing-large: 32px;
+  --border-radius: 1000px;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --color-black: black;
+  --color-white: white;
+  --color-background: #f5f5f5;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.richtext {
+  margin: 52px var(--spacing-base) 0 var(--spacing-base);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-base);
+}
+
+.richtext__container {
+  position: relative;
+}
+
+.richtext__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  overflow: hidden;
+}
+
+.richtext__image-substitute {
+  width: 100%;
+  height: 400px;
+  background-color: #f5f5f5;
+}
+
+.richtext__description {
+  position: absolute;
+  bottom: var(--spacing-base);
+  left: var(--spacing-base);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-base);
+}
+
+.richtext__description-country-icon {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.richtext__description-country-icon img {
+  width: 12px;
+  aspect-ratio: 1;
+}
+
+.richtext__description-country {
+  font-weight: var(--font-weight-regular);
+  font-size: var(--spacing-base);
+  line-height: var(--spacing-base);
+  border: 1px solid var(--color-black);
+  color: var(--color-black);
+  text-align: center;
+  padding: 4px 8px;
+  border-radius: var(--border-radius);
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.richtext__description-name {
+  color: var(--color-black);
+  font-weight: var(--font-weight-light);
+  font-size: 24px;
+  line-height: 24px;
+}
+
+.richtext__description-btn-container {
+  display: flex;
+  gap: var(--spacing-base);
+}
+
+.richtext__description-btn {
+  padding: var(--spacing-base);
+  text-align: center;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--spacing-base);
+  line-height: 14px;
+  border: none;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+
+  &:nth-child(1) {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    &::before,
+    &::after {
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100px) skewX(-15deg);
+      content: "";
+    }
+    &::before {
+      width: 60px;
+      background: rgba(255, 255, 255, 0.5);
+      filter: blur(30px);
+      opacity: 0.5;
+    }
+    &::after {
+      width: 30px;
+      left: 30px;
+      background: rgba(255, 255, 255, 0.2);
+      filter: blur(5px);
+    }
+    &:hover {
+      &::before {
+        opacity: 1;
+      }
+      &::before,
+      &::after {
+        transform: translateX(300px) skewX(-15deg);
+        transition: all 1s ease;
+      }
+    }
+  }
+
+  &:nth-child(2) {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    &::before,
+    &::after {
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100px) skewX(-15deg);
+      content: "";
+    }
+    &::before {
+      width: 60px;
+      background: rgba(0, 0, 0, 0.5);
+      filter: blur(30px);
+      opacity: 0.5;
+    }
+    &::after {
+      width: 30px;
+      left: 30px;
+      background: rgba(0, 0, 0, 0.2);
+      filter: blur(5px);
+    }
+    &:hover {
+      &::before {
+        opacity: 1;
+      }
+      &::before,
+      &::after {
+        transform: translateX(300px) skewX(-15deg);
+        transition: all 1s ease;
+      }
+    }
+  }
+}
+
+.richtext__signature {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+@media (min-width: 768px) {
+  .richtext__description {
+    bottom: var(--spacing-large);
+    left: var(--spacing-large);
+  }
+
+  .richtext__signature {
+    top: var(--spacing-large);
+    right: var(--spacing-large);
+  }
+
+  .richtext__image-substitute {
+    height: 600px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .richtext__signature-image {
+    width: 355px;
+    height: 138px;
+  }
+}
